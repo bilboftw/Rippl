@@ -60,9 +60,9 @@ protected:
 
 	Tween*							_twnFade;
 private:
+	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
+
 	void							SetupShowTweenInfo();
-	
-	void							rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
 
 	Splash();
 	~Splash();

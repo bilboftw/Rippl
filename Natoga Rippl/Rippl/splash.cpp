@@ -89,7 +89,7 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 	// If we've made a nominal progress...
 	if(code == PROGRESS)
 	{
-		LOGD("Progress %u", lpTween->cEasedValue);
+		
 	}
 }
 
@@ -98,6 +98,7 @@ void Splash::SetupShowTweenInfo()
 	// Create tween objects
 	_twnFade = new Tween();
 	_twnFade->lDuration = 600;
+	_twnFade->cbOnEvent = &rTweenCB;
 }
 
 Splash::Splash()
@@ -155,7 +156,7 @@ Splash::Splash()
 	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE,
 					(LPCWSTR)_atomWinAtom,
 					StringMgr::Get()->GetString(R_SPLASH_TITLE),
-					WS_DLGFRAME | WS_VISIBLE,
+					WS_DLGFRAME | WS_VISIBLE | WS_POPUP,
 					wx,
 					wy,
 					_rcSize.right,
