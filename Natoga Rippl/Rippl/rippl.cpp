@@ -5,6 +5,8 @@
 // Includes
 #include <windows.h>
 
+#include "strmgr.h"
+
 // Static Defines
 static HANDLE hwndMainThread;
 
@@ -13,10 +15,13 @@ static HANDLE hwndMainThread;
  *	This MUST be called from the main thread to properly
  *	set up the system!
  */
-void InitResources()
+void InitResources(HINSTANCE hinstInst)
 {
 	// Store handle to current thread
 	hwndMainThread = GetCurrentThread();
+
+	// Initialize Strings
+	StringMgr::Init(hinstInst);
 }
 
 /**

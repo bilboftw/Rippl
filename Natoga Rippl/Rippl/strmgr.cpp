@@ -38,6 +38,16 @@ StringMgr* StringMgr::Get()
 
 const wchar_t* StringMgr::GetString(UINT dwStringID, ...)
 {
+	// Get String and Check
+	wchar_t szBuf[4096];
+	if(LoadStringW(_hinstMainApp, dwStringID, (LPWSTR)&szBuf, sizeof(szBuf) / sizeof(wchar_t)) == 0)
+	{
+		// Log, break and return
+		LOGE("Resource ID %u could not be loaded: %u", dwStringID, GetLastError());
+		assert(false);
+		return NULL;
+	}
+
 	// Set up VA List
 	va_list valList;
 	va_start(valList, dwStringID);
@@ -47,9 +57,9 @@ const wchar_t* StringMgr::GetString(UINT dwStringID, ...)
 
 	// Format and Check
 	if(
-		FormatMessageW(	FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_ALLOCATE_BUFFER,
-						_hinstMainApp,
-						dwStringID,
+		FormatMessageW(	FORMAT_MESSAGE_FROM_STRING | FORMAT_MESSAGE_ALLOCATE_BUFFER,
+						(LPWSTR)&szBuf,
+						0,
 						0,
 						(LPWSTR)&lpszTemp,
 						0,

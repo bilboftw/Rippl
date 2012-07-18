@@ -35,7 +35,7 @@
 #define rippl_h__
 
 // Function Defines
-void InitResources();
+void InitResources(HINSTANCE hinstInst);
 void ReleaseResources();
 void TerminateProgram(int iExitCode);
 
