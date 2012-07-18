@@ -14,7 +14,6 @@
 // Static Declarations
 TweenEngine* TweenEngine::_oEngine = NULL;
 
-
 TweenEngine* TweenEngine::Get()
 {
 	// Create if needed
@@ -27,6 +26,12 @@ TweenEngine* TweenEngine::Get()
 
 TweenEngine::TweenEngine()
 {
+	// Set up easing functions
+	_cbEaseFuncs[LINEAR] = (rEaseApplyCB*)&EaseLinear;
+	_cbEaseFuncs[EIN] = (rEaseApplyCB*)&EaseIn;
+	_cbEaseFuncs[INOUT] = (rEaseApplyCB*)&EaseInOut;
+	_cbEaseFuncs[EOUT] = (rEaseApplyCB*)&EaseOut;
+
 	// Attempt to create thread
 	_hwndProcessingThread = CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)&ThreadEP, this, NULL, NULL);
 
@@ -162,4 +167,41 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 
 	// Return success
 	return 0;
+}
+
+char TweenEngine::EaseLinear(Tween *lpTween)
+{
+	// Return
+	return lpTween->GetPercentComplete();
+}
+
+char TweenEngine::EaseIn(Tween *lpTween)
+{
+	// Return
+	return (char)(((double)(100*lpTween->lCurrentPosition*lpTween->lCurrentPosition)) /
+						((double)(lpTween->lDuration * lpTween->lDuration)));
+}
+
+char TweenEngine::EaseOut(Tween* lpTween)
+{
+	// Return
+	return (char)(((double)((-100)*lpTween->lCurrentPosition*lpTween->lCurrentPosition)) /
+				((double)(lpTween->lDuration * lpTween->lDuration)) +
+			(((double)(2 * 100 * lpTween->lCurrentPosition)) /
+				(double)(lpTween->lDuration)));
+}
+
+char TweenEngine::EaseInOut(Tween *lpTween)
+{
+	// If we're easing in
+	if(lpTween->lCurrentPosition < (lpTween->lDuration / 2))
+		// Return
+		return (char)(((double)(2 * 100 * lpTween->lCurrentPosition * lpTween->lCurrentPosition)) /
+				((double)(lpTween->lDuration * lpTween->lDuration)));
+	
+	// Calc diff and return
+	long ts = (lpTween->lCurrentPosition - (lpTween->lDuration / 2));
+	return (char)(((double)((-2)*100*ts*ts)/((double)(lpTween->lDuration * lpTween->lDuration))) +
+				(((double)(2*100*ts))/(double)lpTween->lDuration) +
+						100/2);
 }

@@ -13,9 +13,16 @@ typedef enum
 	START,
 	TICK,
 	FINISH
-}R_TWEEN_CB_MSG;
+} R_TWEEN_CB_MSG;
 
-// TODO: Implement Easing
+// Easing Methods
+typedef enum
+{
+	LINEAR,
+	EIN,
+	EOUT,
+	INOUT
+} R_TWEEN_EASE;
 
 // Tween Callback Typedef
 typedef void (*rTweenCallback)(Tween* lpTween, R_TWEEN_CB_MSG rtcmMSG);
@@ -24,21 +31,24 @@ typedef void (*rTweenCallback)(Tween* lpTween, R_TWEEN_CB_MSG rtcmMSG);
 class Tween 
 {
 public:
-	unsigned long lDuration;
-	unsigned long lDelay;
-	unsigned long lCurrentPosition;
+	long lDuration;
+	long lDelay;
+	long lCurrentPosition;
 	rTweenCallback cbOnEvent;
+	R_TWEEN_EASE rteEase;
 
-	Tween(unsigned long plDuration,
-	unsigned long plDelay,
-	unsigned long plCurrentPosition,
-	rTweenCallback pcbOnEvent)
+	Tween(long plDuration,
+	long plDelay,
+	long plCurrentPosition,
+	rTweenCallback pcbOnEvent,
+	R_TWEEN_EASE prteEase)
 	{
 		// Store Values
 		lDuration = plDuration;
 		lDelay = plDelay;
 		lCurrentPosition = plCurrentPosition;
 		cbOnEvent = pcbOnEvent;
+		rteEase = prteEase;
 	}
 
 	Tween()
@@ -48,15 +58,13 @@ public:
 		lDelay = 0;
 		lCurrentPosition = 0;
 		cbOnEvent = NULL;
+		rteEase = LINEAR;
 	}
 
 	char GetPercentComplete()
 	{
-		// Get double
-		double p = ((double)lCurrentPosition) / ((double)lDuration);
-		
 		// Return
-		return (char)(p * 100);
+		return (char)((((double)lCurrentPosition) / ((double)lDuration)) * 100);
 	}
 };
 

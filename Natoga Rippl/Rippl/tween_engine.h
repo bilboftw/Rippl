@@ -10,6 +10,9 @@
 
 #include "iTweenEngine.h"
 
+// Tween Equation Typedef
+typedef char (*rEaseApplyCB)(Tween* lpTween);
+
 // Tween Engine Implementation Class Declaration
 class TweenEngine : public iTweenEngine
 {
@@ -23,9 +26,15 @@ public:
 	void					Resume();
 protected:
 	static DWORD			ThreadEP(PVOID arg);
+	
+	inline static char		EaseLinear(Tween* lpTween);
+	inline static char		EaseIn(Tween* lpTween);
+	inline static char		EaseOut(Tween* lpTween);
+	inline static char		EaseInOut(Tween* lpTween);
 
 	static TweenEngine*		_oEngine;
 
+	rEaseApplyCB*	_cbEaseFuncs[4];
 	std::vector<Tween*>		_vecTweens;
 	HANDLE					_hwndProcessingThread;
 private:
