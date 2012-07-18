@@ -31,8 +31,12 @@
 /*      | Also, woogedy.                        |                       */
 /*                                                                      */
 /************************************************************************/
+#ifndef rippl_h__
+#define rippl_h__
 
 // Function Defines
 void InitResources();
 void ReleaseResources();
 void TerminateProgram(int iExitCode);
+
+#endif // rippl_h__
