@@ -9,7 +9,9 @@ interface iSplashScreen
 {
 public:
 	virtual void Show() = 0;
+	virtual void ShowWait() = 0;
 	virtual void Hide() = 0;
+	virtual void HideWait() = 0;
 	virtual void UpdateStatus(const char* szString) = 0;
 };
 
