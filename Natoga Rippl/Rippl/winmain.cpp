@@ -46,7 +46,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	twn->lDelay = 1000;
 	twn->lDuration = 10000;
 	twn->cbOnEvent = &onevent;
-	twn->rteEase = EIN;
+	twn->rteEase = INOUT;
 
 	TweenEngine::Get()->Add(twn);
 

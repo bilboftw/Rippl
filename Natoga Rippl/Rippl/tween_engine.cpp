@@ -188,17 +188,13 @@ char TweenEngine::EaseLinear(Tween *lpTween)
 char TweenEngine::EaseIn(Tween *lpTween)
 {
 	// Return
-	return (char)(((double)(100*lpTween->lCurrentPosition*lpTween->lCurrentPosition)) /
-						((double)(lpTween->lDuration * lpTween->lDuration)));
+	return (char)((100 * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration));
 }
 
 char TweenEngine::EaseOut(Tween* lpTween)
 {
 	// Return
-	return (char)(((double)((-100)*lpTween->lCurrentPosition*lpTween->lCurrentPosition)) /
-				((double)(lpTween->lDuration * lpTween->lDuration)) +
-			(((double)(2 * 100 * lpTween->lCurrentPosition)) /
-				(double)(lpTween->lDuration)));
+	return (char)((((-100) * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration)) + ((2*100*lpTween->lCurrentPosition) / lpTween->lDuration));
 }
 
 char TweenEngine::EaseInOut(Tween *lpTween)
@@ -206,12 +202,9 @@ char TweenEngine::EaseInOut(Tween *lpTween)
 	// If we're easing in
 	if(lpTween->lCurrentPosition < (lpTween->lDuration / 2))
 		// Return
-		return (char)(((double)(2 * 100 * lpTween->lCurrentPosition * lpTween->lCurrentPosition)) /
-				((double)(lpTween->lDuration * lpTween->lDuration)));
+		return (char)((2*100*lpTween->lCurrentPosition * lpTween->lCurrentPosition)/(lpTween->lDuration * lpTween->lDuration));
 	
 	// Calc diff and return
-	long ts = (lpTween->lCurrentPosition - (lpTween->lDuration / 2));
-	return (char)(((double)((-2)*100*ts*ts)/((double)(lpTween->lDuration * lpTween->lDuration))) +
-				(((double)(2*100*ts))/(double)lpTween->lDuration) +
-						100/2);
+	double ts = (lpTween->lCurrentPosition - (lpTween->lDuration / 2));
+	return (char)((((-2)* 100 * ts * ts)/(lpTween->lDuration * lpTween->lDuration)) + ((2*100*ts)/lpTween->lDuration) + 100/2);
 }

@@ -31,9 +31,9 @@ typedef void (*rTweenCallback)(Tween* lpTween, R_TWEEN_CB_MSG rtcmMSG);
 class Tween 
 {
 public:
-	long lDuration;
-	long lDelay;
-	long lCurrentPosition;
+	double lDuration;
+	double lDelay;
+	double lCurrentPosition;
 	char cEasedValue;
 	rTweenCallback cbOnEvent;
 	R_TWEEN_EASE rteEase;
