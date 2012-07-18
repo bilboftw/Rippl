@@ -10,6 +10,7 @@
 
 #include "resource.h"
 #include "strmgr.h"
+#include "tween_engine.h"
 
 /**
  * WinMain Function
@@ -22,6 +23,10 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	// DEBUG: Message Box
 	MessageBoxW(NULL, StringMgr::Get()->GetString(R_DEBUG_MSG), StringMgr::Get()->GetString(R_TITLE), MB_OK);
+
+	Tween* twn = new Tween();
+	twn->lDelay = 1000;
+	twn->lDuration = 3000;
 
 	// Release Resources
 	ReleaseResources();

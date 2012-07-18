@@ -27,24 +27,18 @@ public:
 	unsigned long lDuration;
 	unsigned long lDelay;
 	unsigned long lCurrentPosition;
-	rTweenCallback cbOnStart;
-	rTweenCallback cbOnTick;
-	rTweenCallback cbOnFinish;
+	rTweenCallback cbOnEvent;
 
 	Tween(unsigned long plDuration,
 	unsigned long plDelay,
 	unsigned long plCurrentPosition,
-	rTweenCallback pcbOnStart,
-	rTweenCallback pcbOnTick,
-	rTweenCallback pcbOnFinish)
+	rTweenCallback pcbOnEvent)
 	{
 		// Store Values
 		lDuration = plDuration;
 		lDelay = plDelay;
 		lCurrentPosition = plCurrentPosition;
-		cbOnStart = pcbOnStart;
-		cbOnTick = pcbOnTick;
-		cbOnFinish = pcbOnFinish;
+		cbOnEvent = pcbOnEvent;
 	}
 
 	Tween()
@@ -53,9 +47,7 @@ public:
 		lDuration = 0;
 		lDelay = 0;
 		lCurrentPosition = 0;
-		cbOnStart = NULL;
-		cbOnFinish = NULL;
-		cbOnTick = NULL;
+		cbOnEvent = NULL;
 	}
 
 	char GetPercentComplete() { return (char)(lCurrentPosition / lDuration); };

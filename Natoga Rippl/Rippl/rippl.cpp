@@ -6,6 +6,7 @@
 #include <windows.h>
 
 #include "strmgr.h"
+#include "tween_engine.h"
 
 // Static Defines
 static HANDLE hwndMainThread;

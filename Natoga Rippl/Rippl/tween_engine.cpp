@@ -126,8 +126,8 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 				// Check for start
 				if((*i)->lDelay == 0)
 					// Invoke
-					if((*i)->cbOnStart != NULL)
-						((rTweenCallback)(*i)->cbOnStart)(*i, START);
+					if((*i)->cbOnEvent != NULL)
+						((rTweenCallback)(*i)->cbOnEvent)(*i, START);
 			}
 
 			// Or, if we are performing a tick...
@@ -137,16 +137,16 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 				++((*i)->lCurrentPosition);
 
 				// Invoke on-tick
-				if((*i)->cbOnTick != NULL)
-					((rTweenCallback)(*i)->cbOnTick)(*i, TICK);
+				if((*i)->cbOnEvent != NULL)
+					((rTweenCallback)(*i)->cbOnEvent)(*i, TICK);
 			}
 
 			// Or, the tween has finished!
 			else
 			{
 				// Invoke callback
-				if((*i)->cbOnFinish != NULL)
-					((rTweenCallback)(*i)->cbOnFinish)(*i, FINISH);
+				if((*i)->cbOnEvent != NULL)
+					((rTweenCallback)(*i)->cbOnEvent)(*i, FINISH);
 
 				// Delete the object
 				delete (*i);
