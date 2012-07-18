@@ -3,26 +3,25 @@
 /************************************************************************/
 
 // Includes
-#ifdef _WINDOWS
 #include <windows.h>
-#endif
+
+#include "strmgr.h"
 
 // Static Defines
-#ifdef _WINDOWS
 static HANDLE hwndMainThread;
-#endif
 
 /**
  * Initializes Resources
  *	This MUST be called from the main thread to properly
  *	set up the system!
  */
-void InitResources()
+void InitResources(HINSTANCE hinstInst)
 {
 	// Store handle to current thread
-#ifdef _WINDOWS
 	hwndMainThread = GetCurrentThread();
-#endif
+
+	// Initialize Strings
+	StringMgr::Init(hinstInst);
 }
 
 /**
