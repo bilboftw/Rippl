@@ -11,6 +11,17 @@
 
 #include "strmgr.h"
 
+// Static Member Definitions
+HINSTANCE StringMgr::_hinstMainApp = NULL;
+StringMgr* StringMgr::_oMgr = NULL;
+bool StringMgr::_bCreated = false;
+
+void StringMgr::Init(HINSTANCE hinstInst)
+{
+	// Store instance
+	_hinstMainApp = hinstInst;
+}
+
 StringMgr* StringMgr::Get()
 {
 	// Check if we've created or not
@@ -25,41 +36,29 @@ StringMgr* StringMgr::Get()
 	return _oMgr;
 }
 
-const char* StringMgr::GetString(UINT dwStringID, ...)
+const wchar_t* StringMgr::GetString(UINT dwStringID, ...)
 {
-	// Get message
-	CString cstrMsg;
-
-	// Check
-	if(!cstrMsg.LoadString(dwStringID))
-	{
-		LOGE("Could not retrieve message ID %u", dwStringID);
-		ASSERT(false);
-		return NULL;
-	}
-
 	// Set up VA List
 	va_list valList;
 	va_start(valList, dwStringID);
 
 	// Set up string pointer
-	LPTSTR lpszTemp;
+	LPWSTR lpszTemp = NULL;
 
 	// Format and Check
 	if(
-		FormatMessage(	FORMAT_MESSAGE_FROM_STRING | FORMAT_MESSAGE_ALLOCATE_BUFFER,
-						cstrMsg,
+		FormatMessageW(	FORMAT_MESSAGE_FROM_HMODULE | FORMAT_MESSAGE_ALLOCATE_BUFFER,
+						_hinstMainApp,
+						dwStringID,
 						0,
-						0,
-						(LPTSTR)&lpszTemp,
+						(LPWSTR)&lpszTemp,
 						0,
 						&valList
 						) == 0)
 	{
 		// Log, break and return original message
-		LOGW("Could not format string %u", dwStringID);
-		ASSERT(FALSE);
-		return (LPCSTR)cstrMsg;
+		LOGW("Could not format string %u: %u", dwStringID, GetLastError());
+		assert(FALSE);
 	}
 	
 	// Destroy VA List

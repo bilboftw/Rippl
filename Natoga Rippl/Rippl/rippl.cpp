@@ -3,14 +3,10 @@
 /************************************************************************/
 
 // Includes
-#ifdef _WINDOWS
 #include <windows.h>
-#endif
 
 // Static Defines
-#ifdef _WINDOWS
 static HANDLE hwndMainThread;
-#endif
 
 /**
  * Initializes Resources
@@ -20,9 +16,7 @@ static HANDLE hwndMainThread;
 void InitResources()
 {
 	// Store handle to current thread
-#ifdef _WINDOWS
 	hwndMainThread = GetCurrentThread();
-#endif
 }
 
 /**

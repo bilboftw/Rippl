@@ -7,9 +7,8 @@
 // Includes
 #include "OPrintF.hpp"
 
-// Define windows macro
-#if defined(_WIN32) || defined(_WIN64)
-#define _WINDOWS
+#ifdef _DEBUG
+#include "assert.h"
 #endif
 
 // Define Tracing Macros
