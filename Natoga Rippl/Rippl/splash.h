@@ -38,7 +38,9 @@ public:
 	static void						Destroy();
 	
 	void							Show();
+	void							ShowWait();
 	void							Hide();
+	void							HideWait();
 	void							UpdateStatus(const char* szString);
 
 protected:

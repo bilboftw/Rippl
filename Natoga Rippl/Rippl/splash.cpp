@@ -40,7 +40,17 @@ void Splash::Hide()
 
 }
 
+void Splash::HideWait()
+{
+
+}
+
 void Splash::Show()
+{
+
+}
+
+void Splash::ShowWait()
 {
 
 }
