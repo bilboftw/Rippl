@@ -66,7 +66,7 @@ public:
 	unsigned char GetPercentComplete()
 	{
 		// Return
-		return (unsigned char)((lCurrentPosition / lDuration) * 100);
+		return (unsigned char)((lCurrentPosition / lDuration) * 255);
 	}
 };
 
