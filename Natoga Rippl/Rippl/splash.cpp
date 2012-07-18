@@ -89,7 +89,7 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 	// If we've made a nominal progress...
 	if(code == PROGRESS)
 	{
-		
+		LOGD("Progress %u", lpTween->cEasedValue);
 	}
 }
 

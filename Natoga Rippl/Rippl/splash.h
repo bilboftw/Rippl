@@ -9,6 +9,8 @@
 
 #include "iSplashScreen.h"
 
+#include "tween_engine.h"
+
 // Splash State Enum
 typedef enum
 {
