@@ -37,6 +37,6 @@
 // Function Defines
 void InitResources(HINSTANCE hinstInst);
 void ReleaseResources();
-void TerminateProgram(int iExitCode);
+void TerminateRippl(int iExitCode);
 
 #endif // rippl_h__

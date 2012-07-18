@@ -36,7 +36,7 @@ void ReleaseResources()
 /**
  * Terminates the program with a certain code
  */
-void TerminateProgram(int iExitCode)
+void TerminateRippl(int iExitCode)
 {
 	// Release Resources
 	ReleaseResources();
