@@ -30,6 +30,7 @@ STRINGTABLE
 BEGIN
     R_DEBUG_MSG             "Das ist eine Debugtestnachricht!"
     R_TITLE                 "Rippl"
+    R_SPLASH_TITLE          "Rippl Splash"
 END
 
 #endif    // German (Neutral) resources
@@ -54,6 +55,7 @@ STRINGTABLE
 BEGIN
     R_DEBUG_MSG             "This is a test debug message!"
     R_TITLE                 "Rippl"
+    R_SPLASH_TITLE          "Rippl Splash"
 END
 
 #endif    // English (Neutral) resources

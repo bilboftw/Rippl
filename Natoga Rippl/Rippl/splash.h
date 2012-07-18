@@ -46,14 +46,23 @@ public:
 protected:
 	static Splash*					_lpSplash;
 	static HINSTANCE				_hinstMainInst;
+	static LRESULT CALLBACK			SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 
-	bool							_bAnimating;
 	R_SPLASH_STATE					_ssState;
 	R_SPLASH_ANIM_STATE				_ssAnimState;
 
 	HWND							_hwndWindow;
+	WNDCLASSEX						_wcWClass;
+	ATOM							_atomWinAtom;
+	RECT							_rcSize;
+
+	Tween*							_twnFade;
 private:
-	Splash() {};
+	void							SetupShowTweenInfo();
+	
+	void							rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
+
+	Splash();
 	~Splash();
 };
 

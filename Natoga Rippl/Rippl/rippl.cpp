@@ -7,6 +7,7 @@
 
 #include "strmgr.h"
 #include "tween_engine.h"
+#include "splash.h"
 
 // Static Defines
 static HANDLE hwndMainThread;
@@ -23,6 +24,9 @@ void InitResources(HINSTANCE hinstInst)
 
 	// Initialize Strings
 	StringMgr::Init(hinstInst);
+
+	// Show splash screen
+	Splash::Get()->ShowWait();
 }
 
 /**

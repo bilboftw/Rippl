@@ -21,9 +21,11 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 {
 	// Initialize Resources
 	InitResources(hInstance);
-
+	
 	// DEBUG: Message Box
-	MessageBoxW(NULL, StringMgr::Get()->GetString(R_DEBUG_MSG), StringMgr::Get()->GetString(R_TITLE), MB_OK);
+	//MessageBoxW(NULL, StringMgr::Get()->GetString(R_DEBUG_MSG), StringMgr::Get()->GetString(R_TITLE), MB_OK);
+
+	Sleep(5000);
 	
 	// Release Resources
 	ReleaseResources();

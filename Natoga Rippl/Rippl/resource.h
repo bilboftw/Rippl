@@ -5,6 +5,7 @@
 #define IDI_ICON1                       102
 #define R_DEBUG_MSG                     103
 #define R_TITLE                         104
+#define R_SPLASH_TITLE                  105
 
 // Next default values for new objects
 // 
