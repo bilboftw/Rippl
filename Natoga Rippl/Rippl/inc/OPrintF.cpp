@@ -1,13 +1,11 @@
 /************************************************************************/
 /* PrintF to Output Window                                              */
 /************************************************************************/
-#ifndef OPrintF_h__
-#define OPrintF_h__
 
-// Includes
+// Include
+#include <Windows.h>
 #include <iostream>
 
-// Define Function
 void oprintf(const char* fmt, ...)
 {
 	// Create VA List
@@ -26,5 +24,3 @@ void oprintf(const char* fmt, ...)
 	// Kill VA List
 	va_end(valList);
 }
-
-#endif // OPrintF_h__

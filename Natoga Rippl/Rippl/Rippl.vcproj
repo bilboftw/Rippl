@@ -215,18 +215,34 @@
 					RelativePath=".\inc\iStringMgr.h"
 					>
 				</File>
+				<File
+					RelativePath=".\inc\iTweenEngine.h"
+					>
+				</File>
 			</Filter>
 			<Filter
 				Name="Utils"
 				>
-				<File
-					RelativePath=".\inc\Macros.h"
+				<Filter
+					Name="Headers"
 					>
-				</File>
-				<File
-					RelativePath=".\inc\OPrintF.hpp"
+					<File
+						RelativePath=".\inc\Macros.h"
+						>
+					</File>
+					<File
+						RelativePath=".\inc\OPrintF.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Source"
 					>
-				</File>
+					<File
+						RelativePath=".\inc\OPrintF.cpp"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -265,6 +281,26 @@
 				>
 				<File
 					RelativePath=".\strmgr.cpp"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Tween Engine"
+			>
+			<Filter
+				Name="Headers"
+				>
+				<File
+					RelativePath=".\tween_engine.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Source"
+				>
+				<File
+					RelativePath=".\tween_engine.cpp"
 					>
 				</File>
 			</Filter>
