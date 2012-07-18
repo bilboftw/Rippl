@@ -34,3 +34,6 @@
 !*.tif
 !*.bin
 !*.psd
+!*.filters
+!*.manifest
+!*.rc2
