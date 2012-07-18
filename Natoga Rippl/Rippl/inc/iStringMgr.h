@@ -8,7 +8,7 @@
 interface iStringMgr
 {
 public:
-	virtual const char* GetString(DWORD dwStringID, ...) = 0;
+	virtual const char* GetString(UINT dwStringID, ...) = 0;
 };
 
 #endif // iStringMgr_h__

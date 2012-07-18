@@ -13,10 +13,14 @@ class StringMgr : public iStringMgr
 public:
 	static StringMgr*				Get();
 
-	const char*						GetString(DWORD dwStringID, ...);
+	const char*						GetString(UINT dwStringID, ...);
+protected:
+	static StringMgr*				_oMgr;
 private:
-	StringMgr();
-	~StringMgr();
+	StringMgr() {};
+	~StringMgr() {};
+
+	static bool						_bCreated;
 };
 
 #endif // strmgr_h__

@@ -41,6 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
+				AdditionalIncludeDirectories="$(ProjectDir)inc"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -115,6 +116,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
+				AdditionalIncludeDirectories="$(ProjectDir)inc"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -176,10 +178,6 @@
 				UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 				>
 				<File
-					RelativePath=".\macros.h"
-					>
-				</File>
-				<File
 					RelativePath=".\resource.h"
 					>
 				</File>
@@ -199,6 +197,70 @@
 				</File>
 				<File
 					RelativePath=".\winmain.cpp"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Includes"
+			>
+			<Filter
+				Name="Interfaces"
+				>
+				<File
+					RelativePath=".\inc\iSplashScreen.h"
+					>
+				</File>
+				<File
+					RelativePath=".\inc\iStringMgr.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Utils"
+				>
+				<File
+					RelativePath=".\inc\Macros.h"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Splash Screen"
+			>
+			<Filter
+				Name="Headers"
+				>
+				<File
+					RelativePath=".\splash.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Source"
+				>
+				<File
+					RelativePath=".\splash.cpp"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Strings"
+			>
+			<Filter
+				Name="Headers"
+				>
+				<File
+					RelativePath=".\strmgr.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Source"
+				>
+				<File
+					RelativePath=".\strmgr.cpp"
 					>
 				</File>
 			</Filter>
