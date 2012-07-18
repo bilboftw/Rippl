@@ -180,6 +180,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\resource.h"
+					>
+				</File>
+				<File
 					RelativePath=".\rippl.hpp"
 					>
 				</File>
@@ -199,6 +203,14 @@
 				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath="..\..\Art\Icon\Rippl.ico"
+			>
+		</File>
+		<File
+			RelativePath=".\Rippl.rc"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>
