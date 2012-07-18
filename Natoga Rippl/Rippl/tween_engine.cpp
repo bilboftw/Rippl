@@ -141,9 +141,19 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 				// Increment current position
 				++((*i)->lCurrentPosition);
 
-				// Invoke on-tick
-				if((*i)->cbOnEvent != NULL)
-					((rTweenCallback)(*i)->cbOnEvent)(*i, TICK);
+				// Apply tweening
+				char cNew = ((rEaseApplyCB)oEngine->_cbEaseFuncs[(char)(*i)->rteEase])(*i);
+
+				// Check differences
+				if(cNew != (*i)->cEasedValue)
+				{
+					// Apply
+					(*i)->cEasedValue = cNew;
+
+					// Invoke
+					if((*i)->cbOnEvent != NULL)
+						((rTweenCallback)(*i)->cbOnEvent)(*i, PROGRESS);
+				}
 			}
 
 			// Or, the tween has finished!

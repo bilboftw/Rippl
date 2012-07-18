@@ -11,8 +11,8 @@ class Tween;
 typedef enum
 {
 	START,
-	TICK,
-	FINISH
+	FINISH,
+	PROGRESS
 } R_TWEEN_CB_MSG;
 
 // Easing Methods
@@ -34,21 +34,22 @@ public:
 	long lDuration;
 	long lDelay;
 	long lCurrentPosition;
+	char cEasedValue;
 	rTweenCallback cbOnEvent;
 	R_TWEEN_EASE rteEase;
 
 	Tween(long plDuration,
 	long plDelay,
-	long plCurrentPosition,
 	rTweenCallback pcbOnEvent,
 	R_TWEEN_EASE prteEase)
 	{
 		// Store Values
 		lDuration = plDuration;
 		lDelay = plDelay;
-		lCurrentPosition = plCurrentPosition;
+		lCurrentPosition = 0;
 		cbOnEvent = pcbOnEvent;
 		rteEase = prteEase;
+		cEasedValue = 0;
 	}
 
 	Tween()
@@ -57,6 +58,7 @@ public:
 		lDuration = 0;
 		lDelay = 0;
 		lCurrentPosition = 0;
+		cEasedValue = 0;
 		cbOnEvent = NULL;
 		rteEase = LINEAR;
 	}

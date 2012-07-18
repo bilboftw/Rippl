@@ -42,5 +42,5 @@ void TerminateRippl(int iExitCode)
 	ReleaseResources();
 
 	// Terminate Main Thread
-	TerminateThread(hwndMainThread, iExitCode);
+	TerminateProcess(GetCurrentProcess(), iExitCode);
 }

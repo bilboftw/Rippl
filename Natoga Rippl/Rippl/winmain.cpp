@@ -20,8 +20,8 @@ void onevent(Tween* t, R_TWEEN_CB_MSG msg)
 	case START:
 		LOGI("Starting tween!");
 		break;
-	case TICK:
-		LOGI("Tick: %u", t->GetPercentComplete());
+	case PROGRESS:
+		LOGI("Progress: %u", t->cEasedValue);
 		break;
 	case FINISH:
 		LOGI("Tween finished!");
@@ -44,8 +44,9 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	Tween* twn = new Tween();
 	twn->lDelay = 1000;
-	twn->lDuration = 3000;
+	twn->lDuration = 10000;
 	twn->cbOnEvent = &onevent;
+	twn->rteEase = EIN;
 
 	TweenEngine::Get()->Add(twn);
 
