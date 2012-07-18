@@ -1,0 +1,35 @@
+# Rippl GitIgnore File
+#  To be spruced up (as far as comments and pretty ascii art) later
+
+*.*
+
+!*.cpp
+!*.sln
+!*.md
+!*.c
+!*.h
+!*.hpp
+!*.asm
+!*.vcproj
+!*.gitignore
+!*.txt
+!*.html
+!*.css
+!*.js
+!*.xml
+!*.cnf
+!*.ini
+!*.ico
+!*.png
+!*.jpg
+!*.jpeg
+!*.gif
+!*.bmp
+!*.mp3
+!*.wav
+!*.ogg
+!*.aiff
+!*.aif
+!*.tiff
+!*.tif
+!*.bin
