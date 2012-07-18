@@ -35,4 +35,7 @@
 !*.bin
 !*.psd
 !*.rc
-!*.aps
+!*.filters
+!*.manifest
+!*.rc2
+!*.ai
