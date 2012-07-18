@@ -50,7 +50,14 @@ public:
 		cbOnEvent = NULL;
 	}
 
-	char GetPercentComplete() { return (char)(lCurrentPosition / lDuration); };
+	char GetPercentComplete()
+	{
+		// Get double
+		double p = ((double)lCurrentPosition) / ((double)lDuration);
+		
+		// Return
+		return (char)(p * 100);
+	}
 };
 
 // Interface Definition
