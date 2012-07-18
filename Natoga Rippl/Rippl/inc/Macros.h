@@ -9,6 +9,8 @@
 
 #ifdef _DEBUG
 #include "assert.h"
+#else
+#define assert(cond)
 #endif
 
 // Define Tracing Macros
