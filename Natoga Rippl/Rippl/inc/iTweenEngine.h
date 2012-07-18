@@ -34,7 +34,7 @@ public:
 	double lDuration;
 	double lDelay;
 	double lCurrentPosition;
-	char cEasedValue;
+	unsigned char cEasedValue;
 	rTweenCallback cbOnEvent;
 	R_TWEEN_EASE rteEase;
 
@@ -63,10 +63,10 @@ public:
 		rteEase = LINEAR;
 	}
 
-	char GetPercentComplete()
+	unsigned char GetPercentComplete()
 	{
 		// Return
-		return (char)((((double)lCurrentPosition) / ((double)lDuration)) * 100);
+		return (unsigned char)((lCurrentPosition / lDuration) * 100);
 	}
 };
 

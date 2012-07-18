@@ -179,32 +179,32 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 	return 0;
 }
 
-char TweenEngine::EaseLinear(Tween *lpTween)
+unsigned char TweenEngine::EaseLinear(Tween *lpTween)
 {
 	// Return
 	return lpTween->GetPercentComplete();
 }
 
-char TweenEngine::EaseIn(Tween *lpTween)
+unsigned char TweenEngine::EaseIn(Tween *lpTween)
 {
 	// Return
-	return (char)((100 * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration));
+	return (unsigned char)((255 * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration));
 }
 
-char TweenEngine::EaseOut(Tween* lpTween)
+unsigned char TweenEngine::EaseOut(Tween* lpTween)
 {
 	// Return
-	return (char)((((-100) * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration)) + ((2*100*lpTween->lCurrentPosition) / lpTween->lDuration));
+	return (unsigned char)((((-255) * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration)) + ((2*255*lpTween->lCurrentPosition) / lpTween->lDuration));
 }
 
-char TweenEngine::EaseInOut(Tween *lpTween)
+unsigned char TweenEngine::EaseInOut(Tween *lpTween)
 {
 	// If we're easing in
 	if(lpTween->lCurrentPosition < (lpTween->lDuration / 2))
 		// Return
-		return (char)((2*100*lpTween->lCurrentPosition * lpTween->lCurrentPosition)/(lpTween->lDuration * lpTween->lDuration));
+		return (unsigned char)((2*255*lpTween->lCurrentPosition * lpTween->lCurrentPosition)/(lpTween->lDuration * lpTween->lDuration));
 	
 	// Calc diff and return
 	double ts = (lpTween->lCurrentPosition - (lpTween->lDuration / 2));
-	return (char)((((-2)* 100 * ts * ts)/(lpTween->lDuration * lpTween->lDuration)) + ((2*100*ts)/lpTween->lDuration) + 100/2);
+	return (unsigned char)((((-2)* 255 * ts * ts)/(lpTween->lDuration * lpTween->lDuration)) + ((2*255*ts)/lpTween->lDuration) + 255/2);
 }
