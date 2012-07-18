@@ -33,6 +33,7 @@ typedef enum
 class Splash : public iSplashScreen
 {
 public:
+	static void						Init(HINSTANCE hinstInst);
 	static Splash*					Get();
 	static void						Destroy();
 	
@@ -42,6 +43,7 @@ public:
 
 protected:
 	static Splash*					_lpSplash;
+	static HINSTANCE				_hinstMainInst;
 
 	bool							_bAnimating;
 	R_SPLASH_STATE					_ssState;
@@ -49,7 +51,7 @@ protected:
 
 	HWND							_hwndWindow;
 private:
-	Splash();
+	Splash() {};
 	~Splash();
 };
 
