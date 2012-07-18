@@ -223,6 +223,10 @@
 					RelativePath=".\inc\Macros.h"
 					>
 				</File>
+				<File
+					RelativePath=".\inc\OPrintF.hpp"
+					>
+				</File>
 			</Filter>
 		</Filter>
 		<Filter
