@@ -112,15 +112,15 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 	// Convert Pointer
 	TweenEngine* oEngine = (TweenEngine*)arg;
 
-	// Set up iterator
-	std::vector<Tween*>::iterator i;
-
 	// Loop!
 	while(true)
 	{
+		// Set up iterator
+		std::vector<Tween*>::iterator i = oEngine->_vecTweens.begin();
+
 		// Iterate through vectors
 		// Check to see we don't already have it in there
-		for(i = oEngine->_vecTweens.begin(); i < oEngine->_vecTweens.end(); i++)
+		while(i != oEngine->_vecTweens.end())
 		{
 			// If it's still being delayed...
 			if((*i)->lDelay > 0)
@@ -133,6 +133,9 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 					// Invoke
 					if((*i)->cbOnEvent != NULL)
 						((rTweenCallback)(*i)->cbOnEvent)(*i, START);
+
+				// Increment
+				i++;
 			}
 
 			// Or, if we are performing a tick...
@@ -154,6 +157,9 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 					if((*i)->cbOnEvent != NULL)
 						((rTweenCallback)(*i)->cbOnEvent)(*i, PROGRESS);
 				}
+
+				// Increment
+				i++;
 			}
 
 			// Or, the tween has finished!
@@ -167,7 +173,8 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 				delete (*i);
 
 				// Remove from vector
-				oEngine->_vecTweens.erase(i);
+				//	NOTE: This increments for us.
+				i = oEngine->_vecTweens.erase(i);
 			}
 		}
 

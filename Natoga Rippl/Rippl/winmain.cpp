@@ -25,7 +25,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	// DEBUG: Message Box
 	//MessageBoxW(NULL, StringMgr::Get()->GetString(R_DEBUG_MSG), StringMgr::Get()->GetString(R_TITLE), MB_OK);
 
-	Sleep(5000);
+	while(true){Sleep(5000);}
 	
 	// Release Resources
 	ReleaseResources();
