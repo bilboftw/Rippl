@@ -50,6 +50,9 @@ protected:
 	static HINSTANCE				_hinstMainInst;
 	static LRESULT CALLBACK			SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 
+	HBITMAP							LoadBitmapFromResource(UINT iRes);
+	void							DrawBitmap(HBITMAP iBMP, int x, int y);
+
 	R_SPLASH_STATE					_ssState;
 	R_SPLASH_ANIM_STATE				_ssAnimState;
 
@@ -59,6 +62,8 @@ protected:
 	RECT							_rcSize;
 
 	Tween*							_twnFade;
+
+	HBITMAP							_bmpMainLogo;
 private:
 	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
 

@@ -107,6 +107,14 @@ Splash::Splash()
 	_ssState = SPLASH_HIDDEN;
 	_ssAnimState = SPLASHANIM_FADE;
 
+	// Load bitmaps
+	_bmpMainLogo = (HBITMAP)LoadImage(_hinstMainInst, MAKEINTRESOURCE(R_PNG_SPLASH_MAIN_LOGO), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION);
+
+	// Check
+	if(_bmpMainLogo == NULL)
+		LOGW("Could not load bitmap file: %u", GetLastError());
+
+
 	// Set up class
 	_wcWClass.cbSize = sizeof(WNDCLASSEX);
 	_wcWClass.style = CS_HREDRAW | CS_VREDRAW;
@@ -188,7 +196,7 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 	switch(msg)
 	{
 	case WM_PAINT:
-		
+		_lpSplash->DrawBitmap(_lpSplash->_bmpMainLogo, 0, 0);
 
 		// Update (again)
 		UpdateWindow(hWindow);
@@ -202,6 +210,114 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 
 	// Handle Unhandled Messages
 	return DefWindowProc(hWindow, msg, wParam, lParam);
+}
+
+void Splash::DrawBitmap(HBITMAP iBMP, int x, int y)
+{
+	LOGD("Drawing bitmap!");
+
+	// Create HDC objects
+	HDC screenDC(NULL);
+	HDC sourceDC(CreateCompatibleDC(screenDC));
+
+	// Check
+	if(sourceDC == NULL)
+		LOGE("Could not create source DC: %u", GetLastError());
+
+	// Get size of the image
+	BITMAP bm = {0};
+	if(GetObject(iBMP, sizeof(bm), &bm) == 0)
+		LOGE("Could not get object!");
+	SIZE bmSize = {451, 475};
+
+	// Setup drawing location
+	POINT ptLoc = {x, y};
+	POINT ptSrc = {0, 0};
+
+	// Set up alpha blending
+	BLENDFUNCTION blend = {0};
+	blend.BlendOp = AC_SRC_OVER;
+	blend.SourceConstantAlpha = 255;
+	blend.AlphaFormat = AC_SRC_ALPHA;
+
+	// Bitmap Buffer
+	HBITMAP hbmpOld = (HBITMAP)SelectObject(sourceDC, _bmpMainLogo);
+
+	// Check
+	if(hbmpOld == NULL || hbmpOld == HGDI_ERROR)
+		LOGE("Could not select object!");
+
+	// Update
+	if(UpdateLayeredWindow(_hwndWindow, screenDC, &ptLoc, &bmSize, sourceDC, &ptSrc, (COLORREF)RGB(0, 0, 0), &blend, ULW_ALPHA) == FALSE)
+		LOGE("Could not update layered window: %u", GetLastError());
+}
+
+HBITMAP Splash::LoadBitmapFromResource(UINT iRes)
+{
+	// Find resource and check
+	HRSRC hrRes = FindResource(NULL, MAKEINTRESOURCE(iRes), MAKEINTRESOURCE(iRes));
+	if(hrRes == NULL)
+	{
+		// Warn, break, and return
+		LOGE("Could not find resource %u: %u", iRes, GetLastError());
+		assert(false);
+		return NULL;
+	}
+	
+	// Load Resource and check
+	DWORD dwResSize = SizeofResource(NULL, hrRes);
+	HGLOBAL hgRes = LoadResource(NULL, hrRes);
+	if(hgRes == NULL)
+	{
+		// Warn, break, and return
+		LOGE("Could not load resource %u: %u", iRes, GetLastError());
+		assert(false);
+		return NULL;
+	}
+
+	// Lock the resource and check
+	LPVOID lpResData = LockResource(hgRes);
+	if(lpResData == NULL)
+	{
+		// Warn break and return
+		LOGE("Could not lock resource %u for image load: %u", iRes, GetLastError());
+		assert(false);
+		return NULL;
+	}
+
+	// Allocate memory to hold resource data and, alas, check
+	HGLOBAL hgData = GlobalAlloc(GMEM_MOVEABLE, dwResSize);
+	if(hgData == NULL)
+	{
+		// Warn break return
+		LOGE("Could not allocate global data for resource %u: %u", iRes, GetLastError());
+		assert(false);
+		return NULL;
+	}
+
+	// Get pointer to allocated memory and check
+	LPVOID lpData = GlobalLock(hgData);
+	if(lpData == NULL)
+	{
+		// Warn break return
+		LOGE("Could not lock allocated memory for resource %u: %u", iRes, GetLastError());
+		assert(false);
+		return NULL;
+	}
+
+	// Copy data and unlock original data
+	CopyMemory(lpData, lpResData, dwResSize);
+	GlobalUnlock(hgRes);
+	
+	// Create iStream
+	IStream* lpStream = NULL;
+	if(FAILED(CreateStreamOnHGlobal(hgData, TRUE, &lpStream)))
+	{
+		// Warn break and return
+		LOGE("Could not create IStream handle for resource %u: %u", iRes, GetLastError());
+		assert(false);
+		return NULL;
+	}
 }
 
 Splash::~Splash()

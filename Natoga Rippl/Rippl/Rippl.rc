@@ -23,6 +23,15 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Icon\\Rippl.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // PNG
 //
 
@@ -64,12 +73,12 @@ BEGIN
     BEGIN
         BLOCK "040904b0"
         BEGIN
-            VALUE "Comments", "Translated into German by Neoticer"
+            VALUE "Comments", "Übersetzt ins Deutsche von Neoticer"
             VALUE "CompanyName", "Natoga Technologies, Inc."
-            VALUE "FileDescription", "Rippl Application"
+            VALUE "FileDescription", "Rippl, das digitale Audiowerkzeug."
             VALUE "FileVersion", "1, 0, 0, 1"
             VALUE "InternalName", "Rippl"
-            VALUE "LegalCopyright", "Copyright (C) 2012"
+            VALUE "LegalCopyright", "Copyright (C) 2012 Natoga Technologies. Alle Rechte vorbehalten."
             VALUE "OriginalFilename", "Rippl.exe"
             VALUE "ProductName", "Rippl Studio"
             VALUE "ProductVersion", "1, 0, 0, 1"
@@ -196,15 +205,6 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_ICON1               ICON                    "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Icon\\Rippl.ico"
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 

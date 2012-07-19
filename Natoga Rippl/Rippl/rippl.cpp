@@ -25,6 +25,9 @@ void InitResources(HINSTANCE hinstInst)
 	// Initialize Strings
 	StringMgr::Init(hinstInst);
 
+	// Init splash
+	Splash::Init(hinstInst);
+
 	// Show splash screen
 	Splash::Get()->ShowWait();
 }
