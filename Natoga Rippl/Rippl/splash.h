@@ -50,7 +50,6 @@ protected:
 	static HINSTANCE				_hinstMainInst;
 	static LRESULT CALLBACK			SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 
-	HBITMAP							LoadBitmapFromResource(UINT iRes);
 	void							DrawBitmap(HBITMAP iBMP, int x, int y);
 
 	R_SPLASH_STATE					_ssState;

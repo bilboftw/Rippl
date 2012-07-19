@@ -305,6 +305,26 @@
 				</File>
 			</Filter>
 		</Filter>
+		<Filter
+			Name="PNG"
+			>
+			<Filter
+				Name="Headers"
+				>
+				<File
+					RelativePath=".\png_wrapper.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Source"
+				>
+				<File
+					RelativePath=".\png_wrapper.cpp"
+					>
+				</File>
+			</Filter>
+		</Filter>
 		<File
 			RelativePath="..\..\Art\Splash\Cut\r_ntga_logo.png"
 			>
