@@ -5,6 +5,7 @@
 // Includes
 #include <windows.h>
 #include <assert.h>
+#include <GdiPlus.h>
 
 #include "Macros.h"
 
@@ -156,9 +157,22 @@ Splash::Splash()
 	int wx = (winInf.rcWindow.right / 2) - (_rcSize.right / 2);
 	int wy = (winInf.rcWindow.bottom / 2) - (_rcSize.bottom / 2);
 
+	// Set up window's bitmap drawing information
+	memset(&_oGrphInf.bmpWinInformation, 0, sizeof(_oGrphInf.bmpWinInformation));
+	_oGrphInf.bmpWinInformation.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+	_oGrphInf.bmpWinInformation.bmiHeader.biWidth = _rcSize.right;
+	_oGrphInf.bmpWinInformation.bmiHeader.biHeight = -(_rcSize.bottom);
+	_oGrphInf.bmpWinInformation.bmiHeader.biPlanes = 1;
+	_oGrphInf.bmpWinInformation.bmiHeader.biBitCount = 32;
+	_oGrphInf.bmpWinInformation.bmiHeader.biCompression = BI_RGB;
+	_oGrphInf.bmpWinInformation.bmiHeader.biSizeImage = 0;
+	_oGrphInf.bmpWinInformation.bmiHeader.biXPelsPerMeter = 0;
+	_oGrphInf.bmpWinInformation.bmiHeader.biYPelsPerMeter = 0;
+	_oGrphInf.bmpWinInformation.bmiHeader.biClrImportant = 0;
+	_oGrphInf.bmpWinInformation.bmiHeader.biClrUsed = 0;
+
 	// Log
 	LOGD("Spawning window at %u %u", wx, wy);
-
 
 	// Create Window
 	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST,
@@ -188,6 +202,19 @@ Splash::Splash()
 		LOGD("Created splash window!");
 		InvalidateRect(_hwndWindow, &_rcSize, TRUE);
 	}
+
+	// Create DC
+	_oGrphInf.canvasHDC = GetDC(_hwndWindow);
+
+	// Create drawing 'canvas'
+	_oGrphInf.lpBits = NULL;
+	_oGrphInf.bmpCanvas = CreateDIBSection(_oGrphInf.canvasHDC, &_oGrphInf.bmpWinInformation, DIB_RGB_COLORS, &_oGrphInf.lpBits, NULL, 0);
+
+	// Create graphics object
+	_oGrphInf.graphics = new Gdiplus::Graphics(_oGrphInf.canvasHDC);
+
+	// Attempt to draw
+	DrawPNG(_pngMainLogo, 0, 0);
 }
 
 LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -195,12 +222,6 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 	// Switch message
 	switch(msg)
 	{
-	case WM_PAINT:
-		_lpSplash->DrawBitmap(_lpSplash->_pngMainLogo->GetBitmap(), 0, 0, _lpSplash->_pngMainLogo->GetSize());
-
-		// Update (again)
-		UpdateWindow(hWindow);
-		break;
 	case WM_QUIT:
 		// Log and terminate
 		LOGI("Exiting prematurely");
@@ -212,15 +233,26 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWindow, msg, wParam, lParam);
 }
 
-void Splash::DrawBitmap(HBITMAP iBMP, int x, int y, SIZE bmSize)
+void Splash::DrawPNG(PNG* lpPNG, int x, int y)
 {
 	LOGD("Drawing bitmap!");
+	
+	HDC hdcMem = CreateCompatibleDC(_oGrphInf.canvasHDC);
 
-	// Create DC
-	HDC hdc = CreateCompatibleDC(NULL);
+	// Select
+	HBITMAP bmpOld = (HBITMAP)SelectObject(hdcMem, _oGrphInf.bmpCanvas);
+
+	Gdiplus::Color trans(0, 0, 0, 0);
+	_oGrphInf.graphics->Clear(trans);
+
+	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), x, y);
+
+	_oGrphInf.graphics->Flush();
+
+	SIZE szSize = {_oGrphInf.bmpWinInformation.bmiHeader.biWidth, _oGrphInf.bmpWinInformation.bmiHeader.biHeight};
 
 	// Setup drawing location
-	POINT ptLoc = {x, y};
+	POINT ptLoc = {0, 0};
 	POINT ptSrc = {0, 0};
 
 	// Set up alpha blending
@@ -228,10 +260,16 @@ void Splash::DrawBitmap(HBITMAP iBMP, int x, int y, SIZE bmSize)
 	blend.BlendOp = AC_SRC_OVER;
 	blend.SourceConstantAlpha = 255;
 	blend.AlphaFormat = AC_SRC_ALPHA;
-
+	blend.BlendFlags = 0;
+	
 	// Update
-	if(UpdateLayeredWindow(_hwndWindow, screenDC, &ptLoc, &bmSize, sourceDC, &ptSrc, (COLORREF)RGB(0, 0, 0), &blend, ULW_ALPHA) == FALSE)
+	if(UpdateLayeredWindow(_hwndWindow, _oGrphInf.canvasHDC, NULL, NULL, hdcMem, &ptLoc, RGB(0, 0, 0), &blend, ULW_ALPHA) == FALSE)
 		LOGE("Could not update layered window: %u", GetLastError());
+
+	// Delete temp objects
+	SelectObject(hdcMem, bmpOld);
+	DeleteObject(hdcMem);
+	DeleteDC(hdcMem);
 }
 
 Splash::~Splash()

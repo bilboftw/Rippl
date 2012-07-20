@@ -4,6 +4,7 @@
 
 // Includes
 #include <windows.h>
+#include <GdiPlus.h>
 
 #include "strmgr.h"
 #include "tween_engine.h"
@@ -11,6 +12,13 @@
 
 // Static Defines
 static HANDLE hwndMainThread;
+
+// GDIPlus Information
+struct R_GDI_PLUS_INFO
+{
+	ULONG_PTR lpToken;
+	Gdiplus::GdiplusStartupInput gdiplusStartupInput;
+} static stGdiPlusI;
 
 /**
  * Initializes Resources
@@ -25,6 +33,9 @@ void InitResources(HINSTANCE hinstInst)
 	// Initialize Strings
 	StringMgr::Init(hinstInst);
 
+	// Initialize GDI+
+	Gdiplus::GdiplusStartup(&stGdiPlusI.lpToken, &stGdiPlusI.gdiplusStartupInput, NULL);
+
 	// Init splash
 	Splash::Init(hinstInst);
 
@@ -37,7 +48,11 @@ void InitResources(HINSTANCE hinstInst)
  */
 void ReleaseResources()
 {
-	
+	// Destroy Splash
+	Splash::Get()->Destroy();
+
+	// De-init GDI+
+	Gdiplus::GdiplusShutdown(stGdiPlusI.lpToken);
 }
 
 /**

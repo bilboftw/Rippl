@@ -51,7 +51,7 @@ protected:
 	static HINSTANCE				_hinstMainInst;
 	static LRESULT CALLBACK			SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 
-	void							DrawBitmap(HBITMAP iBMP, int x, int y, SIZE bmSize);
+	void							DrawPNG(PNG* lpPNG, int x, int y);
 
 	R_SPLASH_STATE					_ssState;
 	R_SPLASH_ANIM_STATE				_ssAnimState;
@@ -64,6 +64,15 @@ protected:
 	Tween*							_twnFade;
 
 	PNG*							_pngMainLogo;
+
+									struct RSPL_GRAPHICS_INFO
+									{
+										BITMAPINFO						bmpWinInformation;
+										Gdiplus::Graphics*				graphics;
+										void*							lpBits;
+										HDC								canvasHDC;
+										HBITMAP							bmpCanvas;
+									} _oGrphInf;
 private:
 	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
 
