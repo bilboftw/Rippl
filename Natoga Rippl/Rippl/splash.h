@@ -9,6 +9,7 @@
 
 #include "iSplashScreen.h"
 
+#include "png_wrapper.h"
 #include "tween_engine.h"
 
 // Splash State Enum
@@ -50,7 +51,7 @@ protected:
 	static HINSTANCE				_hinstMainInst;
 	static LRESULT CALLBACK			SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 
-	void							DrawBitmap(HBITMAP iBMP, int x, int y);
+	void							DrawBitmap(HBITMAP iBMP, int x, int y, SIZE bmSize);
 
 	R_SPLASH_STATE					_ssState;
 	R_SPLASH_ANIM_STATE				_ssAnimState;
@@ -62,7 +63,7 @@ protected:
 
 	Tween*							_twnFade;
 
-	HBITMAP							_bmpMainLogo;
+	PNG*							_pngMainLogo;
 private:
 	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
 

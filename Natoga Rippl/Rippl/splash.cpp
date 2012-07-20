@@ -108,16 +108,16 @@ Splash::Splash()
 	_ssAnimState = SPLASHANIM_FADE;
 
 	// Load bitmaps
-	_bmpMainLogo = (HBITMAP)LoadImage(_hinstMainInst, MAKEINTRESOURCE(R_PNG_SPLASH_MAIN_LOGO), IMAGE_BITMAP, 0, 0, LR_CREATEDIBSECTION);
+	_pngMainLogo = new PNG(R_PNG_SPLASH_MAIN_LOGO);
 
 	// Check
-	if(_bmpMainLogo == NULL)
+	if(_pngMainLogo == NULL)
 		LOGW("Could not load bitmap file: %u", GetLastError());
 
 
 	// Set up class
 	_wcWClass.cbSize = sizeof(WNDCLASSEX);
-	_wcWClass.style = CS_HREDRAW | CS_VREDRAW;
+	_wcWClass.style = 0;
 	_wcWClass.lpfnWndProc = (WNDPROC)&SplashProc;
 	_wcWClass.cbClsExtra = 0;
 	_wcWClass.cbWndExtra = 0;
@@ -161,10 +161,10 @@ Splash::Splash()
 
 
 	// Create Window
-	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE,
+	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST,
 					(LPCWSTR)_atomWinAtom,
 					StringMgr::Get()->GetString(R_SPLASH_TITLE),
-					WS_DLGFRAME | WS_VISIBLE | WS_POPUP,
+					WS_VISIBLE | WS_POPUP,
 					wx,
 					wy,
 					_rcSize.right,
@@ -196,7 +196,7 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 	switch(msg)
 	{
 	case WM_PAINT:
-		_lpSplash->DrawBitmap(_lpSplash->_bmpMainLogo, 0, 0);
+		_lpSplash->DrawBitmap(_lpSplash->_pngMainLogo->GetBitmap(), 0, 0, _lpSplash->_pngMainLogo->GetSize());
 
 		// Update (again)
 		UpdateWindow(hWindow);
@@ -212,23 +212,12 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWindow, msg, wParam, lParam);
 }
 
-void Splash::DrawBitmap(HBITMAP iBMP, int x, int y)
+void Splash::DrawBitmap(HBITMAP iBMP, int x, int y, SIZE bmSize)
 {
 	LOGD("Drawing bitmap!");
 
-	// Create HDC objects
-	HDC screenDC(NULL);
-	HDC sourceDC(CreateCompatibleDC(screenDC));
-
-	// Check
-	if(sourceDC == NULL)
-		LOGE("Could not create source DC: %u", GetLastError());
-
-	// Get size of the image
-	BITMAP bm = {0};
-	if(GetObject(iBMP, sizeof(bm), &bm) == 0)
-		LOGE("Could not get object!");
-	SIZE bmSize = {451, 475};
+	// Create DC
+	HDC hdc = CreateCompatibleDC(NULL);
 
 	// Setup drawing location
 	POINT ptLoc = {x, y};
@@ -240,13 +229,6 @@ void Splash::DrawBitmap(HBITMAP iBMP, int x, int y)
 	blend.SourceConstantAlpha = 255;
 	blend.AlphaFormat = AC_SRC_ALPHA;
 
-	// Bitmap Buffer
-	HBITMAP hbmpOld = (HBITMAP)SelectObject(sourceDC, _bmpMainLogo);
-
-	// Check
-	if(hbmpOld == NULL || hbmpOld == HGDI_ERROR)
-		LOGE("Could not select object!");
-
 	// Update
 	if(UpdateLayeredWindow(_hwndWindow, screenDC, &ptLoc, &bmSize, sourceDC, &ptSrc, (COLORREF)RGB(0, 0, 0), &blend, ULW_ALPHA) == FALSE)
 		LOGE("Could not update layered window: %u", GetLastError());
@@ -254,6 +236,9 @@ void Splash::DrawBitmap(HBITMAP iBMP, int x, int y)
 
 Splash::~Splash()
 {
+	// Delete PNG objects
+	delete _pngMainLogo;
+
 	// Set pointer to NULL
 	Splash::_lpSplash = NULL;
 }
