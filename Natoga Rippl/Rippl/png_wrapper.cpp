@@ -16,9 +16,12 @@ PNG::PNG(UINT iRes)
 	// Store
 	_iRes = iRes;
 
-	// Init pointers/handles
+	// Init pointers/handles/values
 	_imgImage = NULL;
 	_lpIStream = NULL;
+	fx = 0;
+	fy = 0;
+	fAlpha = 0;
 
 	// Get IStream
 	GetIStream();

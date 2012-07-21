@@ -4,6 +4,9 @@
 #ifndef splash_h__
 #define splash_h__
 
+// Define FPS
+#define R_SPLASH_DRAW_FPS 60
+
 // Includes
 #include <windows.h>
 
@@ -50,8 +53,11 @@ protected:
 	static Splash*					_lpSplash;
 	static HINSTANCE				_hinstMainInst;
 	static LRESULT CALLBACK			SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
+	static DWORD					SplashGraphicsDrawEP(PVOID arg);
 
-	void							DrawPNG(PNG* lpPNG, int x, int y);
+	void							DrawPNG(PNG* lpPNG);
+
+	HANDLE							hDrawThread;
 
 	R_SPLASH_STATE					_ssState;
 	R_SPLASH_ANIM_STATE				_ssAnimState;

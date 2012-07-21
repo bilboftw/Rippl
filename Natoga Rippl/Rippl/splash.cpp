@@ -68,6 +68,9 @@ void Splash::Show()
 	// Setup Tween information
 	SetupShowTweenInfo();
 
+	// DEBUG: Set alpha
+	_pngMainLogo->fAlpha = 1.0f;
+
 	// Send them on their way
 	TweenEngine::Get()->Add(_twnFade);
 }
@@ -90,7 +93,7 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 	// If we've made a nominal progress...
 	if(code == PROGRESS)
 	{
-		Get()->DrawPNG(Get()->_pngMainLogo, (int)(100 * ((double)lpTween->cEasedValue / 255)), 0);
+		Get()->_pngMainLogo->fx = (float)(100 * lpTween->dEasedValue);
 	}
 }
 
@@ -98,7 +101,8 @@ void Splash::SetupShowTweenInfo()
 {
 	// Create tween objects
 	_twnFade = new Tween();
-	_twnFade->lDuration = 10;
+	_twnFade->dDelay = 1000;
+	_twnFade->dDuration = 1000;
 	_twnFade->cbOnEvent = &rTweenCB;
 }
 
@@ -200,6 +204,8 @@ Splash::Splash()
 	_oGrphInf.hBmpOld = (HBITMAP)SelectObject(_oGrphInf.hdcMem, _oGrphInf.hBmp);
 	_oGrphInf.graphics = new Gdiplus::Graphics(_oGrphInf.hdcMem);
 
+	_oGrphInf.graphics->SetSmoothingMode((Gdiplus::SmoothingMode)0x04); // SmoothingModeAntiAlias8x4
+
 	memset(&_oGrphInf.blend, 0, sizeof(_oGrphInf.blend));
 	_oGrphInf.blend.BlendOp = AC_SRC_OVER;
 	_oGrphInf.blend.SourceConstantAlpha = 255;
@@ -208,8 +214,24 @@ Splash::Splash()
 	_oGrphInf.ptSrcPos.x = 0;
 	_oGrphInf.ptSrcPos.y = 0;
 
-	// Attempt to draw
-	DrawPNG(_pngMainLogo, 0, 0);
+	// Start drawing thread
+	hDrawThread = CreateThread(NULL, NULL, (LPTHREAD_START_ROUTINE)&SplashGraphicsDrawEP, NULL, NULL, NULL);
+}
+
+DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
+{
+	// Loop!
+	while(true)
+	{
+		// Draw PNGs
+		Get()->DrawPNG(Get()->_pngMainLogo);
+
+		// Sleep!
+		Sleep(1000 / R_SPLASH_DRAW_FPS);
+	}
+
+	// Return 
+	return 0;
 }
 
 LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -228,11 +250,14 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWindow, msg, wParam, lParam);
 }
 
-void Splash::DrawPNG(PNG* lpPNG, int x, int y)
+void Splash::DrawPNG(PNG* lpPNG)
 {
+	// Check alpha
+	if(lpPNG->fAlpha <= 0.0f) return;
+
 	// Draw
 	_oGrphInf.graphics->Clear((Gdiplus::Color)0);
-	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), x, y);
+	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), lpPNG->fx, lpPNG->fy);
 	_oGrphInf.graphics->Flush();
 
 	// Call UpdateLayeredWindow
@@ -241,6 +266,9 @@ void Splash::DrawPNG(PNG* lpPNG, int x, int y)
 
 Splash::~Splash()
 {
+	// Kill thread
+	TerminateThread(hDrawThread, 0);
+
 	// Clean up graphics
 	delete _oGrphInf.graphics;
 	SelectObject(_oGrphInf.hdcMem, _oGrphInf.hBmpOld);	

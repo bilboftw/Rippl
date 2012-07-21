@@ -65,6 +65,9 @@ TweenEngine::~TweenEngine()
 
 void TweenEngine::Add(Tween *lpTween)
 {
+	// Adjust
+	lpTween->Adjust();
+
 	// Check to see we don't already have it in there
 	std::vector<Tween*>::iterator i;
 	for(i = _vecTweens.begin(); i < _vecTweens.end(); i++)
@@ -123,13 +126,13 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 		while(i != oEngine->_vecTweens.end())
 		{
 			// If it's still being delayed...
-			if((*i)->lDelay > 0)
+			if((*i)->dDelay > 0)
 			{
 				// Decrement
-				--((*i)->lDelay);
+				--((*i)->dDelay);
 
 				// Check for start
-				if((*i)->lDelay == 0)
+				if((*i)->dDelay == 0)
 					// Invoke
 					if((*i)->cbOnEvent != NULL)
 						((rTweenCallback)(*i)->cbOnEvent)(*i, START);
@@ -139,19 +142,19 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 			}
 
 			// Or, if we are performing a tick...
-			else if((*i)->lDuration > (*i)->lCurrentPosition)
+			else if((*i)->dDuration > (*i)->dCurrentPosition)
 			{
 				// Increment current position
-				++((*i)->lCurrentPosition);
+				++((*i)->dCurrentPosition);
 
 				// Apply tweening
-				char cNew = ((rEaseApplyCB)oEngine->_cbEaseFuncs[(char)(*i)->rteEase])(*i);
+				double dNew = ((rEaseApplyCB)oEngine->_cbEaseFuncs[(char)(*i)->rteEase])(*i);
 
 				// Check differences
-				if(cNew != (*i)->cEasedValue)
+				if(dNew != (*i)->dEasedValue)
 				{
 					// Apply
-					(*i)->cEasedValue = cNew;
+					(*i)->dEasedValue = dNew;
 
 					// Invoke
 					if((*i)->cbOnEvent != NULL)
@@ -179,39 +182,39 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 		}
 
 		// Sleep for a millisecond!
-		Sleep(1);
+		Sleep(1000 / R_TWEEN_ENGINE_FPS);
 	}
 
 	// Return success
 	return 0;
 }
 
-unsigned char TweenEngine::EaseLinear(Tween *lpTween)
+double TweenEngine::EaseLinear(Tween *lpTween)
 {
 	// Return
-	return lpTween->GetPercentComplete();
+	return (lpTween->dCurrentPosition / lpTween->dDuration);
 }
 
-unsigned char TweenEngine::EaseIn(Tween *lpTween)
+double TweenEngine::EaseIn(Tween *lpTween)
 {
 	// Return
-	return (unsigned char)((255 * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration));
+	return ((255 * lpTween->dCurrentPosition * lpTween->dCurrentPosition) / (lpTween->dDuration * lpTween->dDuration));
 }
 
-unsigned char TweenEngine::EaseOut(Tween* lpTween)
+double TweenEngine::EaseOut(Tween* lpTween)
 {
 	// Return
-	return (unsigned char)((((-255) * lpTween->lCurrentPosition * lpTween->lCurrentPosition) / (lpTween->lDuration * lpTween->lDuration)) + ((2*255*lpTween->lCurrentPosition) / lpTween->lDuration));
+	return ((((-255) * lpTween->dCurrentPosition * lpTween->dCurrentPosition) / (lpTween->dDuration * lpTween->dDuration)) + ((2*255*lpTween->dCurrentPosition) / lpTween->dDuration));
 }
 
-unsigned char TweenEngine::EaseInOut(Tween *lpTween)
+double TweenEngine::EaseInOut(Tween *lpTween)
 {
 	// If we're easing in
-	if(lpTween->lCurrentPosition < (lpTween->lDuration / 2))
+	if(lpTween->dCurrentPosition < (lpTween->dDuration / 2))
 		// Return
-		return (unsigned char)((2*255*lpTween->lCurrentPosition * lpTween->lCurrentPosition)/(lpTween->lDuration * lpTween->lDuration));
+		return ((2*255*lpTween->dCurrentPosition * lpTween->dCurrentPosition)/(lpTween->dDuration * lpTween->dDuration));
 	
 	// Calc diff and return
-	double ts = (lpTween->lCurrentPosition - (lpTween->lDuration / 2));
-	return (unsigned char)((((-2)* 255 * ts * ts)/(lpTween->lDuration * lpTween->lDuration)) + ((2*255*ts)/lpTween->lDuration) + 255/2);
+	double ts = (lpTween->dCurrentPosition - (lpTween->dDuration / 2));
+	return ((((-2)* 255 * ts * ts)/(lpTween->dDuration * lpTween->dDuration)) + ((2*255*ts)/lpTween->dDuration) + 255/2);
 }

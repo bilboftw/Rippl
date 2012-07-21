@@ -4,6 +4,9 @@
 #ifndef iTweenEngine_h__
 #define iTweenEngine_h__
 
+// Define FPS
+#define R_TWEEN_ENGINE_FPS 100
+
 // Forward Delcare Tween Class
 class Tween;
 
@@ -31,10 +34,10 @@ typedef void (*rTweenCallback)(Tween* lpTween, R_TWEEN_CB_MSG rtcmMSG);
 class Tween 
 {
 public:
-	double lDuration;
-	double lDelay;
-	double lCurrentPosition;
-	unsigned char cEasedValue;
+	double dDuration;
+	double dDelay;
+	double dCurrentPosition;
+	double dEasedValue;
 	rTweenCallback cbOnEvent;
 	R_TWEEN_EASE rteEase;
 
@@ -44,29 +47,35 @@ public:
 	R_TWEEN_EASE prteEase)
 	{
 		// Store Values
-		lDuration = plDuration;
-		lDelay = plDelay;
-		lCurrentPosition = 0;
+		dDuration = plDuration;
+		dDelay = plDelay;
+		dCurrentPosition = 0;
 		cbOnEvent = pcbOnEvent;
 		rteEase = prteEase;
-		cEasedValue = 0;
+		dEasedValue = 0;
 	}
 
 	Tween()
 	{
 		// Set all values to NULL/0
-		lDuration = 0;
-		lDelay = 0;
-		lCurrentPosition = 0;
-		cEasedValue = 0;
+		dDuration = 0;
+		dDelay = 0;
+		dCurrentPosition = 0;
+		dEasedValue = 0;
 		cbOnEvent = NULL;
 		rteEase = LINEAR;
 	}
 
-	unsigned char GetPercentComplete()
+	unsigned char GetCharProg()
 	{
 		// Return
-		return (unsigned char)((lCurrentPosition / lDuration) * 255);
+		return (unsigned char)((dCurrentPosition / dDuration) * 255);
+	}
+
+	void Adjust()
+	{
+		dDuration /= (1000/R_TWEEN_ENGINE_FPS);
+		dDelay /= (1000/R_TWEEN_ENGINE_FPS);
 	}
 };
 

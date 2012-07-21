@@ -19,6 +19,9 @@ public:
 	PNG(UINT iRes);
 	~PNG();
 	Gdiplus::Image*			GetImage() { return _imgImage; };
+	float					fx;
+	float					fy;
+	float					fAlpha;
 protected:
 	IStream*				GetIStream();
 	UINT					_iRes;
