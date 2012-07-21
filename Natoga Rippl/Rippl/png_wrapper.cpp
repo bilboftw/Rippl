@@ -27,7 +27,7 @@ PNG::PNG(UINT iRes)
 	// Create image
 	_imgImage = new Gdiplus::Image(_lpIStream, FALSE);
 
-	// Setup sizing
+	// Setup src/dest rects
 	frcSrc = new RectF(0, 0, _imgImage->GetWidth(), _imgImage->GetHeight());
 	frcDest = new RectF(0, 0, _imgImage->GetWidth(), _imgImage->GetHeight());
 }
