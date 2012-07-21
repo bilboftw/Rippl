@@ -73,6 +73,8 @@ protected:
 										HDC								hdcMem;
 										HBITMAP							hBmp;
 										HBITMAP							hBmpOld;
+										BLENDFUNCTION					blend;
+										POINT							ptSrcPos;
 									} _oGrphInf;
 private:
 	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);

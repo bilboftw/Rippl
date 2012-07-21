@@ -198,6 +198,15 @@ Splash::Splash()
 	_oGrphInf.hdcMem = CreateCompatibleDC(_oGrphInf.hdcScreen);
 	_oGrphInf.hBmp = CreateCompatibleBitmap(_oGrphInf.hdcScreen, _oGrphInf.szSize.cx, _oGrphInf.szSize.cy);
 	_oGrphInf.hBmpOld = (HBITMAP)SelectObject(_oGrphInf.hdcMem, _oGrphInf.hBmp);
+	_oGrphInf.graphics = new Gdiplus::Graphics(_oGrphInf.hdcMem);
+
+	memset(&_oGrphInf.blend, 0, sizeof(_oGrphInf.blend));
+	_oGrphInf.blend.BlendOp = AC_SRC_OVER;
+	_oGrphInf.blend.SourceConstantAlpha = 255;
+	_oGrphInf.blend.AlphaFormat = AC_SRC_ALPHA;
+
+	_oGrphInf.ptSrcPos.x = 0;
+	_oGrphInf.ptSrcPos.y = 0;
 
 	// Attempt to draw
 	DrawPNG(_pngMainLogo, 0, 0);
@@ -222,28 +231,18 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 void Splash::DrawPNG(PNG* lpPNG, int x, int y)
 {
 	// Draw
-	Gdiplus::Graphics* graphics = new Gdiplus::Graphics(_oGrphInf.hdcMem);
-	Gdiplus::Color col(0, 0, 0, 0);
-	graphics->Clear(col);
-	graphics->DrawImage(lpPNG->GetImage(), x, y);
-	graphics->Flush();
+	_oGrphInf.graphics->Clear((Gdiplus::Color)0);
+	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), x, y);
+	_oGrphInf.graphics->Flush();
 
 	// Call UpdateLayeredWindow
-	BLENDFUNCTION blend = {0};
-	blend.BlendOp = AC_SRC_OVER;
-	blend.SourceConstantAlpha = 255;
-	blend.AlphaFormat = AC_SRC_ALPHA;
-	POINT ptPos = {0, 0};
-	POINT ptSrc = {0, 0};
-
-	UpdateLayeredWindow(_hwndWindow, _oGrphInf.hdcScreen, NULL, &_oGrphInf.szSize, _oGrphInf.hdcMem, &ptSrc, 0, &blend, ULW_ALPHA);
-
-	delete graphics;
+	UpdateLayeredWindow(_hwndWindow, _oGrphInf.hdcScreen, NULL, &_oGrphInf.szSize, _oGrphInf.hdcMem, &_oGrphInf.ptSrcPos, 0, &_oGrphInf.blend, ULW_ALPHA);
 }
 
 Splash::~Splash()
 {
 	// Clean up graphics
+	delete _oGrphInf.graphics;
 	SelectObject(_oGrphInf.hdcMem, _oGrphInf.hBmpOld);	
 	DeleteObject(_oGrphInf.hBmp);
 	DeleteDC(_oGrphInf.hdcMem);
