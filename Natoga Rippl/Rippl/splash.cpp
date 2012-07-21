@@ -15,9 +15,21 @@
 #include "resource.h"
 #include "tween_engine.h"
 
+// Using Gdiplus
+using namespace Gdiplus;
+
 // Static Defines
 Splash* Splash::_lpSplash = NULL;
 HINSTANCE Splash::_hinstMainInst = NULL;
+
+static Gdiplus::ImageAttributes iaAttr;
+static Gdiplus::ColorMatrix ClrMatrix = { 
+	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 0.5f, 0.0f,
+	0.0f, 0.0f, 0.0f, 0.0f, 1.0f
+};
 
 void Splash::Init(HINSTANCE hinstInst)
 {
@@ -68,9 +80,6 @@ void Splash::Show()
 	// Setup Tween information
 	SetupShowTweenInfo();
 
-	// DEBUG: Set alpha
-	_pngMainLogo->fAlpha = 1.0f;
-
 	// Send them on their way
 	TweenEngine::Get()->Add(_twnFade);
 }
@@ -93,7 +102,8 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 	// If we've made a nominal progress...
 	if(code == PROGRESS)
 	{
-		Get()->_pngMainLogo->fx = (float)(100 * lpTween->dEasedValue);
+		Get()->_pngMainLogo->fAlpha = (float)lpTween->dEasedValue;
+		Get()->_pngMainLogo->frcDest->X = (float)(100 * lpTween->dEasedValue);
 	}
 }
 
@@ -220,11 +230,20 @@ Splash::Splash()
 
 DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 {
+	// Get pointer (less overhead)
+	Splash* s = Get();
+
 	// Loop!
 	while(true)
 	{
+		// Clear graphics
+		s->_oGrphInf.graphics->Clear((Gdiplus::Color)0);
+
 		// Draw PNGs
-		Get()->DrawPNG(Get()->_pngMainLogo);
+		s->DrawPNG(Get()->_pngMainLogo);
+
+		// Call UpdateLayeredWindow
+		UpdateLayeredWindow(s->_hwndWindow, s->_oGrphInf.hdcScreen, NULL, &s->_oGrphInf.szSize, s->_oGrphInf.hdcMem, &s->_oGrphInf.ptSrcPos, 0, &s->_oGrphInf.blend, ULW_ALPHA);
 
 		// Sleep!
 		Sleep(1000 / R_SPLASH_DRAW_FPS);
@@ -255,13 +274,14 @@ void Splash::DrawPNG(PNG* lpPNG)
 	// Check alpha
 	if(lpPNG->fAlpha <= 0.0f) return;
 
+	// Set alpha
+	ClrMatrix.m[3][3] = lpPNG->fAlpha;
+	Gdiplus::ImageAttributes iaAttr;
+	iaAttr.SetColorMatrix(&ClrMatrix, ColorMatrixFlagsDefault, ColorAdjustTypeBitmap);
+	
 	// Draw
-	_oGrphInf.graphics->Clear((Gdiplus::Color)0);
-	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), lpPNG->fx, lpPNG->fy);
-	_oGrphInf.graphics->Flush();
-
-	// Call UpdateLayeredWindow
-	UpdateLayeredWindow(_hwndWindow, _oGrphInf.hdcScreen, NULL, &_oGrphInf.szSize, _oGrphInf.hdcMem, &_oGrphInf.ptSrcPos, 0, &_oGrphInf.blend, ULW_ALPHA);
+	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), *lpPNG->frcDest, lpPNG->frcSrc->X, lpPNG->frcSrc->Y, lpPNG->frcSrc->Width, lpPNG->frcSrc->Height, Gdiplus::UnitPixel, &iaAttr);
+	_oGrphInf.graphics->Flush(); // If this doesn't work, try putting this in the thread EP
 }
 
 Splash::~Splash()

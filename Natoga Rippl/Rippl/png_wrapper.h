@@ -12,6 +12,9 @@
 #include <GdiPlus.h>
 #include <GdiPlusHeaders.h>
 
+// Using Gdiplus
+using namespace Gdiplus;
+
 // PNG Class
 class PNG
 {
@@ -19,8 +22,9 @@ public:
 	PNG(UINT iRes);
 	~PNG();
 	Gdiplus::Image*			GetImage() { return _imgImage; };
-	float					fx;
-	float					fy;
+
+	RectF*					frcSrc;
+	RectF*					frcDest;
 	float					fAlpha;
 protected:
 	IStream*				GetIStream();

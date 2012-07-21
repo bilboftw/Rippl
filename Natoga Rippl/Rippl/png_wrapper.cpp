@@ -19,8 +19,6 @@ PNG::PNG(UINT iRes)
 	// Init pointers/handles/values
 	_imgImage = NULL;
 	_lpIStream = NULL;
-	fx = 0;
-	fy = 0;
 	fAlpha = 0;
 
 	// Get IStream
@@ -28,6 +26,10 @@ PNG::PNG(UINT iRes)
 
 	// Create image
 	_imgImage = new Gdiplus::Image(_lpIStream, FALSE);
+
+	// Setup sizing
+	frcSrc = new RectF(0, 0, _imgImage->GetWidth(), _imgImage->GetHeight());
+	frcDest = new RectF(0, 0, _imgImage->GetWidth(), _imgImage->GetHeight());
 }
 
 IStream* PNG::GetIStream()
@@ -102,6 +104,10 @@ IStream* PNG::GetIStream()
 
 PNG::~PNG()
 {
+	// Release rects
+	delete frcDest;
+	delete frcSrc;
+
 	// Release Image
 	delete _imgImage;
 
