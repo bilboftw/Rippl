@@ -83,25 +83,15 @@ void Splash::Show()
 	// Update the window
 	UpdateWindow(_hwndWindow);
 
+	// Set up initial positions
+	_pngMainLogo->frcDest->X = (_oGrphInf.szSize.cx / 2) - (_pngMainLogo->frcDest->Width / 2);
+
 	// Setup Tween information
 	Tween* tMainFade = new Tween(600, 0, &rTweenCB, EOUT);
 	tMainFade->uArg.iInt = SPLASHANIM_FADE;
 
 	// Send them on their way
 	TweenEngine::Get()->Add(tMainFade);
-}
-
-void Splash::ShowWait()
-{
-	// Call Show
-	Show();
-
-	// TODO: Wait
-}
-
-void Splash::UpdateStatus(const char* szString)
-{
-	
 }
 
 void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
@@ -131,6 +121,19 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 			Get()->_ssState = SPLASH_HIDDEN;
 		break;
 	}
+}
+
+void Splash::ShowWait()
+{
+	// Call Show
+	Show();
+
+	// TODO: Wait
+}
+
+void Splash::UpdateStatus(const char* szString)
+{
+	
 }
 
 Splash::Splash()

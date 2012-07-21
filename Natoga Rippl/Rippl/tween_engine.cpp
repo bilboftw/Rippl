@@ -139,7 +139,7 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 			else if((*i)->dDuration > (*i)->dCurrentPosition)
 			{
 				// Check for start
-				if((*i).dCurrentPosition == 0)
+				if((*i)->dCurrentPosition == 0)
 					// Check for start
 					if((*i)->dDelay == 0)
 						// Invoke
