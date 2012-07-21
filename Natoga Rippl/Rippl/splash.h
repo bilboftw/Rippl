@@ -28,6 +28,7 @@ typedef enum
 typedef enum
 {
 	SPLASHANIM_FADE,		// The logo fades in
+	SPLASHANIM_COOLOFF,		// The logo 'cools off' (white tint fades)
 	SPLASHANIM_SPLIT,		// The logo slides left and reveals the 'console bar'
 	SPLASHANIM_TITLEFADE,	// The rippl title fades in
 	SPLASHANIM_STUDFADE,	// Studio text fade
@@ -81,6 +82,7 @@ protected:
 
 	PNG*							_pngMainLogo;
 	PNG*							_pngConBar;
+	PNG*							_pngNtgaLogo;
 
 	wchar_t*						_wcsStatus;
 									struct RSPL_GRAPHICS_INFO

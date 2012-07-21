@@ -35,9 +35,6 @@ void InitResources(HINSTANCE hinstInst)
 	// Initialize Strings
 	StringMgr::Init(hinstInst);
 
-	// DEBUG: Message Box
-	MessageBoxW(NULL, StringMgr::Get()->GetString(R_DEBUG_MSG), StringMgr::Get()->GetString(R_TITLE), MB_OK);
-
 	// Initialize GDI+
 	Gdiplus::GdiplusStartup(&stGdiPlusI.lpToken, &stGdiPlusI.gdiplusStartupInput, NULL);
 

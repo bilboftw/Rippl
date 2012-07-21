@@ -219,7 +219,7 @@ END
 //
 
 R_PNG_SPLASH_MAIN_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_main_logo.png"
-R_SPLASH_NTGA_LOGO      PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_ntga_logo.png"
+R_PNG_SPLASH_NTGA_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_ntga_logo.png"
 R_PNG_SPLASH_CONBAR     PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_con_bar.png"
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////

@@ -33,7 +33,7 @@ static Gdiplus::ColorMatrix ClrMatrix = {
 	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
 	0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
 	0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-	0.0f, 0.0f, 0.0f, 0.5f, 0.0f,
+	0.0f, 0.0f, 0.0f, 1.0f, 0.0f,
 	0.0f, 0.0f, 0.0f, 0.0f, 1.0f
 };
 
@@ -95,6 +95,9 @@ void Splash::Show()
 	Tween* tMainFade = new Tween(300, 0, &rTweenCB, LINEAR);
 	tMainFade->uArg.iInt = SPLASHANIM_FADE;
 
+	Tween* tCooloff = new Tween(800, 300, &rTweenCB, EIN);
+	tCooloff->uArg.iInt = SPLASHANIM_COOLOFF;
+
 	Tween* tSplit = new Tween(700, 500, &rTweenCB, INOUT);
 	tSplit->uArg.iInt = SPLASHANIM_SPLIT;
 
@@ -113,14 +116,19 @@ void Splash::Show()
 	Tween* tConFade = new Tween(500, 1650, &rTweenCB, LINEAR);
 	tConFade->uArg.iInt = SPLASHANIM_CONFADE;
 
+	Tween* tNatFade = new Tween(600, 1800, &rTweenCB, LINEAR);
+	tNatFade->uArg.iInt = SPLASHANIM_NATFADE;
+
 	// Send them on their way
 	TweenEngine::Get()->Add(tMainFade);
+	TweenEngine::Get()->Add(tCooloff);
 	TweenEngine::Get()->Add(tSplit);
 	TweenEngine::Get()->Add(tTitleFade);
 	TweenEngine::Get()->Add(tStudioFade);
 	TweenEngine::Get()->Add(tVerNameFade);
 	TweenEngine::Get()->Add(tVerFade);
 	TweenEngine::Get()->Add(tConFade);
+	TweenEngine::Get()->Add(tNatFade);
 }
 
 void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
@@ -138,6 +146,30 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 		case SPLASHANIM_FADE:
 			// Set alpha of main logo
 			s->_pngMainLogo->fAlpha = (float)lpTween->dEasedValue;
+
+			// 'Heat Up' values
+			//		Red
+			ClrMatrix.m[0][1] = (float)lpTween->dEasedValue;
+			ClrMatrix.m[0][2] = (float)lpTween->dEasedValue;
+			//		Green
+			ClrMatrix.m[1][0] = (float)lpTween->dEasedValue;
+			ClrMatrix.m[1][2] = (float)lpTween->dEasedValue;
+			//		Blue
+			ClrMatrix.m[2][0] = (float)lpTween->dEasedValue;
+			ClrMatrix.m[2][1] = (float)lpTween->dEasedValue;
+
+			break;
+		case SPLASHANIM_COOLOFF:
+			// 'Heat Up' values
+			//		Red
+			ClrMatrix.m[0][1] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrix.m[0][2] = 1.0f - (float)lpTween->dEasedValue;
+			//		Green
+			ClrMatrix.m[1][0] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrix.m[1][2] = 1.0f - (float)lpTween->dEasedValue;
+			//		Blue
+			ClrMatrix.m[2][0] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrix.m[2][1] = 1.0f - (float)lpTween->dEasedValue;
 			break;
 		case SPLASHANIM_SPLIT:
 			// Set main logo X
@@ -167,6 +199,10 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 		case SPLASHANIM_CONFADE:
 			// Set alpha
 			s->_otpText.cAlpha = (unsigned char)(lpTween->dEasedValue * 255);
+			break;
+		case SPLASHANIM_NATFADE:
+			// Set alpha
+			s->_pngNtgaLogo->fAlpha = (float)(lpTween->dEasedValue);
 			break;
 		}
 
@@ -242,6 +278,11 @@ Splash::Splash()
 	// Load PNGs
 	_pngMainLogo = new PNG(R_PNG_SPLASH_MAIN_LOGO);
 	_pngConBar = new PNG(R_PNG_SPLASH_CONBAR);
+	_pngNtgaLogo = new PNG(R_PNG_SPLASH_NTGA_LOGO);
+
+	// Set logo pos
+	_pngNtgaLogo->frcDest->X = 770;
+	_pngNtgaLogo->frcDest->Y = 350;
 
 	// Set up font information
 	_otpTitle.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_TITLE_FONT), NULL);
@@ -393,13 +434,13 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 		// Draw PNGs
 		s->DrawPNG(Get()->_pngConBar);
 		s->DrawPNG(Get()->_pngMainLogo);
+		s->DrawPNG(Get()->_pngNtgaLogo);
 
-		// Draw Graphics/Text
+		// Draw Text
 		s->_oGrphInf.graphics->SetTextRenderingHint(TextRenderingHintAntiAlias);
 		s->DrawString(SGETSTRING(R_TITLE), 430, 211, &s->_otpTitle);
 		s->DrawString(SGETSTRING(R_SPLASH_STUDIO), 554, 190, &s->_otpStudio);
 		s->DrawString(SGETSTRING(VER_1), 845, 192, &s->_otpVerName);
-		
 
 		s->_oGrphInf.graphics->SetTextRenderingHint(TextRenderingHintClearTypeGridFit);
 		s->DrawString(SGETSTRING(VER_N), 843, 188, &s->_otpVer);
@@ -521,6 +562,8 @@ Splash::~Splash()
 
 	// Delete PNG objects
 	delete _pngMainLogo;
+	delete _pngConBar;
+	delete _pngNtgaLogo;
 
 	// Set pointer to NULL
 	Splash::_lpSplash = NULL;
