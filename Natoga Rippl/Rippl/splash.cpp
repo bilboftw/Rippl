@@ -8,7 +8,6 @@
 
 // Includes
 #include <windows.h>
-#include <assert.h>
 #include <GdiPlus.h>
 
 #include "Macros.h"
@@ -99,9 +98,25 @@ void Splash::Show()
 	Tween* tSplit = new Tween(700, 500, &rTweenCB, INOUT);
 	tSplit->uArg.iInt = SPLASHANIM_SPLIT;
 
+	Tween* tTitleFade = new Tween(800, 1300, &rTweenCB, LINEAR);
+	tTitleFade->uArg.iInt = SPLASHANIM_TITLEFADE;
+
+	Tween* tStudioFade = new Tween(800, 1500, &rTweenCB, LINEAR);
+	tStudioFade->uArg.iInt = SPLASHANIM_STUDFADE;
+
+	Tween* tVerNameFade = new Tween(800, 1700, &rTweenCB, LINEAR);
+	tVerNameFade->uArg.iInt = SPLASHANIM_VERNAMEFADE;
+
+	Tween* tVerFade = new Tween(800, 1900, &rTweenCB, LINEAR);
+	tVerFade->uArg.iInt = SPLASHANIM_VERFADE;
+
 	// Send them on their way
 	TweenEngine::Get()->Add(tMainFade);
 	TweenEngine::Get()->Add(tSplit);
+	TweenEngine::Get()->Add(tTitleFade);
+	TweenEngine::Get()->Add(tStudioFade);
+	TweenEngine::Get()->Add(tVerNameFade);
+	TweenEngine::Get()->Add(tVerFade);
 }
 
 void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
@@ -128,6 +143,22 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 			// Set con bar src X
 			s->_pngConBar->frcDest->X = s->_pngMainLogo->frcDest->X + 236;
 			s->_pngConBar->frcSrc->X = s->_pngConBar->frcSrc->Width - (s->_pngConBar->frcSrc->Width * (float)lpTween->dEasedValue);
+			break;
+		case SPLASHANIM_TITLEFADE:
+			// Set alpha
+			s->_otpTitle.cAlpha = (unsigned char)(lpTween->dEasedValue * 255);
+			break;
+		case SPLASHANIM_STUDFADE:
+			// Set alpha
+			s->_otpStudio.cAlpha = (unsigned char)(lpTween->dEasedValue * 255);
+			break;
+		case SPLASHANIM_VERNAMEFADE:
+			// Set alpha
+			s->_otpVerName.cAlpha = (unsigned char)(lpTween->dEasedValue * 255);
+			break;
+		case SPLASHANIM_VERFADE:
+			// Set alpha
+			s->_otpVer.cAlpha = (unsigned char)(lpTween->dEasedValue * 255);
 			break;
 		}
 
@@ -181,13 +212,48 @@ Splash::Splash()
 	_ssState = SPLASH_HIDDEN;
 	_ssAnimState = SPLASHANIM_FADE;
 
+	// Load Fonts
+	if(AddFontResourceExW(StringMgr::Get()->GetString(R_SPLASH_TITLE_FONT_FILENAME), FR_PRIVATE, 0) == 0)
+	{
+		// Log and break
+		LOGW("Could not load rezland font!");
+		assert(false);
+	}
+
 	// Load PNGs
 	_pngMainLogo = new PNG(R_PNG_SPLASH_MAIN_LOGO);
 	_pngConBar = new PNG(R_PNG_SPLASH_CONBAR);
 
-	// Check
-	if(_pngMainLogo == NULL)
-		LOGW("Could not load bitmap file: %u", GetLastError());
+	// Set up font information
+	_otpTitle.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_TITLE_FONT), NULL);
+	_otpTitle.fntFont = new Font(_otpTitle.ffFontFam, 72.0f, FontStyleRegular, UnitPixel);
+	_otpTitle.brshBrush = new SolidBrush(Color(255, 231, 162, 0));
+	_otpTitle.cAlpha = 0;
+	_otpTitle.sfFormat = new StringFormat(0, LANG_NEUTRAL);
+	_otpTitle.sfFormat->SetLineAlignment(StringAlignmentFar);
+
+	_otpStudio.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpStudio.fntFont = new Font(_otpStudio.ffFontFam, 14.0f, FontStyleRegular, UnitPixel);
+	_otpStudio.brshBrush = new SolidBrush(Color(255, 170, 119, 0));
+	_otpStudio.cAlpha = 0;
+	_otpStudio.sfFormat = new StringFormat(0, LANG_NEUTRAL);
+	_otpStudio.sfFormat->SetLineAlignment(StringAlignmentFar);
+
+	_otpVerName.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpVerName.fntFont = new Font(_otpVerName.ffFontFam, 18.0f, FontStyleRegular, UnitPixel);
+	_otpVerName.brshBrush = new SolidBrush(Color(255, 99, 99, 99));
+	_otpVerName.cAlpha = 0;
+	_otpVerName.sfFormat = new StringFormat(0, LANG_NEUTRAL);
+	_otpVerName.sfFormat->SetAlignment(StringAlignmentFar);
+	_otpVerName.sfFormat->SetLineAlignment(StringAlignmentFar);
+
+	_otpVer.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpVer.fntFont = new Font(_otpVer.ffFontFam, 9.0f, FontStyleRegular, UnitPixel);
+	_otpVer.brshBrush = new SolidBrush(Color(255, 99, 99, 99));
+	_otpVer.cAlpha = 0;
+	_otpVer.sfFormat = new StringFormat(0, LANG_NEUTRAL);
+	_otpVer.sfFormat->SetLineAlignment(StringAlignmentFar);
+	
 
 	// Set up class
 	_wcWClass.cbSize = sizeof(WNDCLASSEX);
@@ -202,7 +268,7 @@ Splash::Splash()
 	_wcWClass.lpszClassName = "RSplashScreen";
 	_wcWClass.lpszMenuName = "MainMenu";
 	_wcWClass.hIconSm = NULL;
-
+	
 	// Register Class
 	_atomWinAtom = RegisterClassEx(&_wcWClass);
 
@@ -273,6 +339,7 @@ Splash::Splash()
 	_oGrphInf.hBmpOld = (HBITMAP)SelectObject(_oGrphInf.hdcMem, _oGrphInf.hBmp);
 	_oGrphInf.graphics = new Gdiplus::Graphics(_oGrphInf.hdcMem);
 
+	_oGrphInf.graphics->SetTextRenderingHint(TextRenderingHintAntiAlias);
 	_oGrphInf.graphics->SetSmoothingMode((Gdiplus::SmoothingMode)0x04); // SmoothingModeAntiAlias8x4
 
 	memset(&_oGrphInf.blend, 0, sizeof(_oGrphInf.blend));
@@ -302,6 +369,12 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 		s->DrawPNG(Get()->_pngConBar);
 		s->DrawPNG(Get()->_pngMainLogo);
 
+		// Draw Text
+		s->DrawString(R_TITLE, 430, 211, &s->_otpTitle);
+		s->DrawString(R_SPLASH_STUDIO, 554, 190, &s->_otpStudio);
+		s->DrawString(VER_1, 845, 192, &s->_otpVerName);
+		s->DrawString(VER_N, 843, 189, &s->_otpVer);
+
 		// Call UpdateLayeredWindow
 		UpdateLayeredWindow(s->_hwndWindow, s->_oGrphInf.hdcScreen, NULL, &s->_oGrphInf.szSize, s->_oGrphInf.hdcMem, &s->_oGrphInf.ptSrcPos, 0, &s->_oGrphInf.blend, ULW_ALPHA);
 
@@ -311,6 +384,37 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 
 	// Return 
 	return 0;
+}
+
+void Splash::DrawString(UINT sid, float x, float y, RSPL_TEXT_PROPS* prop)
+{
+	// Check alpha
+	if(prop->cAlpha == 0)
+		return;
+
+	// Get string
+	const wchar_t* str = StringMgr::Get()->GetString(sid);
+
+	// Get length
+	int len = (int)wcslen(str);
+	
+	// Setup point
+	PointF pos(x, y);
+
+	// Set alpha
+	Color col;
+	prop->brshBrush->GetColor(&col);
+	Color ncol(prop->cAlpha, col.GetR(), col.GetG(), col.GetB());
+	prop->brshBrush->SetColor(ncol);
+
+	// Draw
+	_oGrphInf.graphics->DrawString(str, len, prop->fntFont, pos, prop->sfFormat, prop->brshBrush);
+
+	// Flush
+	_oGrphInf.graphics->Flush();
+
+	// Release string
+	LocalFree((LPVOID)str);
 }
 
 LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -341,7 +445,7 @@ void Splash::DrawPNG(PNG* lpPNG)
 	
 	// Draw
 	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), *lpPNG->frcDest, lpPNG->frcSrc->X, lpPNG->frcSrc->Y, lpPNG->frcSrc->Width, lpPNG->frcSrc->Height, Gdiplus::UnitPixel, &iaAttr);
-	_oGrphInf.graphics->Flush(); // If this doesn't work, try putting this in the thread EP
+	_oGrphInf.graphics->Flush();
 }
 
 Splash::~Splash()
@@ -355,6 +459,17 @@ Splash::~Splash()
 	DeleteObject(_oGrphInf.hBmp);
 	DeleteDC(_oGrphInf.hdcMem);
 	ReleaseDC(NULL, _oGrphInf.hdcScreen);
+
+	// Delete font information
+	delete _otpTitle.brshBrush;
+	delete _otpTitle.ffFontFam;
+	delete _otpTitle.fntFont;
+	delete _otpTitle.sfFormat;
+
+	delete _otpStudio.brshBrush;
+	delete _otpStudio.ffFontFam;
+	delete _otpStudio.fntFont;
+	delete _otpStudio.sfFormat;
 
 	// Delete PNG objects
 	delete _pngMainLogo;

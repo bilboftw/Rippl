@@ -30,7 +30,9 @@ typedef enum
 	SPLASHANIM_FADE,		// The logo fades in
 	SPLASHANIM_SPLIT,		// The logo slides left and reveals the 'console bar'
 	SPLASHANIM_TITLEFADE,	// The rippl title fades in
-	SPLASHANIM_VERFADE,		// The version name/number fades in
+	SPLASHANIM_STUDFADE,	// Studio text fade
+	SPLASHANIM_VERNAMEFADE,	// The version name fades in
+	SPLASHANIM_VERFADE,		// The version number fades in
 	SPLASHANIM_CONFADE,		// The default console text fades in
 	SPLASHANIM_NATFADE		// The Natoga logo fades in
 } R_SPLASH_ANIM_STATE;
@@ -55,7 +57,17 @@ protected:
 	static LRESULT CALLBACK			SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam);
 	static DWORD					SplashGraphicsDrawEP(PVOID arg);
 
+									struct RSPL_TEXT_PROPS
+									{
+										FontFamily* ffFontFam;
+										Font* fntFont;
+										SolidBrush* brshBrush;
+										unsigned char cAlpha;
+										StringFormat* sfFormat;
+									} _otpTitle, _otpStudio, _otpVer, _otpVerName, _otpText;
+
 	void							DrawPNG(PNG* lpPNG);
+	void							DrawString(UINT id, float x, float y, RSPL_TEXT_PROPS* prop);
 
 	HANDLE							hDrawThread;
 

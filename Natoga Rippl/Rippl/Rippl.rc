@@ -29,15 +29,6 @@ LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_ICON1               ICON                    "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Icon\\Rippl.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// PNG
-//
-
-R_PNG_SPLASH_NTGA_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_ntga_logo.png"
-R_PNG_SPLASH_CONBAR     PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_con_bar.png"
-R_PNG_SPLASH_MAIN_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_main_logo.png"
 #endif    // Neutral resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -165,6 +156,19 @@ BEGIN
     R_DEBUG_MSG             "This is a test debug message!"
     R_TITLE                 "Rippl"
     R_SPLASH_TITLE          "Rippl Splash"
+    R_SPLASH_TITLE_FONT_FILENAME "system/font/rezland.ttf"
+    R_SPLASH_TITLE_FONT     "REZ"
+    R_SPLASH_AUX_FONT       "Arial"
+    R_SPLASH_STUDIO         "STUDIO"
+    VER_1                   "isicus"
+END
+
+STRINGTABLE 
+BEGIN
+    VER_2                   "stema"
+    VER_3                   "shadar"
+    VER_4                   "crystilis"
+    VER_N                   "v1.0.0"
 END
 
 #endif    // English (Neutral) resources
@@ -205,6 +209,15 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+R_PNG_SPLASH_MAIN_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_main_logo.png"
+R_SPLASH_NTGA_LOGO      PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_ntga_logo.png"
+R_PNG_SPLASH_CONBAR     PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_con_bar.png"
 #endif    // English (U.S.) resources
 /////////////////////////////////////////////////////////////////////////////
 
