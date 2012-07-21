@@ -71,6 +71,12 @@ void Splash::HideWait()
 
 void Splash::Show()
 {
+	// Check state
+	if(_ssState != SPLASH_HIDDEN) return;
+
+	// Set state
+	_ssState = SPLASH_SHOWING;
+
 	// Show the window
 	ShowWindowAsync(_hwndWindow, SW_SHOWNORMAL);
 
@@ -78,10 +84,11 @@ void Splash::Show()
 	UpdateWindow(_hwndWindow);
 
 	// Setup Tween information
-	SetupShowTweenInfo();
+	Tween* tMainFade = new Tween(600, 0, &rTweenCB, EOUT);
+	tMainFade->uArg.iInt = SPLASHANIM_FADE;
 
 	// Send them on their way
-	TweenEngine::Get()->Add(_twnFade);
+	TweenEngine::Get()->Add(tMainFade);
 }
 
 void Splash::ShowWait()
@@ -99,21 +106,31 @@ void Splash::UpdateStatus(const char* szString)
 
 void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 {
-	// If we've made a nominal progress...
-	if(code == PROGRESS)
+	// Switch callback type
+	switch(code)
 	{
-		Get()->_pngMainLogo->fAlpha = (float)lpTween->dEasedValue;
-		Get()->_pngMainLogo->frcDest->X = (float)(100 * lpTween->dEasedValue);
-	}
-}
+	case PROGRESS:
+		// Switch stage
+		switch(lpTween->uArg.iInt)
+		{
+		case SPLASHANIM_FADE:
+			// Set alpha of main logo
+			Get()->_pngMainLogo->fAlpha = (float)lpTween->dEasedValue;
+			break;
+		}
 
-void Splash::SetupShowTweenInfo()
-{
-	// Create tween objects
-	_twnFade = new Tween();
-	_twnFade->dDelay = 1000;
-	_twnFade->dDuration = 1000;
-	_twnFade->cbOnEvent = &rTweenCB;
+		// Break
+		break;
+	case FINISH:
+		// Check if it's the last fade
+		if(Get()->_ssState == SPLASH_SHOWING && lpTween->uArg.iInt == SPLASHANIM_NATFADE)
+			// Set state
+			Get()->_ssState = SPLASH_VISIBLE;
+		else if(Get()->_ssState == SPLASH_HIDING && lpTween->uArg.iInt == SPLASHANIM_FADE)
+			// Set state
+			Get()->_ssState = SPLASH_HIDDEN;
+		break;
+	}
 }
 
 Splash::Splash()
@@ -128,7 +145,6 @@ Splash::Splash()
 	// Check
 	if(_pngMainLogo == NULL)
 		LOGW("Could not load bitmap file: %u", GetLastError());
-
 
 	// Set up class
 	_wcWClass.cbSize = sizeof(WNDCLASSEX);

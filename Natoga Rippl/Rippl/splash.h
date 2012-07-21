@@ -5,7 +5,7 @@
 #define splash_h__
 
 // Define FPS
-#define R_SPLASH_DRAW_FPS 60
+#define R_SPLASH_DRAW_FPS 100
 
 // Includes
 #include <windows.h>
@@ -67,8 +67,6 @@ protected:
 	ATOM							_atomWinAtom;
 	RECT							_rcSize;
 
-	Tween*							_twnFade;
-
 	PNG*							_pngMainLogo;
 
 									struct RSPL_GRAPHICS_INFO
@@ -84,8 +82,6 @@ protected:
 									} _oGrphInf;
 private:
 	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
-
-	void							SetupShowTweenInfo();
 
 	Splash();
 	~Splash();

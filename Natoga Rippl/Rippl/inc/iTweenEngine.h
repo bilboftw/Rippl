@@ -5,7 +5,7 @@
 #define iTweenEngine_h__
 
 // Define FPS
-#define R_TWEEN_ENGINE_FPS 100
+#define R_TWEEN_ENGINE_FPS 200
 
 // Forward Delcare Tween Class
 class Tween;
@@ -43,7 +43,7 @@ public:
 
 	union
 	{
-		long void* lpVoid;
+		void* lpVoid;
 		long int iInt;
 	} uArg;
 
