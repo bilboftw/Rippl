@@ -90,7 +90,7 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 	// If we've made a nominal progress...
 	if(code == PROGRESS)
 	{
-		
+		Get()->DrawPNG(Get()->_pngMainLogo, (int)(100 * ((double)lpTween->cEasedValue / 255)), 0);
 	}
 }
 
@@ -158,18 +158,8 @@ Splash::Splash()
 	int wy = (winInf.rcWindow.bottom / 2) - (_rcSize.bottom / 2);
 
 	// Set up window's bitmap drawing information
-	memset(&_oGrphInf.bmpWinInformation, 0, sizeof(_oGrphInf.bmpWinInformation));
-	_oGrphInf.bmpWinInformation.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-	_oGrphInf.bmpWinInformation.bmiHeader.biWidth = _rcSize.right;
-	_oGrphInf.bmpWinInformation.bmiHeader.biHeight = -(_rcSize.bottom);
-	_oGrphInf.bmpWinInformation.bmiHeader.biPlanes = 1;
-	_oGrphInf.bmpWinInformation.bmiHeader.biBitCount = 32;
-	_oGrphInf.bmpWinInformation.bmiHeader.biCompression = BI_RGB;
-	_oGrphInf.bmpWinInformation.bmiHeader.biSizeImage = 0;
-	_oGrphInf.bmpWinInformation.bmiHeader.biXPelsPerMeter = 0;
-	_oGrphInf.bmpWinInformation.bmiHeader.biYPelsPerMeter = 0;
-	_oGrphInf.bmpWinInformation.bmiHeader.biClrImportant = 0;
-	_oGrphInf.bmpWinInformation.bmiHeader.biClrUsed = 0;
+	_oGrphInf.szSize.cx = _rcSize.right;
+	_oGrphInf.szSize.cy = _rcSize.bottom;
 
 	// Log
 	LOGD("Spawning window at %u %u", wx, wy);
@@ -203,16 +193,6 @@ Splash::Splash()
 		InvalidateRect(_hwndWindow, &_rcSize, TRUE);
 	}
 
-	// Create DC
-	_oGrphInf.canvasHDC = GetDC(_hwndWindow);
-
-	// Create drawing 'canvas'
-	_oGrphInf.lpBits = NULL;
-	_oGrphInf.bmpCanvas = CreateDIBSection(_oGrphInf.canvasHDC, &_oGrphInf.bmpWinInformation, DIB_RGB_COLORS, &_oGrphInf.lpBits, NULL, 0);
-
-	// Create graphics object
-	_oGrphInf.graphics = new Gdiplus::Graphics(_oGrphInf.canvasHDC);
-
 	// Attempt to draw
 	DrawPNG(_pngMainLogo, 0, 0);
 }
@@ -235,41 +215,36 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 
 void Splash::DrawPNG(PNG* lpPNG, int x, int y)
 {
-	LOGD("Drawing bitmap!");
-	
-	HDC hdcMem = CreateCompatibleDC(_oGrphInf.canvasHDC);
+	// Create HDC objects
+	HDC hdcScreen = GetDC(NULL);
+	HDC hdcMem = CreateCompatibleDC(hdcScreen);
 
-	// Select
-	HBITMAP bmpOld = (HBITMAP)SelectObject(hdcMem, _oGrphInf.bmpCanvas);
+	// Create HBITMAP handles
+	HBITMAP hBmp = CreateCompatibleBitmap(hdcScreen, _oGrphInf.szSize.cx, _oGrphInf.szSize.cy);
+	HBITMAP hBmpOld = (HBITMAP)SelectObject(hdcMem, hBmp);
 
-	Gdiplus::Color trans(0, 0, 0, 0);
-	_oGrphInf.graphics->Clear(trans);
+	// Draw
+	Gdiplus::Graphics* g = new Gdiplus::Graphics(hdcMem); // If this doesn't work, try hdcScreen
+	Gdiplus::Color col(0, 0, 0, 0);
+	g->Clear(col);
+	g->DrawImage(lpPNG->GetImage(), x, y);
+	g->Flush();
 
-	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), x, y);
-
-	_oGrphInf.graphics->Flush();
-
-	SIZE szSize = {_oGrphInf.bmpWinInformation.bmiHeader.biWidth, _oGrphInf.bmpWinInformation.bmiHeader.biHeight};
-
-	// Setup drawing location
-	POINT ptLoc = {0, 0};
-	POINT ptSrc = {0, 0};
-
-	// Set up alpha blending
+	// Call UpdateLayeredWindow
 	BLENDFUNCTION blend = {0};
 	blend.BlendOp = AC_SRC_OVER;
 	blend.SourceConstantAlpha = 255;
 	blend.AlphaFormat = AC_SRC_ALPHA;
-	blend.BlendFlags = 0;
-	
-	// Update
-	if(UpdateLayeredWindow(_hwndWindow, _oGrphInf.canvasHDC, NULL, NULL, hdcMem, &ptLoc, RGB(0, 0, 0), &blend, ULW_ALPHA) == FALSE)
-		LOGE("Could not update layered window: %u", GetLastError());
+	POINT ptPos = {0, 0};
+	POINT ptSrc = {0, 0};
 
-	// Delete temp objects
-	SelectObject(hdcMem, bmpOld);
-	DeleteObject(hdcMem);
+	UpdateLayeredWindow(_hwndWindow, hdcScreen, NULL, &_oGrphInf.szSize, hdcMem, &ptSrc, 0, &blend, ULW_ALPHA);
+
+	// Clean up
+	SelectObject(hdcMem, hBmpOld);
+	DeleteObject(hBmp);
 	DeleteDC(hdcMem);
+	ReleaseDC(NULL, hdcScreen);
 }
 
 Splash::~Splash()

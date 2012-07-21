@@ -67,7 +67,7 @@ protected:
 
 									struct RSPL_GRAPHICS_INFO
 									{
-										BITMAPINFO						bmpWinInformation;
+										SIZE							szSize;
 										Gdiplus::Graphics*				graphics;
 										void*							lpBits;
 										HDC								canvasHDC;
