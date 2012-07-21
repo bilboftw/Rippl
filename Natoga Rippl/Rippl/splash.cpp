@@ -479,7 +479,7 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 		s->_oGrphInf.graphics->SetTextRenderingHint(TextRenderingHintAntiAlias);
 		s->DrawString(SGETSTRING(R_TITLE), 430, 211, &s->_otpTitle);
 		s->DrawString(SGETSTRING(R_SPLASH_STUDIO), 554, 190, &s->_otpStudio);
-		s->DrawString(SGETSTRING(VER_1), 845, 192, &s->_otpVerName);
+		s->DrawString(SGETSTRING(VER), 845, 192, &s->_otpVerName);
 
 		s->_oGrphInf.graphics->SetTextRenderingHint(TextRenderingHintClearTypeGridFit);
 		s->DrawString(SGETSTRING(VER_N), 843, 188, &s->_otpVer);

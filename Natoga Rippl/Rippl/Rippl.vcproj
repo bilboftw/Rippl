@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="9.00"
-	Name="Natoga Rippl"
+	Name="Rippl"
 	ProjectGUID="{ACF994A3-BBCF-44D4-A783-D5E176B9771F}"
 	RootNamespace="Rippl"
 	Keyword="Win32Proj"
@@ -325,6 +325,10 @@
 				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath="..\..\Art\Icon\bitmap1.bmp"
+			>
+		</File>
 		<File
 			RelativePath="..\..\Art\Splash\Cut\r_ntga_logo.png"
 			>
