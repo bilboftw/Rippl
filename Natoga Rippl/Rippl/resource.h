@@ -17,6 +17,10 @@
 #define VER_3                           114
 #define VER_4                           116
 #define VER_N                           119
+#define R_LICENSE                       120
+#define R_SPLASH_MSG_LOADING            122
+#define R_SPLASH_COPY                   123
+#define R_COPYRIGHT                     123
 #define R_PNG_SPLASH_CONBAR             65535
 
 // Next default values for new objects

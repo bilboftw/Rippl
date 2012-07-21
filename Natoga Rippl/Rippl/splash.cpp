@@ -98,17 +98,20 @@ void Splash::Show()
 	Tween* tSplit = new Tween(700, 500, &rTweenCB, INOUT);
 	tSplit->uArg.iInt = SPLASHANIM_SPLIT;
 
-	Tween* tTitleFade = new Tween(800, 1300, &rTweenCB, LINEAR);
+	Tween* tTitleFade = new Tween(500, 1250, &rTweenCB, LINEAR);
 	tTitleFade->uArg.iInt = SPLASHANIM_TITLEFADE;
 
-	Tween* tStudioFade = new Tween(800, 1500, &rTweenCB, LINEAR);
+	Tween* tStudioFade = new Tween(500, 1350, &rTweenCB, LINEAR);
 	tStudioFade->uArg.iInt = SPLASHANIM_STUDFADE;
 
-	Tween* tVerNameFade = new Tween(800, 1700, &rTweenCB, LINEAR);
+	Tween* tVerNameFade = new Tween(500, 1450, &rTweenCB, LINEAR);
 	tVerNameFade->uArg.iInt = SPLASHANIM_VERNAMEFADE;
 
-	Tween* tVerFade = new Tween(800, 1900, &rTweenCB, LINEAR);
+	Tween* tVerFade = new Tween(500, 1550, &rTweenCB, LINEAR);
 	tVerFade->uArg.iInt = SPLASHANIM_VERFADE;
+
+	Tween* tConFade = new Tween(500, 1650, &rTweenCB, LINEAR);
+	tConFade->uArg.iInt = SPLASHANIM_CONFADE;
 
 	// Send them on their way
 	TweenEngine::Get()->Add(tMainFade);
@@ -117,6 +120,7 @@ void Splash::Show()
 	TweenEngine::Get()->Add(tStudioFade);
 	TweenEngine::Get()->Add(tVerNameFade);
 	TweenEngine::Get()->Add(tVerFade);
+	TweenEngine::Get()->Add(tConFade);
 }
 
 void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
@@ -160,6 +164,10 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 			// Set alpha
 			s->_otpVer.cAlpha = (unsigned char)(lpTween->dEasedValue * 255);
 			break;
+		case SPLASHANIM_CONFADE:
+			// Set alpha
+			s->_otpText.cAlpha = (unsigned char)(lpTween->dEasedValue * 255);
+			break;
 		}
 
 		// Break
@@ -201,9 +209,19 @@ void Splash::HideWait()
 	// TODO: Wait
 }
 
-void Splash::UpdateStatus(const char* szString)
+/**
+ * NOTE: ALWAYS USE A STRING FORMATTED WITH FORMATSTRINGW!!!!
+ *	This frees the local buffer, which doesn't exist if a static string
+ *	is used!
+ */
+void Splash::UpdateStatus(const wchar_t* szString)
 {
-	
+	// Free buffer if not NULL
+	if(_wcsStatus != NULL)
+		LocalFree(_wcsStatus);
+
+	// Set buffer
+	_wcsStatus = const_cast<wchar_t*>(szString);
 }
 
 Splash::Splash()
@@ -211,6 +229,7 @@ Splash::Splash()
 	// Set initial states
 	_ssState = SPLASH_HIDDEN;
 	_ssAnimState = SPLASHANIM_FADE;
+	_wcsStatus = const_cast<wchar_t*>(SGETSTRING(R_SPLASH_MSG_LOADING));
 
 	// Load Fonts
 	if(AddFontResourceExW(StringMgr::Get()->GetString(R_SPLASH_TITLE_FONT_FILENAME), FR_PRIVATE, 0) == 0)
@@ -241,7 +260,7 @@ Splash::Splash()
 
 	_otpVerName.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
 	_otpVerName.fntFont = new Font(_otpVerName.ffFontFam, 18.0f, FontStyleRegular, UnitPixel);
-	_otpVerName.brshBrush = new SolidBrush(Color(255, 99, 99, 99));
+	_otpVerName.brshBrush = new SolidBrush(Color(255, 110, 110, 110));
 	_otpVerName.cAlpha = 0;
 	_otpVerName.sfFormat = new StringFormat(0, LANG_NEUTRAL);
 	_otpVerName.sfFormat->SetAlignment(StringAlignmentFar);
@@ -249,10 +268,16 @@ Splash::Splash()
 
 	_otpVer.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
 	_otpVer.fntFont = new Font(_otpVer.ffFontFam, 9.0f, FontStyleRegular, UnitPixel);
-	_otpVer.brshBrush = new SolidBrush(Color(255, 99, 99, 99));
+	_otpVer.brshBrush = new SolidBrush(Color(255, 110, 110, 110));
 	_otpVer.cAlpha = 0;
 	_otpVer.sfFormat = new StringFormat(0, LANG_NEUTRAL);
 	_otpVer.sfFormat->SetLineAlignment(StringAlignmentFar);
+	
+	_otpText.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpText.fntFont = new Font(_otpText.ffFontFam, 11.0f, FontStyleRegular, UnitPixel);
+	_otpText.brshBrush = new SolidBrush(Color(255, 151, 150, 150));
+	_otpText.cAlpha = 0;
+	_otpText.sfFormat = new StringFormat(0, LANG_NEUTRAL);
 	
 
 	// Set up class
@@ -369,11 +394,18 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 		s->DrawPNG(Get()->_pngConBar);
 		s->DrawPNG(Get()->_pngMainLogo);
 
-		// Draw Text
-		s->DrawString(R_TITLE, 430, 211, &s->_otpTitle);
-		s->DrawString(R_SPLASH_STUDIO, 554, 190, &s->_otpStudio);
-		s->DrawString(VER_1, 845, 192, &s->_otpVerName);
-		s->DrawString(VER_N, 843, 189, &s->_otpVer);
+		// Draw Graphics/Text
+		s->_oGrphInf.graphics->SetTextRenderingHint(TextRenderingHintAntiAlias);
+		s->DrawString(SGETSTRING(R_TITLE), 430, 211, &s->_otpTitle);
+		s->DrawString(SGETSTRING(R_SPLASH_STUDIO), 554, 190, &s->_otpStudio);
+		s->DrawString(SGETSTRING(VER_1), 845, 192, &s->_otpVerName);
+		
+
+		s->_oGrphInf.graphics->SetTextRenderingHint(TextRenderingHintClearTypeGridFit);
+		s->DrawString(SGETSTRING(VER_N), 843, 188, &s->_otpVer);
+		s->DrawString(SGETSTRING(R_LICENSE, L"Qix"), 434, 210, &s->_otpText);
+		s->DrawString(s->_wcsStatus, 434, 250, &s->_otpText, false);
+		s->DrawString(SGETSTRING(R_COPYRIGHT), 434, 320, &s->_otpText);
 
 		// Call UpdateLayeredWindow
 		UpdateLayeredWindow(s->_hwndWindow, s->_oGrphInf.hdcScreen, NULL, &s->_oGrphInf.szSize, s->_oGrphInf.hdcMem, &s->_oGrphInf.ptSrcPos, 0, &s->_oGrphInf.blend, ULW_ALPHA);
@@ -386,14 +418,11 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 	return 0;
 }
 
-void Splash::DrawString(UINT sid, float x, float y, RSPL_TEXT_PROPS* prop)
+void Splash::DrawString(const wchar_t* str, float x, float y, RSPL_TEXT_PROPS* prop, bool bFree)
 {
 	// Check alpha
 	if(prop->cAlpha == 0)
 		return;
-
-	// Get string
-	const wchar_t* str = StringMgr::Get()->GetString(sid);
 
 	// Get length
 	int len = (int)wcslen(str);
@@ -413,8 +442,9 @@ void Splash::DrawString(UINT sid, float x, float y, RSPL_TEXT_PROPS* prop)
 	// Flush
 	_oGrphInf.graphics->Flush();
 
-	// Release string
-	LocalFree((LPVOID)str);
+	// Release string if needed
+	if(bFree)
+		LocalFree((LPVOID)str);
 }
 
 LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
@@ -470,6 +500,24 @@ Splash::~Splash()
 	delete _otpStudio.ffFontFam;
 	delete _otpStudio.fntFont;
 	delete _otpStudio.sfFormat;
+
+	delete _otpText.brshBrush;
+	delete _otpText.ffFontFam;
+	delete _otpText.fntFont;
+	delete _otpText.sfFormat;
+
+	delete _otpVer.brshBrush;
+	delete _otpVer.ffFontFam;
+	delete _otpVer.fntFont;
+	delete _otpVer.sfFormat;
+
+	delete _otpVerName.brshBrush;
+	delete _otpVerName.ffFontFam;
+	delete _otpVerName.fntFont;
+	delete _otpVerName.sfFormat;
+
+	// Free status buffer
+	LocalFree(_wcsStatus);
 
 	// Delete PNG objects
 	delete _pngMainLogo;

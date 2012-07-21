@@ -9,6 +9,9 @@
 
 #include "iStringMgr.h"
 
+// Macro Def
+#define SGETSTRING(id, ...) StringMgr::Get()->GetString(id, __VA_ARGS__)
+
 // String Manager Class Definition
 class StringMgr : public iStringMgr
 {

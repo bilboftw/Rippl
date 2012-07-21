@@ -169,6 +169,9 @@ BEGIN
     VER_3                   "shadar"
     VER_4                   "crystilis"
     VER_N                   "v1.0.0"
+    R_LICENSE               "Licensed to %1"
+    R_SPLASH_MSG_LOADING    "Loading..."
+    R_COPYRIGHT             "Copyright © 2012 Natoga Technologies, Inc. All Rights Reserved."
 END
 
 #endif    // English (Neutral) resources

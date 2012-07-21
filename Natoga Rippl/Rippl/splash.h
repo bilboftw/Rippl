@@ -49,7 +49,7 @@ public:
 	void							ShowWait();
 	void							Hide();
 	void							HideWait();
-	void							UpdateStatus(const char* szString);
+	void							UpdateStatus(const wchar_t* szString);
 
 protected:
 	static Splash*					_lpSplash;
@@ -67,7 +67,7 @@ protected:
 									} _otpTitle, _otpStudio, _otpVer, _otpVerName, _otpText;
 
 	void							DrawPNG(PNG* lpPNG);
-	void							DrawString(UINT id, float x, float y, RSPL_TEXT_PROPS* prop);
+	void							DrawString(const wchar_t* str, float x, float y, RSPL_TEXT_PROPS* prop, bool bFree = true);
 
 	HANDLE							hDrawThread;
 
@@ -82,6 +82,7 @@ protected:
 	PNG*							_pngMainLogo;
 	PNG*							_pngConBar;
 
+	wchar_t*						_wcsStatus;
 									struct RSPL_GRAPHICS_INFO
 									{
 										SIZE							szSize;
