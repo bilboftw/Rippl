@@ -13,6 +13,65 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// Neutral resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_NEU)
+#ifdef _WIN32
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+R_PNG_SPLASH_MAIN_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_main_logo.png"
+R_PNG_SPLASH_CONBAR     PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_con_bar.png"
+R_PNG_SPLASH_NTGA_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_ntga_logo.png"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x17L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "FileDescription", "Rippl Application"
+            VALUE "FileVersion", "1, 0, 0, 1"
+            VALUE "InternalName", "Rippl"
+            VALUE "LegalCopyright", "Copyright (C) 2012"
+            VALUE "OriginalFilename", "Rippl.exe"
+            VALUE "ProductName", "Rippl Application"
+            VALUE "ProductVersion", "1, 0, 0, 1"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // Neutral resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // English (U.S.) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
@@ -55,15 +114,6 @@ END
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_ICON1               ICON                    "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Icon\\Rippl.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// PNG
-//
-
-R_PNG_SPLASH_MAIN_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_main_logo.png"
-R_PNG_SPLASH_CONBAR     PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_splash_con_bar.png"
-R_PNG_SPLASH_NTGA_LOGO  PNG                     "C:\\Users\\Administrator\\Documents\\Rippl\\Art\\Splash\\Cut\\r_ntga_logo.png"
 
 /////////////////////////////////////////////////////////////////////////////
 //

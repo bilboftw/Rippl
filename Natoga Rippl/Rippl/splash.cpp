@@ -222,12 +222,12 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 		case SPLASHANIM_L_GLOW:
 			// Warm it!
 			// Green (Crazy how this light stuff works?)
-			ClrMatrixGlow.m[1][0] = 0.4f * (float)(lpTween->dEasedValue);
+			ClrMatrixGlow.m[1][0] = 0.65f * (float)(lpTween->dEasedValue);
 			break;
 		case SPLASHANIM_L_GFADE:
 			// Cool it!
 			// Green (Crazy how this light stuff works?)
-			ClrMatrixGlow.m[1][0] = 0.4f * (1.0f - (float)(lpTween->dEasedValue));
+			ClrMatrixGlow.m[1][0] = 0.65f * (1.0f - (float)(lpTween->dEasedValue));
 			break;
 		}
 
