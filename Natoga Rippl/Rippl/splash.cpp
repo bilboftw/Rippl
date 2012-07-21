@@ -1,6 +1,10 @@
-/************************************************************************/
-/* Splash Screen Implementation                                         */
-/************************************************************************/
+/*****************************************************************************/
+/* Splash Screen Implementation                                              */
+/*   THANK YOU to Marc Gregoire for the only seemingly working               */
+/*   implementation of UpdateLayeredWindow on the internet.                  */
+/*                                                                           */
+/*   http://www.nuonsoft.com/blog/2009/05/27/how-to-use-updatelayeredwindow/ */
+/*****************************************************************************/
 
 // Includes
 #include <windows.h>
