@@ -69,10 +69,131 @@ void Splash::Destroy()
 	delete _lpSplash;
 }
 
+void Splash::rTweenCB_Hide(Tween* lpTween, R_TWEEN_CB_MSG code)
+{
+	// Get splash screen handle
+	Splash* s = Get();
+
+	// Get TweenEngine instance
+	TweenEngine* te = TweenEngine::Get();
+
+	// Switch callback type
+	switch(code)
+	{
+	case PROGRESS:
+		// Switch stage
+		switch(lpTween->uArg.iInt)
+		{
+		case SPLASHANIM_FADE:
+			// Set alpha of main logo
+			s->_pngMainLogo->fAlpha = 1.0f - (float)lpTween->dEasedValue;
+
+			break;
+		case SPLASHANIM_SPLIT:
+			// Set main logo X
+			s->_pngMainLogo->frcDest->X = CENTERF(s->_pngMainLogo->frcDest->Width, s->_oGrphInf.szSize.cx) -
+				((1.0f - (float)lpTween->dEasedValue) * CENTERF(s->_pngMainLogo->frcDest->Width, s->_oGrphInf.szSize.cx));
+
+			// Set con bar src X
+			s->_pngConBar->frcDest->X = s->_pngMainLogo->frcDest->X + 236;
+			s->_pngConBar->frcSrc->X = s->_pngConBar->frcSrc->Width - (s->_pngConBar->frcSrc->Width * (1.0f - (float)lpTween->dEasedValue));
+			break;
+		case SPLASHANIM_TITLEFADE:
+			// Set alpha
+			s->_otpTitle.cAlpha = (unsigned char)((1.0f - (float)lpTween->dEasedValue) * 255);
+			break;
+		case SPLASHANIM_STUDFADE:
+			// Set alpha
+			s->_otpStudio.cAlpha = (unsigned char)((1.0f - (float)lpTween->dEasedValue) * 255);
+			break;
+		case SPLASHANIM_VERNAMEFADE:
+			// Set alpha
+			s->_otpVerName.cAlpha = (unsigned char)((1.0f - (float)lpTween->dEasedValue) * 255);
+			break;
+		case SPLASHANIM_VERFADE:
+			// Set alpha
+			s->_otpVer.cAlpha = (unsigned char)((1.0f - (float)lpTween->dEasedValue) * 255);
+			break;
+		case SPLASHANIM_CONFADE:
+			// Set alpha
+			s->_otpText.cAlpha = (unsigned char)((1.0f - (float)lpTween->dEasedValue) * 255);
+			break;
+		case SPLASHANIM_NATFADE:
+			// Set alpha
+			s->_pngNtgaLogo->fAlpha = (1.0f - (float)lpTween->dEasedValue);
+			break;
+		}
+
+		// Break
+		break;
+	case FINISH:
+		// Switch state
+		switch(lpTween->uArg.iInt)
+		{
+		case SPLASHANIM_SPLIT:
+			// Set conbar alpha to 0.0
+			s->_pngConBar->fAlpha = 0.0f;
+			break;
+		case SPLASHANIM_FADE:
+			// Hide window
+			ShowWindowAsync(s->_hwndWindow, SW_HIDE);
+
+			// Update the window
+			UpdateWindow(s->_hwndWindow);
+
+			// Set state
+			s->_ssState = SPLASH_HIDDEN;
+
+			break;
+		}
+	}
+}
+
 void Splash::Hide()
 {
-	// Hide the window
-	ShowWindowAsync(_hwndWindow, SW_HIDE);
+	// Check state
+	if(_ssState != SPLASH_VISIBLE) return;
+
+	// Log
+	LOGD("Hiding splash screen");
+
+	// Set state
+	_ssState = SPLASH_HIDING;
+
+	// Setup Tween information
+	Tween* tNatFade = new Tween(300, 0, &rTweenCB_Hide, LINEAR);
+	tNatFade->uArg.iInt = SPLASHANIM_NATFADE;
+
+	Tween* tConFade = new Tween(300, 200, &rTweenCB_Hide, LINEAR);
+	tConFade->uArg.iInt = SPLASHANIM_CONFADE;
+
+	Tween* tVerFade = new Tween(300, 300, &rTweenCB_Hide, LINEAR);
+	tVerFade->uArg.iInt = SPLASHANIM_VERFADE;
+
+	Tween* tVerNameFade = new Tween(300, 600, &rTweenCB_Hide, LINEAR);
+	tVerNameFade->uArg.iInt = SPLASHANIM_VERNAMEFADE;
+
+	Tween* tStudioFade = new Tween(300, 800, &rTweenCB_Hide, LINEAR);
+	tStudioFade->uArg.iInt = SPLASHANIM_STUDFADE;
+
+	Tween* tTitleFade = new Tween(300, 1000, &rTweenCB_Hide, LINEAR);
+	tTitleFade->uArg.iInt = SPLASHANIM_TITLEFADE;
+
+	Tween* tSplit = new Tween(600, 1300, &rTweenCB_Hide, INOUT);
+	tSplit->uArg.iInt = SPLASHANIM_SPLIT;
+
+	Tween* tMainFade = new Tween(300, 1900, &rTweenCB_Hide, LINEAR);
+	tMainFade->uArg.iInt = SPLASHANIM_FADE;
+
+	// Send them on their way
+	TweenEngine::Get()->Add(tMainFade);
+	TweenEngine::Get()->Add(tSplit);
+	TweenEngine::Get()->Add(tTitleFade);
+	TweenEngine::Get()->Add(tStudioFade);
+	TweenEngine::Get()->Add(tVerNameFade);
+	TweenEngine::Get()->Add(tVerFade);
+	TweenEngine::Get()->Add(tConFade);
+	TweenEngine::Get()->Add(tNatFade);
 }
 
 void Splash::Show()
@@ -100,31 +221,31 @@ void Splash::Show()
 	_pngConBar->frcSrc->X = _pngConBar->frcSrc->Width;
 
 	// Setup Tween information
-	Tween* tMainFade = new Tween(300, 0, &rTweenCB, LINEAR);
+	Tween* tMainFade = new Tween(300, 0, &rTweenCB_Show, LINEAR);
 	tMainFade->uArg.iInt = SPLASHANIM_FADE;
 
-	Tween* tCooloff = new Tween(800, 300, &rTweenCB, EIN);
+	Tween* tCooloff = new Tween(800, 300, &rTweenCB_Show, EIN);
 	tCooloff->uArg.iInt = SPLASHANIM_COOLOFF;
 
-	Tween* tSplit = new Tween(700, 500, &rTweenCB, INOUT);
+	Tween* tSplit = new Tween(700, 500, &rTweenCB_Show, INOUT);
 	tSplit->uArg.iInt = SPLASHANIM_SPLIT;
 
-	Tween* tTitleFade = new Tween(500, 1250, &rTweenCB, LINEAR);
+	Tween* tTitleFade = new Tween(500, 1250, &rTweenCB_Show, LINEAR);
 	tTitleFade->uArg.iInt = SPLASHANIM_TITLEFADE;
 
-	Tween* tStudioFade = new Tween(500, 1350, &rTweenCB, LINEAR);
+	Tween* tStudioFade = new Tween(500, 1350, &rTweenCB_Show, LINEAR);
 	tStudioFade->uArg.iInt = SPLASHANIM_STUDFADE;
 
-	Tween* tVerNameFade = new Tween(500, 1450, &rTweenCB, LINEAR);
+	Tween* tVerNameFade = new Tween(500, 1450, &rTweenCB_Show, LINEAR);
 	tVerNameFade->uArg.iInt = SPLASHANIM_VERNAMEFADE;
 
-	Tween* tVerFade = new Tween(500, 1550, &rTweenCB, LINEAR);
+	Tween* tVerFade = new Tween(500, 1550, &rTweenCB_Show, LINEAR);
 	tVerFade->uArg.iInt = SPLASHANIM_VERFADE;
 
-	Tween* tConFade = new Tween(500, 1650, &rTweenCB, LINEAR);
+	Tween* tConFade = new Tween(500, 1650, &rTweenCB_Show, LINEAR);
 	tConFade->uArg.iInt = SPLASHANIM_CONFADE;
 
-	Tween* tNatFade = new Tween(600, 1800, &rTweenCB, LINEAR);
+	Tween* tNatFade = new Tween(600, 1800, &rTweenCB_Show, LINEAR);
 	tNatFade->uArg.iInt = SPLASHANIM_NATFADE;
 
 	// Send them on their way
@@ -139,7 +260,7 @@ void Splash::Show()
 	TweenEngine::Get()->Add(tNatFade);
 }
 
-void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
+void Splash::rTweenCB_Show(Tween* lpTween, R_TWEEN_CB_MSG code)
 {
 	// Get splash screen handle
 	Splash* s = Get();
@@ -243,11 +364,11 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 				break;
 		case SPLASHANIM_COOLOFF:
 			// Start glow
-			tWarm = new Tween(1500, 100, &rTweenCB, EIN);
+			tWarm = new Tween(1500, 100, &rTweenCB_Show, EIN);
 			tWarm->uArg.iInt = SPLASHANIM_L_GLOW;
 			te->Add(tWarm);
 
-			tCool = new Tween(1700, 1600, &rTweenCB, EOUT);
+			tCool = new Tween(1700, 1600, &rTweenCB_Show, EOUT);
 			tCool->uArg.iInt = SPLASHANIM_L_GFADE;
 			te->Add(tCool);
 			break;
@@ -256,13 +377,8 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 			s->_pngConBar->fAlpha = 1.0f;
 			break;
 		case SPLASHANIM_NATFADE:
-			// Check if we're showing
-			if(s->_ssState == SPLASH_SHOWING)
-				// Set state
-				s->_ssState = SPLASH_VISIBLE;
-			else if(s->_ssState == SPLASH_HIDING)
-				// Set state
-				s->_ssState = SPLASH_HIDDEN;
+			// Set state
+			s->_ssState = SPLASH_VISIBLE;
 			break;
 		}
 	}
@@ -273,7 +389,9 @@ void Splash::ShowWait()
 	// Call Show
 	Show();
 
-	// TODO: Wait
+	// Wait
+	while(_ssState != SPLASH_VISIBLE)
+		Sleep(1);
 }
 
 void Splash::HideWait()
@@ -281,7 +399,9 @@ void Splash::HideWait()
 	// Call Hide
 	Hide();
 
-	// TODO: Wait
+	// Wait
+	while(_ssState != SPLASH_HIDDEN)
+		Sleep(1);
 }
 
 /**
@@ -409,7 +529,7 @@ Splash::Splash()
 	LOGD("Spawning window at %u %u", wx, wy);
 
 	// Create Window
-	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST,
+	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_TOOLWINDOW,
 					(LPCWSTR)_atomWinAtom,
 					StringMgr::Get()->GetString(R_SPLASH_TITLE),
 					WS_VISIBLE | WS_POPUP,

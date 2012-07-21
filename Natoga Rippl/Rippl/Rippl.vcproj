@@ -249,20 +249,44 @@
 			Name="Splash Screen"
 			>
 			<Filter
-				Name="Headers"
+				Name="PNG"
 				>
-				<File
-					RelativePath=".\splash.h"
+				<Filter
+					Name="Headers"
 					>
-				</File>
+					<File
+						RelativePath=".\png_wrapper.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Source"
+					>
+					<File
+						RelativePath=".\png_wrapper.cpp"
+						>
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
-				Name="Source"
+				Name="Splash"
 				>
-				<File
-					RelativePath=".\splash.cpp"
+				<Filter
+					Name="Headers"
 					>
-				</File>
+					<File
+						RelativePath=".\splash.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Source"
+					>
+					<File
+						RelativePath=".\splash.cpp"
+						>
+					</File>
+				</Filter>
 			</Filter>
 		</Filter>
 		<Filter
@@ -301,26 +325,6 @@
 				>
 				<File
 					RelativePath=".\tween_engine.cpp"
-					>
-				</File>
-			</Filter>
-		</Filter>
-		<Filter
-			Name="PNG"
-			>
-			<Filter
-				Name="Headers"
-				>
-				<File
-					RelativePath=".\png_wrapper.h"
-					>
-				</File>
-			</Filter>
-			<Filter
-				Name="Source"
-				>
-				<File
-					RelativePath=".\png_wrapper.cpp"
 					>
 				</File>
 			</Filter>
