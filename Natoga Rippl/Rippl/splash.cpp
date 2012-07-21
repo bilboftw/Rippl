@@ -37,6 +37,14 @@ static Gdiplus::ColorMatrix ClrMatrix = {
 	0.0f, 0.0f, 0.0f, 0.0f, 1.0f
 };
 
+static Gdiplus::ColorMatrix ClrMatrixGlow = { 
+	1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 0.0f, 1.0f
+};
+
 void Splash::Init(HINSTANCE hinstInst)
 {
 	// Store HInstance
@@ -136,6 +144,13 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 	// Get splash screen handle
 	Splash* s = Get();
 
+	// Get TweenEngine instance
+	TweenEngine* te = TweenEngine::Get();
+
+	// Init our warming/cooling tweens
+	Tween* tWarm;
+	Tween* tCool;
+
 	// Switch callback type
 	switch(code)
 	{
@@ -149,27 +164,27 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 
 			// 'Heat Up' values
 			//		Red
-			ClrMatrix.m[0][1] = (float)lpTween->dEasedValue;
-			ClrMatrix.m[0][2] = (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[0][1] = (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[0][2] = (float)lpTween->dEasedValue;
 			//		Green
-			ClrMatrix.m[1][0] = (float)lpTween->dEasedValue;
-			ClrMatrix.m[1][2] = (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[1][0] = (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[1][2] = (float)lpTween->dEasedValue;
 			//		Blue
-			ClrMatrix.m[2][0] = (float)lpTween->dEasedValue;
-			ClrMatrix.m[2][1] = (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[2][0] = (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[2][1] = (float)lpTween->dEasedValue;
 
 			break;
 		case SPLASHANIM_COOLOFF:
 			// 'Heat Up' values
 			//		Red
-			ClrMatrix.m[0][1] = 1.0f - (float)lpTween->dEasedValue;
-			ClrMatrix.m[0][2] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[0][1] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[0][2] = 1.0f - (float)lpTween->dEasedValue;
 			//		Green
-			ClrMatrix.m[1][0] = 1.0f - (float)lpTween->dEasedValue;
-			ClrMatrix.m[1][2] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[1][0] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[1][2] = 1.0f - (float)lpTween->dEasedValue;
 			//		Blue
-			ClrMatrix.m[2][0] = 1.0f - (float)lpTween->dEasedValue;
-			ClrMatrix.m[2][1] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[2][0] = 1.0f - (float)lpTween->dEasedValue;
+			ClrMatrixGlow.m[2][1] = 1.0f - (float)lpTween->dEasedValue;
 			break;
 		case SPLASHANIM_SPLIT:
 			// Set main logo X
@@ -204,6 +219,16 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 			// Set alpha
 			s->_pngNtgaLogo->fAlpha = (float)(lpTween->dEasedValue);
 			break;
+		case SPLASHANIM_L_GLOW:
+			// Warm it!
+			// Green (Crazy how this light stuff works?)
+			ClrMatrixGlow.m[1][0] = 0.4f * (float)(lpTween->dEasedValue);
+			break;
+		case SPLASHANIM_L_GFADE:
+			// Cool it!
+			// Green (Crazy how this light stuff works?)
+			ClrMatrixGlow.m[1][0] = 0.4f * (1.0f - (float)(lpTween->dEasedValue));
+			break;
 		}
 
 		// Break
@@ -212,6 +237,20 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 		// Switch state
 		switch(lpTween->uArg.iInt)
 		{
+		case SPLASHANIM_L_GFADE:
+			// Check if we're fading
+			if(s->_ssState == SPLASH_HIDING || s->_ssState == SPLASH_HIDDEN)
+				break;
+		case SPLASHANIM_COOLOFF:
+			// Start glow
+			tWarm = new Tween(1500, 100, &rTweenCB, EIN);
+			tWarm->uArg.iInt = SPLASHANIM_L_GLOW;
+			te->Add(tWarm);
+
+			tCool = new Tween(1700, 1600, &rTweenCB, EOUT);
+			tCool->uArg.iInt = SPLASHANIM_L_GFADE;
+			te->Add(tCool);
+			break;
 		case SPLASHANIM_FADE:
 			// Set conbar alpha to 1.0
 			s->_pngConBar->fAlpha = 1.0f;
@@ -433,7 +472,7 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 
 		// Draw PNGs
 		s->DrawPNG(Get()->_pngConBar);
-		s->DrawPNG(Get()->_pngMainLogo);
+		s->DrawPNG(Get()->_pngMainLogo, &ClrMatrixGlow);
 		s->DrawPNG(Get()->_pngNtgaLogo);
 
 		// Draw Text
@@ -504,15 +543,18 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hWindow, msg, wParam, lParam);
 }
 
-void Splash::DrawPNG(PNG* lpPNG)
+void Splash::DrawPNG(PNG* lpPNG, ColorMatrix* cmMatrix)
 {
 	// Check alpha
 	if(lpPNG->fAlpha <= 0.0f) return;
 
+	// Check cmMatrix for null
+	if(cmMatrix == NULL) cmMatrix = &ClrMatrix;
+
 	// Set alpha
-	ClrMatrix.m[3][3] = lpPNG->fAlpha;
+	cmMatrix->m[3][3] = lpPNG->fAlpha;
 	Gdiplus::ImageAttributes iaAttr;
-	iaAttr.SetColorMatrix(&ClrMatrix, ColorMatrixFlagsDefault, ColorAdjustTypeBitmap);
+	iaAttr.SetColorMatrix(cmMatrix, ColorMatrixFlagsDefault, ColorAdjustTypeBitmap);
 	
 	// Draw
 	_oGrphInf.graphics->DrawImage(lpPNG->GetImage(), *lpPNG->frcDest, lpPNG->frcSrc->X, lpPNG->frcSrc->Y, lpPNG->frcSrc->Width, lpPNG->frcSrc->Height, Gdiplus::UnitPixel, &iaAttr);

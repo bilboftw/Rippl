@@ -5,6 +5,7 @@
 // Includes
 #include <Windows.h>
 #include <vector>
+#include <algorithm>
 
 #include "iTweenEngine.h"
 #include "Macros.h"
@@ -68,16 +69,16 @@ void TweenEngine::Add(Tween *lpTween)
 	// Adjust
 	lpTween->Adjust();
 
-	// Check to see we don't already have it in there
+	// Check to see we don't already have it in queue
 	std::vector<Tween*>::iterator i;
-	for(i = _vecTweens.begin(); i < _vecTweens.end(); i++)
+	for(i = _vecQueue.begin(); i < _vecQueue.end(); i++)
 		// Check pointer
 		if(*i == lpTween)
 			// Return
 			return;
 
 	// Push onto the end
-	_vecTweens.push_back(lpTween);
+	_vecQueue.push_back(lpTween);
 }
 
 void TweenEngine::Remove(Tween *lpTween)
@@ -90,6 +91,18 @@ void TweenEngine::Remove(Tween *lpTween)
 		{
 			// Remove
 			_vecTweens.erase(i);
+
+			// Return
+			return;
+		}
+
+	std::vector<Tween*>::iterator iq;
+	for(iq = _vecQueue.begin(); iq < _vecQueue.end(); iq++)
+		// Check pointer
+		if(*iq == lpTween)
+		{
+			// Remove
+			_vecQueue.erase(i);
 
 			// Return
 			return;
@@ -118,6 +131,9 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 	// Loop!
 	while(true)
 	{
+		// Merge
+		oEngine->Merge();
+
 		// Set up iterator
 		std::vector<Tween*>::iterator i = oEngine->_vecTweens.begin();
 
@@ -189,6 +205,22 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 
 	// Return success
 	return 0;
+}
+
+void TweenEngine::Merge()
+{
+	// Return if no queue
+	if(_vecQueue.size() == 0)
+		return;
+
+	// Merge
+	std::vector<Tween*> tmp;
+	tmp.reserve(_vecQueue.size() + _vecTweens.size()); // commenters are probably right about this
+	std::merge(_vecQueue.begin(), _vecQueue.end(), _vecTweens.begin(), _vecTweens.end(), std::back_inserter(tmp));
+	_vecTweens.swap(tmp);
+
+	// Empty queue
+	_vecQueue.clear();
 }
 
 double TweenEngine::EaseLinear(Tween *lpTween)

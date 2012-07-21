@@ -32,10 +32,13 @@ protected:
 	inline static double	EaseOut(Tween* lpTween);
 	inline static double	EaseInOut(Tween* lpTween);
 
+	void					Merge();
+
 	static TweenEngine*		_oEngine;
 
 	rEaseApplyCB*			_cbEaseFuncs[4];
 	std::vector<Tween*>		_vecTweens;
+	std::vector<Tween*>		_vecQueue;
 	HANDLE					_hwndProcessingThread;
 private:
 	TweenEngine();

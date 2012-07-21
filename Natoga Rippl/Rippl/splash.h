@@ -35,7 +35,9 @@ typedef enum
 	SPLASHANIM_VERNAMEFADE,	// The version name fades in
 	SPLASHANIM_VERFADE,		// The version number fades in
 	SPLASHANIM_CONFADE,		// The default console text fades in
-	SPLASHANIM_NATFADE		// The Natoga logo fades in
+	SPLASHANIM_NATFADE,		// The Natoga logo fades in
+	SPLASHANIM_L_GLOW,		// The logo glow's
+	SPLASHANIM_L_GFADE		// The logo's glow fades
 } R_SPLASH_ANIM_STATE;
 
 // Splash Class Implementation Declaration
@@ -67,7 +69,7 @@ protected:
 										StringFormat* sfFormat;
 									} _otpTitle, _otpStudio, _otpVer, _otpVerName, _otpText;
 
-	void							DrawPNG(PNG* lpPNG);
+	void							DrawPNG(PNG* lpPNG, ColorMatrix* cmMatrix = NULL);
 	void							DrawString(const wchar_t* str, float x, float y, RSPL_TEXT_PROPS* prop, bool bFree = true);
 
 	HANDLE							hDrawThread;

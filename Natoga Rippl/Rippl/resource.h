@@ -6,7 +6,6 @@
 #define R_DEBUG_MSG                     103
 #define R_TITLE                         104
 #define R_SPLASH_TITLE                  105
-#define R_PNG_NTGA_LOGO                 105
 #define R_PNG_SPLASH_NTGA_LOGO          105
 #define R_SPLASH_TITLE_FONT_FILENAME    106
 #define R_SPLASH_TITLE_FONT             107
@@ -15,12 +14,14 @@
 #define R_PNG_SPLASH_MAIN_LOGO          110
 #define VER_1                           110
 #define VER_2                           112
+#define IDB_PNG1                        113
 #define VER_3                           114
 #define VER_4                           116
 #define VER_N                           119
 #define R_LICENSE                       120
 #define R_SPLASH_MSG_LOADING            122
 #define R_COPYRIGHT                     123
+#define R_TRANSLATE_CREDIT              124
 #define R_PNG_SPLASH_CONBAR             65535
 
 // Next default values for new objects
