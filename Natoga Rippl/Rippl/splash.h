@@ -68,6 +68,7 @@ protected:
 	RECT							_rcSize;
 
 	PNG*							_pngMainLogo;
+	PNG*							_pngConBar;
 
 									struct RSPL_GRAPHICS_INFO
 									{

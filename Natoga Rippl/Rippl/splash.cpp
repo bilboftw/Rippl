@@ -18,6 +18,9 @@
 // Using Gdiplus
 using namespace Gdiplus;
 
+// Center Position Macro
+#define CENTERF(obj, cont) (float)((cont / 2) - (obj / 2))
+
 // Static Defines
 Splash* Splash::_lpSplash = NULL;
 HINSTANCE Splash::_hinstMainInst = NULL;
@@ -61,18 +64,13 @@ void Splash::Hide()
 	ShowWindowAsync(_hwndWindow, SW_HIDE);
 }
 
-void Splash::HideWait()
-{
-	// Call Hide
-	Hide();
-
-	// TODO: Wait
-}
-
 void Splash::Show()
 {
 	// Check state
 	if(_ssState != SPLASH_HIDDEN) return;
+
+	// Log
+	LOGD("Showing splash screen");
 
 	// Set state
 	_ssState = SPLASH_SHOWING;
@@ -83,19 +81,30 @@ void Splash::Show()
 	// Update the window
 	UpdateWindow(_hwndWindow);
 
-	// Set up initial positions
-	_pngMainLogo->frcDest->X = (_oGrphInf.szSize.cx / 2) - (_pngMainLogo->frcDest->Width / 2);
+	// Set up initial positions/sizes
+	_pngMainLogo->frcDest->X = CENTERF(_pngMainLogo->frcDest->Width, _oGrphInf.szSize.cx);
+	
+	_pngConBar->frcDest->X = CENTERF(_pngConBar->frcDest->Width, _oGrphInf.szSize.cx) + 110;
+	_pngConBar->frcDest->Y = 119;
+	_pngConBar->frcSrc->X = _pngConBar->frcSrc->Width;
 
 	// Setup Tween information
-	Tween* tMainFade = new Tween(600, 0, &rTweenCB, EOUT);
+	Tween* tMainFade = new Tween(300, 0, &rTweenCB, LINEAR);
 	tMainFade->uArg.iInt = SPLASHANIM_FADE;
+
+	Tween* tSplit = new Tween(700, 500, &rTweenCB, INOUT);
+	tSplit->uArg.iInt = SPLASHANIM_SPLIT;
 
 	// Send them on their way
 	TweenEngine::Get()->Add(tMainFade);
+	TweenEngine::Get()->Add(tSplit);
 }
 
 void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 {
+	// Get splash screen handle
+	Splash* s = Get();
+
 	// Switch callback type
 	switch(code)
 	{
@@ -105,21 +114,39 @@ void Splash::rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code)
 		{
 		case SPLASHANIM_FADE:
 			// Set alpha of main logo
-			Get()->_pngMainLogo->fAlpha = (float)lpTween->dEasedValue;
+			s->_pngMainLogo->fAlpha = (float)lpTween->dEasedValue;
+			break;
+		case SPLASHANIM_SPLIT:
+			// Set main logo X
+			s->_pngMainLogo->frcDest->X = CENTERF(s->_pngMainLogo->frcDest->Width, s->_oGrphInf.szSize.cx) -
+				((FLOAT)lpTween->dEasedValue * CENTERF(s->_pngMainLogo->frcDest->Width, s->_oGrphInf.szSize.cx));
+
+			// Set con bar src X
+			s->_pngConBar->frcDest->X = s->_pngMainLogo->frcDest->X + 236;
+			s->_pngConBar->frcSrc->X = s->_pngConBar->frcSrc->Width - (s->_pngConBar->frcSrc->Width * (float)lpTween->dEasedValue);
 			break;
 		}
 
 		// Break
 		break;
 	case FINISH:
-		// Check if it's the last fade
-		if(Get()->_ssState == SPLASH_SHOWING && lpTween->uArg.iInt == SPLASHANIM_NATFADE)
-			// Set state
-			Get()->_ssState = SPLASH_VISIBLE;
-		else if(Get()->_ssState == SPLASH_HIDING && lpTween->uArg.iInt == SPLASHANIM_FADE)
-			// Set state
-			Get()->_ssState = SPLASH_HIDDEN;
-		break;
+		// Switch state
+		switch(lpTween->uArg.iInt)
+		{
+		case SPLASHANIM_FADE:
+			// Set conbar alpha to 1.0
+			s->_pngConBar->fAlpha = 1.0f;
+			break;
+		case SPLASHANIM_NATFADE:
+			// Check if we're showing
+			if(s->_ssState == SPLASH_SHOWING)
+				// Set state
+				s->_ssState = SPLASH_VISIBLE;
+			else if(s->_ssState == SPLASH_HIDING)
+				// Set state
+				s->_ssState = SPLASH_HIDDEN;
+			break;
+		}
 	}
 }
 
@@ -127,6 +154,14 @@ void Splash::ShowWait()
 {
 	// Call Show
 	Show();
+
+	// TODO: Wait
+}
+
+void Splash::HideWait()
+{
+	// Call Hide
+	Hide();
 
 	// TODO: Wait
 }
@@ -142,8 +177,9 @@ Splash::Splash()
 	_ssState = SPLASH_HIDDEN;
 	_ssAnimState = SPLASHANIM_FADE;
 
-	// Load bitmaps
+	// Load PNGs
 	_pngMainLogo = new PNG(R_PNG_SPLASH_MAIN_LOGO);
+	_pngConBar = new PNG(R_PNG_SPLASH_CONBAR);
 
 	// Check
 	if(_pngMainLogo == NULL)
@@ -259,6 +295,7 @@ DWORD Splash::SplashGraphicsDrawEP(PVOID arg)
 		s->_oGrphInf.graphics->Clear((Gdiplus::Color)0);
 
 		// Draw PNGs
+		s->DrawPNG(Get()->_pngConBar);
 		s->DrawPNG(Get()->_pngMainLogo);
 
 		// Call UpdateLayeredWindow
