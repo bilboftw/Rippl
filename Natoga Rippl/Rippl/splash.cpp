@@ -98,7 +98,7 @@ void Splash::SetupShowTweenInfo()
 {
 	// Create tween objects
 	_twnFade = new Tween();
-	_twnFade->lDuration = 600;
+	_twnFade->lDuration = 10;
 	_twnFade->cbOnEvent = &rTweenCB;
 }
 
@@ -193,6 +193,12 @@ Splash::Splash()
 		InvalidateRect(_hwndWindow, &_rcSize, TRUE);
 	}
 
+	// Set up graphics
+	_oGrphInf.hdcScreen = GetDC(NULL);
+	_oGrphInf.hdcMem = CreateCompatibleDC(_oGrphInf.hdcScreen);
+	_oGrphInf.hBmp = CreateCompatibleBitmap(_oGrphInf.hdcScreen, _oGrphInf.szSize.cx, _oGrphInf.szSize.cy);
+	_oGrphInf.hBmpOld = (HBITMAP)SelectObject(_oGrphInf.hdcMem, _oGrphInf.hBmp);
+
 	// Attempt to draw
 	DrawPNG(_pngMainLogo, 0, 0);
 }
@@ -215,20 +221,12 @@ LRESULT Splash::SplashProc(HWND hWindow, UINT msg, WPARAM wParam, LPARAM lParam)
 
 void Splash::DrawPNG(PNG* lpPNG, int x, int y)
 {
-	// Create HDC objects
-	HDC hdcScreen = GetDC(NULL);
-	HDC hdcMem = CreateCompatibleDC(hdcScreen);
-
-	// Create HBITMAP handles
-	HBITMAP hBmp = CreateCompatibleBitmap(hdcScreen, _oGrphInf.szSize.cx, _oGrphInf.szSize.cy);
-	HBITMAP hBmpOld = (HBITMAP)SelectObject(hdcMem, hBmp);
-
 	// Draw
-	Gdiplus::Graphics* g = new Gdiplus::Graphics(hdcMem); // If this doesn't work, try hdcScreen
+	Gdiplus::Graphics* graphics = new Gdiplus::Graphics(_oGrphInf.hdcMem);
 	Gdiplus::Color col(0, 0, 0, 0);
-	g->Clear(col);
-	g->DrawImage(lpPNG->GetImage(), x, y);
-	g->Flush();
+	graphics->Clear(col);
+	graphics->DrawImage(lpPNG->GetImage(), x, y);
+	graphics->Flush();
 
 	// Call UpdateLayeredWindow
 	BLENDFUNCTION blend = {0};
@@ -238,17 +236,19 @@ void Splash::DrawPNG(PNG* lpPNG, int x, int y)
 	POINT ptPos = {0, 0};
 	POINT ptSrc = {0, 0};
 
-	UpdateLayeredWindow(_hwndWindow, hdcScreen, NULL, &_oGrphInf.szSize, hdcMem, &ptSrc, 0, &blend, ULW_ALPHA);
+	UpdateLayeredWindow(_hwndWindow, _oGrphInf.hdcScreen, NULL, &_oGrphInf.szSize, _oGrphInf.hdcMem, &ptSrc, 0, &blend, ULW_ALPHA);
 
-	// Clean up
-	SelectObject(hdcMem, hBmpOld);
-	DeleteObject(hBmp);
-	DeleteDC(hdcMem);
-	ReleaseDC(NULL, hdcScreen);
+	delete graphics;
 }
 
 Splash::~Splash()
 {
+	// Clean up graphics
+	SelectObject(_oGrphInf.hdcMem, _oGrphInf.hBmpOld);	
+	DeleteObject(_oGrphInf.hBmp);
+	DeleteDC(_oGrphInf.hdcMem);
+	ReleaseDC(NULL, _oGrphInf.hdcScreen);
+
 	// Delete PNG objects
 	delete _pngMainLogo;
 

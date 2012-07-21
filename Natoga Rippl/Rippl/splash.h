@@ -69,9 +69,10 @@ protected:
 									{
 										SIZE							szSize;
 										Gdiplus::Graphics*				graphics;
-										void*							lpBits;
-										HDC								canvasHDC;
-										HBITMAP							bmpCanvas;
+										HDC								hdcScreen;
+										HDC								hdcMem;
+										HBITMAP							hBmp;
+										HBITMAP							hBmpOld;
 									} _oGrphInf;
 private:
 	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
