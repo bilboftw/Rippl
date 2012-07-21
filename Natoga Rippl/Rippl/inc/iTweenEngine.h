@@ -41,6 +41,12 @@ public:
 	rTweenCallback cbOnEvent;
 	R_TWEEN_EASE rteEase;
 
+	union
+	{
+		long void* lpVoid;
+		long int iInt;
+	} uArg;
+
 	Tween(long plDuration,
 	long plDelay,
 	rTweenCallback pcbOnEvent,
