@@ -37,8 +37,15 @@ protected:
 	static TweenEngine*		_oEngine;
 
 	rEaseApplyCB*			_cbEaseFuncs[4];
+
+	/**
+	 * Double buffer
+	 *	This is because adding a new tween from within
+	 *	a tween event callback causes issues with iterators!
+	 */
 	std::vector<Tween*>		_vecTweens;
 	std::vector<Tween*>		_vecQueue;
+
 	HANDLE					_hwndProcessingThread;
 private:
 	TweenEngine();
