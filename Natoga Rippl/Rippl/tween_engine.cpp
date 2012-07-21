@@ -131,12 +131,6 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 				// Decrement
 				--((*i)->dDelay);
 
-				// Check for start
-				if((*i)->dDelay == 0)
-					// Invoke
-					if((*i)->cbOnEvent != NULL)
-						((rTweenCallback)(*i)->cbOnEvent)(*i, START);
-
 				// Increment
 				i++;
 			}
@@ -144,6 +138,14 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 			// Or, if we are performing a tick...
 			else if((*i)->dDuration > (*i)->dCurrentPosition)
 			{
+				// Check for start
+				if((*i).dCurrentPosition == 0)
+					// Check for start
+					if((*i)->dDelay == 0)
+						// Invoke
+						if((*i)->cbOnEvent != NULL)
+							((rTweenCallback)(*i)->cbOnEvent)(*i, START);
+
 				// Increment current position
 				++((*i)->dCurrentPosition);
 
