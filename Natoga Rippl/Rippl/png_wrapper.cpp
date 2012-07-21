@@ -28,8 +28,8 @@ PNG::PNG(UINT iRes)
 	_imgImage = new Gdiplus::Image(_lpIStream, FALSE);
 
 	// Setup src/dest rects
-	frcSrc = new RectF(0, 0, _imgImage->GetWidth(), _imgImage->GetHeight());
-	frcDest = new RectF(0, 0, _imgImage->GetWidth(), _imgImage->GetHeight());
+	frcSrc = new RectF(0, 0, (float)_imgImage->GetWidth(), (float)_imgImage->GetHeight());
+	frcDest = new RectF(0, 0, (float)_imgImage->GetWidth(), (float)_imgImage->GetHeight());
 }
 
 IStream* PNG::GetIStream()
