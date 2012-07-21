@@ -99,7 +99,8 @@ protected:
 										POINT							ptSrcPos;
 									} _oGrphInf;
 private:
-	static void						rTweenCB(Tween* lpTween, R_TWEEN_CB_MSG code);
+	static void						rTweenCB_Show(Tween* lpTween, R_TWEEN_CB_MSG code);
+	static void						rTweenCB_Hide(Tween* lpTween, R_TWEEN_CB_MSG code);
 
 	Splash();
 	~Splash();

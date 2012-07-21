@@ -43,6 +43,8 @@ void InitResources(HINSTANCE hinstInst)
 
 	// Show splash screen
 	Splash::Get()->ShowWait();
+
+	Splash::Get()->HideWait();
 }
 
 /**

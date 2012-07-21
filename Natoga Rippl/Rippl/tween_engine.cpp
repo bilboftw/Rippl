@@ -213,9 +213,13 @@ void TweenEngine::Merge()
 	if(_vecQueue.size() == 0)
 		return;
 
+	// Sort
+	std::sort(_vecQueue.begin(), _vecQueue.end());
+	std::sort(_vecTweens.begin(), _vecTweens.end());
+
 	// Merge
 	std::vector<Tween*> tmp;
-	tmp.reserve(_vecQueue.size() + _vecTweens.size()); // commenters are probably right about this
+	tmp.reserve(_vecQueue.size() + _vecTweens.size());
 	std::merge(_vecQueue.begin(), _vecQueue.end(), _vecTweens.begin(), _vecTweens.end(), std::back_inserter(tmp));
 	_vecTweens.swap(tmp);
 
