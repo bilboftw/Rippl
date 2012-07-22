@@ -8,6 +8,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL2main", "..\SDL-2.0.0-63
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{38E9A7C5-B835-448B-880F-ACCE165A2A90}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test Interfaces", "Test Interfaces\Test Interfaces.vcproj", "{DE41B54E-63C9-49B0-81AB-15907534CCCB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -50,8 +52,20 @@ Global
 		{DA956FD3-E142-46F2-9DD5-C78BEBB56B7A}.Release|Win32.Build.0 = Release|Win32
 		{DA956FD3-E142-46F2-9DD5-C78BEBB56B7A}.Release|x64.ActiveCfg = Release|x64
 		{DA956FD3-E142-46F2-9DD5-C78BEBB56B7A}.Release|x64.Build.0 = Release|x64
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Debug|Win32.Build.0 = Debug|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Debug|x64.ActiveCfg = Debug|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Release_NoSTDIO|Win32.ActiveCfg = Release|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Release_NoSTDIO|Win32.Build.0 = Release|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Release_NoSTDIO|x64.ActiveCfg = Release|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Release|Win32.ActiveCfg = Release|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Release|Win32.Build.0 = Release|Win32
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DE41B54E-63C9-49B0-81AB-15907534CCCB} = {38E9A7C5-B835-448B-880F-ACCE165A2A90}
 	EndGlobalSection
 EndGlobal
