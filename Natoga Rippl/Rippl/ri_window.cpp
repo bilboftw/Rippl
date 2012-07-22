@@ -14,10 +14,10 @@
 // Static Defines
 RIWindow* RIWindow::Inst = NULL;
 
-void RIWindow::Init(HINSTANCE hinst)
+void RIWindow::Init()
 {
 	// Create new instance
-	Inst = new RIWindow(hinst);
+	Inst = new RIWindow();
 }
 
 void RIWindow::Destroy()
@@ -29,110 +29,98 @@ void RIWindow::Destroy()
 	Inst = NULL;
 }
 
-RIWindow::RIWindow(HINSTANCE hinst)
+RIWindow::RIWindow()
 {
-	// Store hInstance
-	_hInst = hinst;
-
-	// Setup class
-	SetupClass();
-
-	// Register class
-	RegClass();
-
 	// Create window
 	MakeWindow();
+
+	// Set up global pixel format
+	SetupGlobalPixelFormat();
+
+	// Get the surface
+	GetSurface();
+
+	// Init window
+	InitWindow();
 
 	// Show window
 	Show();
 }
 
-LRESULT RIWindow::WinMsgHandler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
-{
-	// Return default
-	return DefWindowProc(hWnd, Msg, wParam, lParam);
-}
-
 RIWindow::~RIWindow()
 {
-	// Unregister class
-	UnregisterClass(_wcxClass.lpszClassName, _hInst);
-
 	// Destroy Window
 	KillWindow();
-}
-
-void RIWindow::SetupClass()
-{
-	// Zero out class
-	memset(&_wcxClass, 0, sizeof(_wcxClass));
-
-	// Set up class members
-	_wcxClass.cbSize =			sizeof(_wcxClass);
-	_wcxClass.style =			CS_DBLCLKS |				// Enable double-clicks
-								CS_HREDRAW | CS_VREDRAW;	// Forces re-draw on resize
-	_wcxClass.lpfnWndProc =		(WNDPROC)&WinMsgHandler;
-	_wcxClass.hInstance =		_hInst;
-	_wcxClass.hIcon =			LoadIcon(_hInst, MAKEINTRESOURCE(IDI_ICON1));
-	_wcxClass.hCursor =			LoadCursor(NULL, IDC_CROSS);
-	_wcxClass.hbrBackground =	(HBRUSH)(COLOR_WINDOWTEXT+1);
-	_wcxClass.lpszMenuName =	NULL;
-	_wcxClass.lpszClassName =	"RipplMain";
-	_wcxClass.hIconSm =			NULL;
-}
-
-void RIWindow::RegClass()
-{
-	// Register Class
-	_aAtom = RegisterClassEx(&_wcxClass);
-
-	// Check and log
-	if(_aAtom == 0)
-		LOGE("Could not register RIWindow class: %u", GetLastError());
 }
 
 void RIWindow::MakeWindow()
 {
 	// Create window
-	_hwndWindow = CreateWindowExW(	WS_EX_ACCEPTFILES |				// Accepts files
-										WS_EX_COMPOSITED |			// Double-buffer drawing (Btm->Top)
-										WS_EX_LAYERED |				// Layered window
-										WS_EX_WINDOWEDGE,
-									(LPCWSTR)_aAtom,
-									SGETSTRING(R_WIN_CAPTION),
-									_wcxClass.style,
-									0, 0,							// Update these values with values stored in
-									1024, 768,						//	state files
-									NULL,
-									NULL,
-									_hInst,
-									NULL
-									);
+	Window = SDL_CreateWindow(	"Rippl Studio",
+								SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+								1024, 768,
+								SDL_WINDOW_SHOWN |
+									SDL_WINDOW_BORDERLESS |
+									SDL_WINDOW_INPUT_FOCUS
+								);
 
 	// Check
-	if(_hwndWindow == NULL)
+	if(Window == NULL)
 		// Log
-		LOGW("Could not open main RI window: %u", GetLastError());
+		LOGE("Could not create main RI window: %s", SDL_GetError());
 }
 
 void RIWindow::KillWindow()
 {
 	// Destroy window
-	DestroyWindow(_hwndWindow);
+	SDL_DestroyWindow(Window);
 }
 
 void RIWindow::Show()
 {
 	// Show window
-	if(ShowWindow(_hwndWindow, SW_SHOWDEFAULT) == FALSE)
-		// Log
-		LOGW("Could not show main RI window: %u", GetLastError());
+	SDL_ShowWindow(Window);
 }
 
 void RIWindow::Hide()
 {
 	// Hide window
-	if(ShowWindow(_hwndWindow, SW_HIDE) == FALSE)
+	SDL_HideWindow(Window);
+}
+
+void RIWindow::GetSurface()
+{
+	// Get the window's surface
+	Surface = SDL_GetWindowSurface(Window);
+
+	// Check
+	if(Surface == NULL)
 		// Log
-		LOGW("Could not hide main RI window: %u", GetLastError());
+		LOGE("Could not get surface of RI window: %s", SDL_GetError());
+}
+
+void RIWindow::InitWindow()
+{
+	// Fill the window with black
+	//SDL_MapRGBA(&GlobalPixelFormat, 0, 0, 0, 255)
+	if(SDL_FillRect(Surface, NULL, 0xFF000000) < 0)
+		// Log
+		LOGE("Could not fill surface with base black: %s", SDL_GetError());
+
+	// Update window surface
+	SDL_UpdateWindowSurface(Window);
+}
+
+void RIWindow::SetupGlobalPixelFormat()
+{
+	// Set up the global pixel format struct
+	memset(&GlobalPixelFormat, 0, sizeof(GlobalPixelFormat));
+	GlobalPixelFormat.format = SDL_PIXELFORMAT_ARGB8888;
+	GlobalPixelFormat.palette = NULL;
+	GlobalPixelFormat.BitsPerPixel = 8;
+	GlobalPixelFormat.BytesPerPixel = 1;
+	GlobalPixelFormat.Amask = 0xFF000000;
+	GlobalPixelFormat.Rmask = 0x00FF0000;
+	GlobalPixelFormat.Gmask = 0x0000FF00;
+	GlobalPixelFormat.Bmask = 0x000000FF;
 }

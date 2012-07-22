@@ -13,8 +13,8 @@ void RSDL::Init()
 	// Initialize
 	LOGI("Init'ing SDL (watch out!...)");
 
-	if(SDL_Init(SDL_INIT_VIDEO) == -1)
-		LOGE("Could not initialize SDL!");
+	if(SDL_Init(SDL_INIT_VIDEO) < 0)
+		LOGE("Could not start SDL: %s", SDL_GetError());
 }
 
 void RSDL::Shutdown()

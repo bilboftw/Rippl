@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\include&quot;;&quot;$(ProjectDir)inc&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-2.0.0-6373\include&quot;;&quot;$(ProjectDir)inc&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,10 +61,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SDL.lib"
+				AdditionalDependencies="SDL2.lib"
 				OutputFile="$(OutDir)\Rippl_d.exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\lib\x86&quot;"
+				AdditionalLibraryDirectories="&quot;C:\Users\Administrator\Documents\Rippl\Natoga Rippl\bin&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -118,7 +118,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\include&quot;;&quot;$(ProjectDir)inc&quot;"
+				AdditionalIncludeDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-2.0.0-6373\include&quot;;&quot;$(ProjectDir)inc&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -137,10 +137,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SDL.lib"
+				AdditionalDependencies="SDL2.lib"
 				OutputFile="$(OutDir)\Rippl.exe"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\lib\x86&quot;"
+				AdditionalLibraryDirectories="&quot;C:\Users\Administrator\Documents\Rippl\Natoga Rippl\bin&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"

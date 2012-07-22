@@ -4,6 +4,9 @@
 #ifndef ri_window_h__
 #define ri_window_h__
 
+// Includes
+#include "SDL.h"
+
 // Main Window Class Definition
 class RIWindow
 {
@@ -11,7 +14,7 @@ public:
 	/**
 	 * Initializes the main window
 	 */
-	static void					Init(HINSTANCE hinst);
+	static void					Init();
 
 	/**
 	 * Destroys the main window
@@ -29,22 +32,24 @@ public:
 	void						Show();
 
 	static RIWindow*			Inst;
+
+	SDL_Surface*				Surface;
+
+	SDL_Window*					Window;
+
+	SDL_PixelFormat				GlobalPixelFormat;
+			
 private:
-	static LRESULT				WinMsgHandler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
-
-	RIWindow(HINSTANCE hinst);
+	RIWindow();
 	~RIWindow();
-
-	void						SetupClass();
-	void						RegClass();
 
 	void						MakeWindow();
 	void						KillWindow();
-	
-	WNDCLASSEX					_wcxClass;
-	HINSTANCE					_hInst;
-	ATOM						_aAtom;
-	HWND						_hwndWindow;
+
+	void						GetSurface();
+	void						InitWindow();
+
+	void						SetupGlobalPixelFormat();
 };
 
 

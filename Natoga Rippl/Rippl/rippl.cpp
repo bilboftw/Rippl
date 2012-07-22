@@ -52,7 +52,7 @@ void InitResources(HINSTANCE hinstInst)
 
 	// Set up main interface
 	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_INTERFACE));
-	RIWindow::Init(hinstInst);
+	RIWindow::Init();
 
 	Sleep(1000);
 
