@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="$(ProjectDir)inc"
+				AdditionalIncludeDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\include&quot;;&quot;$(ProjectDir)inc&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,8 +61,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="SDL.lib"
 				OutputFile="$(OutDir)\Rippl_d.exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\lib\x86&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -116,7 +118,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="$(ProjectDir)inc"
+				AdditionalIncludeDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\include&quot;;&quot;$(ProjectDir)inc&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -135,8 +137,10 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="SDL.lib"
 				OutputFile="$(OutDir)\Rippl.exe"
 				LinkIncremental="1"
+				AdditionalLibraryDirectories="&quot;C:\Users\Administrator\Documents\Rippl\SDL-1.2.15\lib\x86&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"
@@ -352,11 +356,27 @@
 					</File>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="SDL"
+				>
+				<Filter
+					Name="Headers"
+					>
+					<File
+						RelativePath=".\ri_sdl.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Source"
+					>
+					<File
+						RelativePath=".\ri_sdl.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
 		</Filter>
-		<File
-			RelativePath="..\..\Art\Icon\bitmap1.bmp"
-			>
-		</File>
 		<File
 			RelativePath="..\..\Art\Splash\Cut\r_ntga_logo.png"
 			>

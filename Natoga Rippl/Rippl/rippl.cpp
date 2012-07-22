@@ -12,6 +12,7 @@
 #include "tween_engine.h"
 #include "splash.h"
 #include "ri_window.h"
+#include "ri_sdl.h"
 
 // Static Defines
 static HANDLE hwndMainThread;
@@ -45,6 +46,10 @@ void InitResources(HINSTANCE hinstInst)
 	// Show splash screen
 	Splash::Get()->ShowWait();
 	
+	// Set up SDL
+	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_SDL));
+	RSDL::Init();
+
 	// Set up main interface
 	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_INTERFACE));
 	RIWindow::Init(hinstInst);
