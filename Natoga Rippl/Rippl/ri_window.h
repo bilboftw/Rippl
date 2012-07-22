@@ -18,6 +18,16 @@ public:
 	 */
 	static void					Destroy();
 
+	/**
+	 * Hides the window
+	 */
+	void						Hide();
+
+	/**
+	 * Shows the window
+	 */
+	void						Show();
+
 	static RIWindow*			Inst;
 private:
 	static LRESULT				WinMsgHandler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);

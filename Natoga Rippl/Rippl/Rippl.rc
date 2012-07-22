@@ -97,6 +97,7 @@ BEGIN
     R_LICENSE               "Licensed to %1"
     R_LOADMSG_INTERFACE     "Loading interface..."
     R_LOADMSG_COMPLETE      "Complete!"
+    R_WIN_CAPTION           "Rippl Studio"
 END
 
 #endif    // Neutral resources

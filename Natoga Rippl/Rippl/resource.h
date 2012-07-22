@@ -20,6 +20,7 @@
 #define IDS_STRING115                   115
 #define R_LOADMSG_INTERFACE             115
 #define R_LOADMSG_COMPLETE              116
+#define R_WIN_CAPTION                   117
 #define R_PNG_SPLASH_MAIN_LOGO          65532
 #define R_PNG_SPLASH_CONBAR             65533
 #define R_PNG_SPLASH_NTGA_LOGO          65534

@@ -11,6 +11,7 @@
 #include "strmgr.h"
 #include "tween_engine.h"
 #include "splash.h"
+#include "ri_window.h"
 
 // Static Defines
 static HANDLE hwndMainThread;
@@ -46,6 +47,7 @@ void InitResources(HINSTANCE hinstInst)
 	
 	// Set up main interface
 	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_INTERFACE));
+	RIWindow::Init(hinstInst);
 
 	Sleep(1000);
 
