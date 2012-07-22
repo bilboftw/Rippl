@@ -376,6 +376,46 @@
 					</File>
 				</Filter>
 			</Filter>
+			<Filter
+				Name="Controls"
+				>
+				<Filter
+					Name="Base"
+					>
+					<Filter
+						Name="Headers"
+						>
+						<File
+							RelativePath=".\ri_container.h"
+							>
+						</File>
+					</Filter>
+					<Filter
+						Name="Source"
+						>
+						<File
+							RelativePath=".\ri_container.cpp"
+							>
+						</File>
+					</Filter>
+				</Filter>
+				<Filter
+					Name="Controls"
+					>
+					<Filter
+						Name="Window"
+						>
+						<Filter
+							Name="Headers"
+							>
+						</Filter>
+						<Filter
+							Name="Source"
+							>
+						</Filter>
+					</Filter>
+				</Filter>
+			</Filter>
 		</Filter>
 		<File
 			RelativePath="..\..\Art\Splash\Cut\r_ntga_logo.png"

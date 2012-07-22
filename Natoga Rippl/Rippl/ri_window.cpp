@@ -3,8 +3,6 @@
 /************************************************************************/
 
 // Includes
-#include <windows.h>
-
 #include "resource.h"
 #include "Macros.h"
 
