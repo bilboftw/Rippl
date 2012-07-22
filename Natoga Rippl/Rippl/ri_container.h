@@ -13,8 +13,11 @@
 class RIContainer
 {
 public:
+	RIContainer();
 	RIContainer(SDL_Rect* sBounds);
+	RIContainer(SDL_Rect* sBounds, short z);
 	RIContainer(int x, int y, int w, int h);
+	RIContainer(int x, int y, int w, int h, short z);
 	~RIContainer();
 
 	/**
@@ -24,17 +27,37 @@ public:
 	void							SetBounds(int x, int y, int w, int h);
 
 	/**
+	 * Returns a pointer to the rect object
+	 *	which holds the position and size for the object
+	 */
+	SDL_Rect*						GetBounds();
+
+	/**
 	 * Triggers the container to redraw itself, 
 	 *	including all of its children.
 	 */
 	void							Redraw();
 
+	/**
+	 * The Z-Index of the control
+	 */
+	short							Z;
 protected:
 	
+	/**
+	 * Called when the control needs to be re-drawn.
+	 */
+	virtual void					OnDraw() = 0;
+
 	/**
 	 * Adds a child to this container
 	 */
 	void							AddChild(RIContainer* ricChild);
+
+	/**
+	 * Removes a child from this container
+	 */
+	void							RemoveChild(RIContainer* ricChild);
 
 	/**
 	 * Called when a child needs to be redrawn
@@ -53,10 +76,11 @@ protected:
 
 	RIContainer*					_ricParent;
 
-	SDL_Surface*					_sfSurface;
 	SDL_Rect						_srcBounds;
 
 	std::vector<RIContainer*>		_vecChildren;
+private:
+	static bool						SortZ(RIContainer* a, RIContainer* b);
 };
 
 #endif // ri_container_h__

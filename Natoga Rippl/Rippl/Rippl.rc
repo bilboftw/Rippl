@@ -99,6 +99,7 @@ BEGIN
     R_LOADMSG_COMPLETE      "Complete!"
     R_WIN_CAPTION           "Rippl Studio"
     R_LOADMSG_SDL           "Loading graphics engine..."
+    R_LOADMSG_COMPONENTS    "Loading components..."
 END
 
 #endif    // Neutral resources

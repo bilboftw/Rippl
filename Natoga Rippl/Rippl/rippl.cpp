@@ -54,6 +54,10 @@ void InitResources(HINSTANCE hinstInst)
 	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_INTERFACE));
 	RIWindow::Init();
 
+	// Set up components
+	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_COMPONENTS));
+	// TODO: Setup
+
 	Sleep(1000);
 
 	// Completed~!
