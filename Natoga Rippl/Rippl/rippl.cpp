@@ -43,7 +43,14 @@ void InitResources(HINSTANCE hinstInst)
 
 	// Show splash screen
 	Splash::Get()->ShowWait();
-	Sleep(3000);
+	
+	// Set up main interface
+	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_INTERFACE));
+
+	Sleep(1000);
+
+	// Completed~!
+	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_COMPLETE));
 	Splash::Get()->HideWait();
 }
 

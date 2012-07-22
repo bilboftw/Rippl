@@ -329,6 +329,30 @@
 				</File>
 			</Filter>
 		</Filter>
+		<Filter
+			Name="Interface"
+			>
+			<Filter
+				Name="Window"
+				>
+				<Filter
+					Name="Headers"
+					>
+					<File
+						RelativePath=".\ri_window.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Source"
+					>
+					<File
+						RelativePath=".\ri_window.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
+		</Filter>
 		<File
 			RelativePath="..\..\Art\Icon\bitmap1.bmp"
 			>
