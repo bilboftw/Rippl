@@ -65,7 +65,7 @@ void InitResources(HINSTANCE hinstInst)
 	// - Redraw Window
 	RIWindow::Inst->Redraw();
 
-	Sleep(1000);
+	Sleep(10000);
 
 	// Completed~!
 	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_COMPLETE));

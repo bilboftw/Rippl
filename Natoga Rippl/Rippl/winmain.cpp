@@ -23,7 +23,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 
 	// Main Loop
-	//while(true){Sleep(5000);}
+	while(true){Sleep(5000);}
 	
 	// Release Resources
 	ReleaseResources();

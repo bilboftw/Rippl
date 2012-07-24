@@ -30,6 +30,9 @@ void RIWindow::Destroy()
 
 RIWindow::RIWindow()
 {
+	// Set BG img to NULL
+	_imgBG = NULL;
+
 	// Create window
 	MakeWindow();
 
@@ -146,20 +149,51 @@ void RIWindow::Update(RIContainer* ricChild)
 void RIWindow::DrawBackground()
 {
 	// Load PNG
-	SDL_Surface* test = IMG_Load("C:/Users/Jake/Documents/Rippl/Natoga Rippl/bin/test.png");
-	if(test == NULL)
+	if(_imgBG == NULL)
 	{
-		LOGW("Could not load PNG File: %s", IMG_GetError());
-		assert(false);
+		// Load image
+		_imgBG = IMG_Load("C:/Users/Jake/Documents/Rippl/Natoga Rippl/bin/test.png");
+		if(_imgBG == NULL)
+		{
+			LOGW("Could not load PNG File: %s", IMG_GetError());
+			assert(false);
+			return;
+		}
 	}
+	
+	// Get window surface
+	SDL_Surface* winSurf = SDL_GetWindowSurface(Window);
 
-	SDL_Surface* s = SDL_GetWindowSurface(Window);
-	SDL_Rect b;
-	b.x = 0;
-	b.y = 0;
-	b.w = test->w;
-	b.h = test->h;
+	// Get window size
+	int w;
+	int h;
+	SDL_GetWindowSize(Window, &w, &h);
 
-	SDL_BlitSurface(test, &b, s, &b);
-	SDL_UpdateWindowSurface(Window);
+	// Set up rects
+	SDL_Rect srBnds;
+	SDL_Rect srImg;
+
+	srImg.x = 0;
+	srImg.y = 0;
+	srImg.w = _imgBG->w;
+	srImg.h = _imgBG->h; 
+	
+	// Loop
+	for(srBnds.x = 0; srBnds.x < w; srBnds.x += _imgBG->w)
+		for(srBnds.y = 0; srBnds.y < h; srBnds.y += _imgBG->h)
+		{
+			// Reset widths
+			srBnds.w = _imgBG->w;
+			srBnds.h = _imgBG->h;
+			srImg.w = _imgBG->w;
+			srImg.h = _imgBG->h;
+
+			// Blit
+			if(SDL_BlitSurface(_imgBG, &srImg, winSurf, &srBnds) != 0)
+				LOGW("Could not blit: %s", SDL_GetError());
+		};
+
+	// Update
+	if(SDL_UpdateWindowSurface(Window) != 0)
+		LOGW("Could not update surface: %s", SDL_GetError());
 }

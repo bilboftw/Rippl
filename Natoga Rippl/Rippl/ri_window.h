@@ -57,6 +57,8 @@ private:
 	void						DrawBackground();
 
 	void						SetupGlobalPixelFormat();
+
+	SDL_Surface*				_imgBG;
 };
 
 
