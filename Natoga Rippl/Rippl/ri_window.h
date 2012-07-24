@@ -7,8 +7,10 @@
 // Includes
 #include "SDL.h"
 
+#include "ri_container.h"
+
 // Main Window Class Definition
-class RIWindow
+class RIWindow : public RIContainer
 {
 public:
 	/**
@@ -31,9 +33,12 @@ public:
 	 */
 	void						Show();
 
+	void						Update(RIContainer* ricChild);
+	void						OnDraw();
+
 	static RIWindow*			Inst;
 
-	SDL_Surface*				Surface;
+	SDL_Renderer*				Renderer;
 
 	SDL_Window*					Window;
 
@@ -46,8 +51,10 @@ private:
 	void						MakeWindow();
 	void						KillWindow();
 
-	void						GetSurface();
-	void						InitWindow();
+	void						GetRenderer();
+	void						ClearWindow();
+
+	void						DrawBackground();
 
 	void						SetupGlobalPixelFormat();
 };

@@ -5,6 +5,7 @@
 // Includes
 #include "resource.h"
 #include "Macros.h"
+#include "SDL_image.h"
 
 #include "ri_window.h"
 #include "strmgr.h"
@@ -36,10 +37,12 @@ RIWindow::RIWindow()
 	SetupGlobalPixelFormat();
 
 	// Get the surface
-	GetSurface();
+	GetRenderer();
 
 	// Init window
-	InitWindow();
+	ClearWindow();
+
+	// Create Renderer
 
 	// Show window
 	Show();
@@ -47,6 +50,9 @@ RIWindow::RIWindow()
 
 RIWindow::~RIWindow()
 {
+	// Release renderer
+	SDL_DestroyRenderer(Renderer);
+
 	// Destroy Window
 	KillWindow();
 }
@@ -86,27 +92,28 @@ void RIWindow::Hide()
 	SDL_HideWindow(Window);
 }
 
-void RIWindow::GetSurface()
+void RIWindow::GetRenderer()
 {
-	// Get the window's surface
-	Surface = SDL_GetWindowSurface(Window);
-
-	// Check
-	if(Surface == NULL)
-		// Log
-		LOGE("Could not get surface of RI window: %s", SDL_GetError());
+	// Create Renderer and check
+	Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);
+	if(Renderer == NULL)
+	{
+		// Warn and break
+		LOGE("Could not create RI window renderer: %s", SDL_GetError());
+		assert(false);
+	}
 }
 
-void RIWindow::InitWindow()
+void RIWindow::ClearWindow()
 {
-	// Fill the window with black
-	//SDL_MapRGBA(&GlobalPixelFormat, 0, 0, 0, 255)
-	if(SDL_FillRect(Surface, NULL, 0xFF000000) < 0)
-		// Log
-		LOGE("Could not fill surface with base black: %s", SDL_GetError());
+	// Set color to grey
+	SDL_SetRenderDrawColor(Renderer, 0x22, 0x22, 0x22, 255);
 
-	// Update window surface
-	SDL_UpdateWindowSurface(Window);
+	// Fill the renderer
+	SDL_RenderClear(Renderer);	
+
+	// Update window
+	SDL_RenderPresent(Renderer);
 }
 
 void RIWindow::SetupGlobalPixelFormat()
@@ -121,4 +128,24 @@ void RIWindow::SetupGlobalPixelFormat()
 	GlobalPixelFormat.Rmask = 0x00FF0000;
 	GlobalPixelFormat.Gmask = 0x0000FF00;
 	GlobalPixelFormat.Bmask = 0x000000FF;
+}
+
+void RIWindow::OnDraw()
+{
+	// Clear window
+	ClearWindow();
+
+	// Draw background
+	DrawBackground();
+}
+
+void RIWindow::Update(RIContainer* ricChild)
+{
+	// Update
+	SDL_UpdateWindowSurface(Window);
+}
+
+void RIWindow::DrawBackground()
+{
+	
 }

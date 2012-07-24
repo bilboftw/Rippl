@@ -41,7 +41,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)..\SDL-2.0.0-6373\include&quot;;&quot;$(ProjectDir)inc&quot;;&quot;$(SolutionDir)..\boost_1_50_0&quot;"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)..\SDL-2.0.0-6373\include&quot;;&quot;$(ProjectDir)inc&quot;;&quot;$(SolutionDir)..\boost_1_50_0&quot;;&quot;$(SolutionDir)..\SDL_Image\&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SDL2.lib"
+				AdditionalDependencies="SDL2.lib SDL_Image.lib"
 				OutputFile="$(OutDir)\Rippl_d.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(SolutionDir)bin"
@@ -118,7 +118,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				EnableIntrinsicFunctions="true"
-				AdditionalIncludeDirectories="&quot;$(SolutionDir)..\SDL-2.0.0-6373\include&quot;;&quot;$(ProjectDir)inc&quot;;&quot;$(SolutionDir)..\boost_1_50_0&quot;"
+				AdditionalIncludeDirectories="&quot;$(SolutionDir)..\SDL-2.0.0-6373\include&quot;;&quot;$(ProjectDir)inc&quot;;&quot;$(SolutionDir)..\boost_1_50_0&quot;;&quot;$(SolutionDir)..\SDL_Image\VisualC\external\include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="true"
@@ -137,7 +137,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SDL2.lib"
+				AdditionalDependencies="SDL2.lib SDL_Image.lib"
 				OutputFile="$(OutDir)\Rippl.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(SolutionDir)bin"
@@ -386,10 +386,6 @@
 						Name="Headers"
 						>
 						<File
-							RelativePath=".\ContainerTest.hpp"
-							>
-						</File>
-						<File
 							RelativePath=".\ri_container.h"
 							>
 						</File>
@@ -412,10 +408,18 @@
 						<Filter
 							Name="Headers"
 							>
+							<File
+								RelativePath=".\ric_window.h"
+								>
+							</File>
 						</Filter>
 						<Filter
 							Name="Source"
 							>
+							<File
+								RelativePath=".\ric_window.cpp"
+								>
+							</File>
 						</Filter>
 					</Filter>
 				</Filter>

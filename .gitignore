@@ -8,6 +8,9 @@ SDL*/*
 boost*/
 boost*/*
 
+!SDL_Image*/
+!SDL_Image*/*
+
 !*.cpp
 !*.sln
 !*.md
