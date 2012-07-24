@@ -36,16 +36,14 @@ RIWindow::RIWindow()
 	// Set up global pixel format
 	SetupGlobalPixelFormat();
 
-	// Get the surface
+	// Show window
+	Show();
+
+	// Get the renderer
 	GetRenderer();
 
 	// Init window
 	ClearWindow();
-
-	// Create Renderer
-
-	// Show window
-	Show();
 }
 
 RIWindow::~RIWindow()
@@ -142,10 +140,26 @@ void RIWindow::OnDraw()
 void RIWindow::Update(RIContainer* ricChild)
 {
 	// Update
-	SDL_UpdateWindowSurface(Window);
+	SDL_UpdateWindowSurfaceRects(Window, ricChild->GetBounds(), 1);
 }
 
 void RIWindow::DrawBackground()
 {
-	
+	// Load PNG
+	SDL_Surface* test = IMG_Load("C:/Users/Jake/Documents/Rippl/Natoga Rippl/bin/test.png");
+	if(test == NULL)
+	{
+		LOGW("Could not load PNG File: %s", IMG_GetError());
+		assert(false);
+	}
+
+	SDL_Surface* s = SDL_GetWindowSurface(Window);
+	SDL_Rect b;
+	b.x = 0;
+	b.y = 0;
+	b.w = test->w;
+	b.h = test->h;
+
+	SDL_BlitSurface(test, &b, s, &b);
+	SDL_UpdateWindowSurface(Window);
 }
