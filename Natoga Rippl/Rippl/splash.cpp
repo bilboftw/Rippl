@@ -529,7 +529,7 @@ Splash::Splash()
 	LOGD("Spawning window at %u %u", wx, wy);
 
 	// Create Window
-	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_TOOLWINDOW,
+	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOOLWINDOW,
 					(LPCWSTR)_atomWinAtom,
 					StringMgr::Get()->GetString(R_SPLASH_TITLE),
 					WS_VISIBLE | WS_POPUP,

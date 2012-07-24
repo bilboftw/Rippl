@@ -78,6 +78,9 @@ void RIContainer::AddChild(RIContainer *ricChild)
 
 	// Add
 	_vecChildren.push_back(ricChild);
+
+	// Tell the child we're the parent
+	ricChild->_ricParent = this;
 }
 
 void RIContainer::RemoveChild(RIContainer *ricChild)
@@ -117,7 +120,7 @@ void RIContainer::Redraw()
 	std::sort(_vecChildren.begin(), _vecChildren.end(), SortZ);
 
 	// Signal all children to redraw
-	std::vector<RIContainer*>::iterator it;
+	std::vector<RIContainer*>::iterator it = _vecChildren.begin();
 	while(it != _vecChildren.end())
 		// Redraw, you!
 		(*it)->Redraw();
