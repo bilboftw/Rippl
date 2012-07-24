@@ -6,9 +6,9 @@
 #include "resource.h"
 #include "Macros.h"
 #include "SDL_image.h"
+#include "r_str.h"
 
 #include "ri_window.h"
-#include "strmgr.h"
 
 // Static Defines
 RIWindow* RIWindow::Inst = NULL;

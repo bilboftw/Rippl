@@ -14,6 +14,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test_Scope", "Test_Scope\Te
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SDL_image", "..\SDL_Image\VisualC\SDL_image.vcproj", "{2BD5534E-00E2-4BEA-AC96-D9A92EA24696}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rstr", "rstr\rstr.vcproj", "{D1F69981-F58E-46FB-99A8-18DF89BFA925}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -83,6 +85,15 @@ Global
 		{2BD5534E-00E2-4BEA-AC96-D9A92EA24696}.Release|Win32.ActiveCfg = Release|Win32
 		{2BD5534E-00E2-4BEA-AC96-D9A92EA24696}.Release|Win32.Build.0 = Release|Win32
 		{2BD5534E-00E2-4BEA-AC96-D9A92EA24696}.Release|x64.ActiveCfg = Release|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Debug|Win32.Build.0 = Debug|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Debug|x64.ActiveCfg = Debug|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Release_NoSTDIO|Win32.ActiveCfg = Release|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Release_NoSTDIO|Win32.Build.0 = Release|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Release_NoSTDIO|x64.ActiveCfg = Release|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Release|Win32.ActiveCfg = Release|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Release|Win32.Build.0 = Release|Win32
+		{D1F69981-F58E-46FB-99A8-18DF89BFA925}.Release|x64.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

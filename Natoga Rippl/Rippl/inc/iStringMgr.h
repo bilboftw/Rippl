@@ -4,11 +4,12 @@
 #ifndef iStringMgr_h__
 #define iStringMgr_h__
 
+
 // String Manager Interface
-interface iStringMgr
+class iStringMgr
 {
 public:
-	virtual const wchar_t*		GetString(UINT dwStringID, ...) = 0;
+	virtual const wchar_t*		GetString(unsigned int dwStringID, ...) = 0;
 };
 
 #endif // iStringMgr_h__

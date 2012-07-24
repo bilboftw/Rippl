@@ -11,10 +11,10 @@
 #include <GdiPlus.h>
 
 #include "Macros.h"
+#include "r_str.h"
 
 #include "rippl.hpp"
 #include "splash.h"
-#include "strmgr.h"
 #include "resource.h"
 #include "tween_engine.h"
 
@@ -427,7 +427,7 @@ Splash::Splash()
 	_wcsStatus = const_cast<wchar_t*>(SGETSTRING(R_SPLASH_MSG_LOADING));
 
 	// Load Fonts
-	if(AddFontResourceExW(StringMgr::Get()->GetString(R_SPLASH_TITLE_FONT_FILENAME), FR_PRIVATE, 0) == 0)
+	if(AddFontResourceExW(SGETSTRING(R_SPLASH_TITLE_FONT_FILENAME), FR_PRIVATE, 0) == 0)
 	{
 		// Log and break
 		LOGW("Could not load rezland font!");
@@ -444,21 +444,21 @@ Splash::Splash()
 	_pngNtgaLogo->frcDest->Y = 350;
 
 	// Set up font information
-	_otpTitle.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_TITLE_FONT), NULL);
+	_otpTitle.ffFontFam = new FontFamily(SGETSTRING(R_SPLASH_TITLE_FONT), NULL);
 	_otpTitle.fntFont = new Font(_otpTitle.ffFontFam, 72.0f, FontStyleRegular, UnitPixel);
 	_otpTitle.brshBrush = new SolidBrush(Color(255, 231, 162, 0));
 	_otpTitle.cAlpha = 0;
 	_otpTitle.sfFormat = new StringFormat(0, LANG_NEUTRAL);
 	_otpTitle.sfFormat->SetLineAlignment(StringAlignmentFar);
 
-	_otpStudio.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpStudio.ffFontFam = new FontFamily(SGETSTRING(R_SPLASH_AUX_FONT), NULL);
 	_otpStudio.fntFont = new Font(_otpStudio.ffFontFam, 14.0f, FontStyleRegular, UnitPixel);
 	_otpStudio.brshBrush = new SolidBrush(Color(255, 170, 119, 0));
 	_otpStudio.cAlpha = 0;
 	_otpStudio.sfFormat = new StringFormat(0, LANG_NEUTRAL);
 	_otpStudio.sfFormat->SetLineAlignment(StringAlignmentFar);
 
-	_otpVerName.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpVerName.ffFontFam = new FontFamily(SGETSTRING(R_SPLASH_AUX_FONT), NULL);
 	_otpVerName.fntFont = new Font(_otpVerName.ffFontFam, 18.0f, FontStyleRegular, UnitPixel);
 	_otpVerName.brshBrush = new SolidBrush(Color(255, 110, 110, 110));
 	_otpVerName.cAlpha = 0;
@@ -466,14 +466,14 @@ Splash::Splash()
 	_otpVerName.sfFormat->SetAlignment(StringAlignmentFar);
 	_otpVerName.sfFormat->SetLineAlignment(StringAlignmentFar);
 
-	_otpVer.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpVer.ffFontFam = new FontFamily(SGETSTRING(R_SPLASH_AUX_FONT), NULL);
 	_otpVer.fntFont = new Font(_otpVer.ffFontFam, 9.0f, FontStyleRegular, UnitPixel);
 	_otpVer.brshBrush = new SolidBrush(Color(255, 110, 110, 110));
 	_otpVer.cAlpha = 0;
 	_otpVer.sfFormat = new StringFormat(0, LANG_NEUTRAL);
 	_otpVer.sfFormat->SetLineAlignment(StringAlignmentFar);
 	
-	_otpText.ffFontFam = new FontFamily(StringMgr::Get()->GetString(R_SPLASH_AUX_FONT), NULL);
+	_otpText.ffFontFam = new FontFamily(SGETSTRING(R_SPLASH_AUX_FONT), NULL);
 	_otpText.fntFont = new Font(_otpText.ffFontFam, 11.0f, FontStyleRegular, UnitPixel);
 	_otpText.brshBrush = new SolidBrush(Color(255, 151, 150, 150));
 	_otpText.cAlpha = 0;
@@ -531,7 +531,7 @@ Splash::Splash()
 	// Create Window
 	_hwndWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOPMOST | WS_EX_TOOLWINDOW,
 					(LPCWSTR)_atomWinAtom,
-					StringMgr::Get()->GetString(R_SPLASH_TITLE),
+					SGETSTRING(R_SPLASH_TITLE),
 					WS_VISIBLE | WS_POPUP,
 					wx,
 					wy,

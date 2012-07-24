@@ -10,7 +10,6 @@
 
 #include "rippl.hpp"
 #include "resource.h"
-#include "strmgr.h"
 #include "tween_engine.h"
 
 /**

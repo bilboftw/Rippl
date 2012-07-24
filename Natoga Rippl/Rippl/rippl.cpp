@@ -7,15 +7,20 @@
 #include <GdiPlus.h>
 
 #include "resource.h"
+#include "Macros.h"
 
-#include "strmgr.h"
+#include "r_str.h"
 #include "tween_engine.h"
 #include "splash.h"
 #include "ri_window.h"
 #include "ri_sdl.h"
 
-// Static Defines
+// Prototype Definitions
+void LoadStringLib();
+
+// Static / Extern Defines
 static HANDLE hwndMainThread;
+extern iStringMgr* lpRStrMgr = NULL;
 
 // GDIPlus Information
 struct R_GDI_PLUS_INFO
@@ -34,8 +39,8 @@ void InitResources(HINSTANCE hinstInst)
 	// Store handle to current thread
 	hwndMainThread = GetCurrentThread();
 
-	// Initialize Strings
-	StringMgr::Init(hinstInst);
+	// Load Strings
+	LoadStringLib();
 
 	// Initialize GDI+
 	Gdiplus::GdiplusStartup(&stGdiPlusI.lpToken, &stGdiPlusI.gdiplusStartupInput, NULL);
@@ -89,4 +94,10 @@ void TerminateRippl(int iExitCode)
 
 	// Terminate Main Thread
 	TerminateProcess(GetCurrentProcess(), iExitCode);
+}
+
+void LoadStringLib()
+{
+	// Initialize Strings
+	lpRStrMgr = MGS();
 }
