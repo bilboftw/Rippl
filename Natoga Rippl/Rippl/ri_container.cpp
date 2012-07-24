@@ -19,26 +19,6 @@ RIContainer::RIContainer()
 	memset(&_srcBounds, 0, sizeof(_srcBounds));
 }
 
-RIContainer::RIContainer(int x, int y, int w, int h)
-{
-	// Setup parent and Z
-	_ricParent = NULL;
-	Z = 0;
-
-	// Set up bounds
-	SetBounds(x, y, w, h);
-}
-
-RIContainer::RIContainer(SDL_Rect *sBounds)
-{
-	// Setup parent and Z
-	_ricParent = NULL;
-	Z = 0;
-
-	// Store bounds
-	SetBounds(sBounds);
-}
-
 RIContainer::RIContainer(int x, int y, int w, int h, short z)
 {
 	// Setup parent
@@ -65,30 +45,46 @@ RIContainer::RIContainer(SDL_Rect *sBounds, short z)
 
 RIContainer::~RIContainer()
 {
-	// Remove from parent
-	_ricParent->RemoveChild(this);
+	// If there is a parent...
+	if(_ricParent != NULL)
+		// Remove from parent
+		_ricParent->RemoveChild(this);
+
+	// Remove all children (if we have any)
+	while(!_lstChildren.empty())
+	{
+		delete _lstChildren.front();
+	}
 }
 
-void RIContainer::AddChild(RIContainer *ricChild)
+void RIContainer::AddChild(RIContainer* ricChild)
 {
 	// Check if we've already added this child
-	if(std::search(_vecChildren.begin(), _vecChildren.end(), &ricChild, &ricChild) != _vecChildren.end())
+	if(std::find(_lstChildren.begin(), _lstChildren.end(), ricChild) != _lstChildren.end())
 		// Return
 		return;
 
 	// Add
-	_vecChildren.push_back(ricChild);
+	_lstChildren.push_back(ricChild);
+
+	// Set parent
+	ricChild->_ricParent = this;
 }
 
-void RIContainer::RemoveChild(RIContainer *ricChild)
+void RIContainer::RemoveChild(RIContainer* ricChild)
 {
+	// Check length
+	if(_lstChildren.size() < 1)
+		// Return
+		return;
+
 	// Get iterator
-	std::vector<RIContainer*>::iterator it = std::search(_vecChildren.begin(), _vecChildren.end(), &ricChild, &ricChild);
+	std::list<RIContainer*>::iterator it = std::find(_lstChildren.begin(), _lstChildren.end(), ricChild);
 
 	// If we ding'd..
-	if(it != _vecChildren.end())
+	if(it != _lstChildren.end())
 		// Remove
-		_vecChildren.erase(it);
+		_lstChildren.erase(it);
 }
 
 RIContainer* RIContainer::GetSuperParent()
@@ -103,24 +99,36 @@ RIContainer* RIContainer::GetSuperParent()
 	return ret;
 }
 
-void RIContainer::Redraw()
+void RIContainer::Redraw(bool bInternal)
 {
 	// Signal our drawing method
 	OnDraw();
 
+	int sz = _lstChildren.size();
+
 	// Check if we have children
-	if(_vecChildren.size() == 0)
+	if(_lstChildren.size() == 0)
 		// Nothing to do!
 		return;
 
 	// Sort our Z-Indexes
-	std::sort(_vecChildren.begin(), _vecChildren.end(), SortZ);
+	_lstChildren.sort(SortZ);
 
 	// Signal all children to redraw
-	std::vector<RIContainer*>::iterator it;
-	while(it != _vecChildren.end())
+	std::list<RIContainer*>::iterator it = _lstChildren.begin();
+	while(it != _lstChildren.end())
+	{
 		// Redraw, you!
 		(*it)->Redraw();
+
+		// Increment
+		++it;
+	}
+
+	// Update parent if not internal call
+	if(!bInternal)
+		// Get super parent and call update
+		GetSuperParent()->Update(this);
 }
 
 bool RIContainer::SortZ(RIContainer* a, RIContainer* b)
@@ -138,7 +146,7 @@ void RIContainer::SetBounds(int x, int y, int w, int h)
 	_srcBounds.h = h;
 }
 
-void RIContainer::SetBounds(SDL_Rect *sRect)
+void RIContainer::SetBounds(SDL_Rect* sRect)
 {
 	// Store bounds
 	_srcBounds = *sRect;
@@ -148,4 +156,13 @@ SDL_Rect* RIContainer::GetBounds()
 {
 	// Return
 	return &_srcBounds;
+}
+
+bool RIContainer::DeleteAll(RIContainer*& a)
+{
+	// Delete
+	delete a;
+
+	// Return true
+	return true;
 }

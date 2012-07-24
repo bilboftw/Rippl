@@ -6,7 +6,7 @@
 
 // Includes
 #include <windows.h>
-#include <vector>
+#include <list>
 
 #include "iTweenEngine.h"
 
@@ -32,19 +32,11 @@ protected:
 	inline static double	EaseOut(Tween* lpTween);
 	inline static double	EaseInOut(Tween* lpTween);
 
-	void					Merge();
-
 	static TweenEngine*		_oEngine;
 
 	rEaseApplyCB*			_cbEaseFuncs[4];
 
-	/**
-	 * Double buffer
-	 *	This is because adding a new tween from within
-	 *	a tween event callback causes issues with iterators!
-	 */
-	std::vector<Tween*>		_vecTweens;
-	std::vector<Tween*>		_vecQueue;
+	std::list<Tween*>		_lstTweens;
 
 	HANDLE					_hwndProcessingThread;
 private:

@@ -5,7 +5,7 @@
 #define ri_container_h__
 
 // Includes
-#include <vector>
+#include <list>
 
 #include "SDL.h"
 
@@ -14,11 +14,9 @@ class RIContainer
 {
 public:
 	RIContainer();
-	RIContainer(SDL_Rect* sBounds);
-	RIContainer(SDL_Rect* sBounds, short z);
-	RIContainer(int x, int y, int w, int h);
-	RIContainer(int x, int y, int w, int h, short z);
-	~RIContainer();
+	RIContainer(SDL_Rect* sBounds, short z = 0);
+	RIContainer(int x, int y, int w, int h, short z = 0);
+	virtual ~RIContainer();
 
 	/**
 	 * Sets the bounds for the container
@@ -36,7 +34,7 @@ public:
 	 * Triggers the container to redraw itself, 
 	 *	including all of its children.
 	 */
-	void							Redraw();
+	void							Redraw(bool bInternal = false);
 
 	/**
 	 * The Z-Index of the control
@@ -64,7 +62,7 @@ protected:
 	 *	This MUST be overridden by the super-parent
 	 *	(see GetSuperParent())
 	 */
-	void							Update(RIContainer* ricChild) { throw "Method not overridden, or object not super-parent!"; };
+	virtual void							Update(RIContainer* ricChild) = 0;
 
 	/**
 	 * Retrieves the top-most parent object
@@ -73,14 +71,14 @@ protected:
 	 */
 	RIContainer*					GetSuperParent();
 
-
 	RIContainer*					_ricParent;
 
 	SDL_Rect						_srcBounds;
 
-	std::vector<RIContainer*>		_vecChildren;
+	std::list<RIContainer*>			_lstChildren;
 private:
-	static bool						SortZ(RIContainer* a, RIContainer* b);
+	static bool					SortZ(RIContainer* a, RIContainer* b);
+	static bool					DeleteAll(RIContainer*& a);
 };
 
 #endif // ri_container_h__

@@ -14,6 +14,8 @@
 #include "ri_window.h"
 #include "ri_sdl.h"
 
+#include "ContainerTest.hpp"
+
 // Static Defines
 static HANDLE hwndMainThread;
 
@@ -42,6 +44,8 @@ void InitResources(HINSTANCE hinstInst)
 
 	// Init splash
 	Splash::Init(hinstInst);
+
+TestConts();
 
 	// Show splash screen
 	Splash::Get()->ShowWait();

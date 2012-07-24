@@ -4,7 +4,7 @@
 
 // Includes
 #include <Windows.h>
-#include <vector>
+#include <list>
 #include <algorithm>
 
 #include "iTweenEngine.h"
@@ -53,12 +53,12 @@ TweenEngine::~TweenEngine()
 	TerminateThread(_hwndProcessingThread, 0);
 
 	// Iterate and delete all of the tween objects
-	std::vector<Tween*>::iterator i;
-	for(i = _vecTweens.begin(); i < _vecTweens.end(); i++)
+	std::list<Tween*>::iterator i;
+	for(i = _lstTweens.begin(); i != _lstTweens.end(); i++)
 		delete (*i);
 
 	// Clear vector
-	_vecTweens.clear();
+	_lstTweens.clear();
 
 	// Set Global Pointer to NULL
 	TweenEngine::_oEngine = NULL;
@@ -70,39 +70,27 @@ void TweenEngine::Add(Tween *lpTween)
 	lpTween->Adjust();
 
 	// Check to see we don't already have it in queue
-	std::vector<Tween*>::iterator i;
-	for(i = _vecQueue.begin(); i < _vecQueue.end(); i++)
+	std::list<Tween*>::iterator i;
+	for(i = _lstTweens.begin(); i != _lstTweens.end(); i++)
 		// Check pointer
 		if(*i == lpTween)
 			// Return
 			return;
 
 	// Push onto the end
-	_vecQueue.push_back(lpTween);
+	_lstTweens.push_back(lpTween);
 }
 
 void TweenEngine::Remove(Tween *lpTween)
 {
 	// Iterate and remove
-	std::vector<Tween*>::iterator i;
-	for(i = _vecTweens.begin(); i < _vecTweens.end(); i++)
+	std::list<Tween*>::iterator i;
+	for(i = _lstTweens.begin(); i != _lstTweens.end(); i++)
 		// Check pointer
 		if(*i == lpTween)
 		{
 			// Remove
-			_vecTweens.erase(i);
-
-			// Return
-			return;
-		}
-
-	std::vector<Tween*>::iterator iq;
-	for(iq = _vecQueue.begin(); iq < _vecQueue.end(); iq++)
-		// Check pointer
-		if(*iq == lpTween)
-		{
-			// Remove
-			_vecQueue.erase(i);
+			i = _lstTweens.erase(i);
 
 			// Return
 			return;
@@ -131,15 +119,12 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 	// Loop!
 	while(true)
 	{
-		// Merge
-		oEngine->Merge();
-
 		// Set up iterator
-		std::vector<Tween*>::iterator i = oEngine->_vecTweens.begin();
+		std::list<Tween*>::iterator i = oEngine->_lstTweens.begin();
 
 		// Iterate through vectors
 		// Check to see we don't already have it in there
-		while(i != oEngine->_vecTweens.end())
+		while(i != oEngine->_lstTweens.end())
 		{
 			// If it's still being delayed...
 			if((*i)->dDelay > 0)
@@ -195,7 +180,7 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 
 				// Remove from vector
 				//	NOTE: This increments for us.
-				i = oEngine->_vecTweens.erase(i);
+				i = oEngine->_lstTweens.erase(i);
 			}
 		}
 
@@ -205,26 +190,6 @@ DWORD TweenEngine::ThreadEP(PVOID arg)
 
 	// Return success
 	return 0;
-}
-
-void TweenEngine::Merge()
-{
-	// Return if no queue
-	if(_vecQueue.size() == 0)
-		return;
-
-	// Sort
-	std::sort(_vecQueue.begin(), _vecQueue.end());
-	std::sort(_vecTweens.begin(), _vecTweens.end());
-
-	// Merge
-	std::vector<Tween*> tmp;
-	tmp.reserve(_vecQueue.size() + _vecTweens.size());
-	std::merge(_vecQueue.begin(), _vecQueue.end(), _vecTweens.begin(), _vecTweens.end(), std::back_inserter(tmp));
-	_vecTweens.swap(tmp);
-
-	// Empty queue
-	_vecQueue.clear();
 }
 
 double TweenEngine::EaseLinear(Tween *lpTween)
