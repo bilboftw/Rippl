@@ -5,32 +5,21 @@
 #define r_config_h__
 
 // Includes
+#include <fstream>
+
 #include "yaml-cpp/yaml.h"
 
 // Configuration Class Definition
 class RConfig
 {
 public:
-
-	/**
-	 * Initializes configuration files
-	 */
-	static void					Init();
-
-	/**
-	 * Destroys configuration files
-	 */
-	static void					Destroy();
-
-	RConfig(const wchar_t* szFile);
+	RConfig(const char* szFile);
 	~RConfig();
 
-
-	/**
-	 * The base theme file that values are defaulted to
-	 *	if not found in derived themes
-	 */
-	static RConfig*					BaseTheme;
+protected:
+	std::ifstream					_iStream;
+	YAML::Node						_nConf;
+	YAML::Parser					_prsParser;
 };
 
 #endif // r_config_h__

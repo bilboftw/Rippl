@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by rstr.rc
+// Used by c:\Users\Jake\Documents\Rippl\Natoga Rippl\rstr\rstr.rc
 //
 #define R_DEBUG_MSG                     102
 #define R_TITLE                         103
@@ -20,6 +20,7 @@
 #define R_WIN_CAPTION                   117
 #define R_LOADMSG_SDL                   118
 #define R_LOADMSG_COMPONENTS            119
+#define R_LOADMSG_CONFIG                120
 
 // Next default values for new objects
 // 

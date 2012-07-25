@@ -14,6 +14,7 @@
 #include "splash.h"
 #include "ri_window.h"
 #include "ri_sdl.h"
+#include "r_themes.h"
 
 // Prototype Definitions
 void LoadStringLib();
@@ -51,6 +52,10 @@ void InitResources(HINSTANCE hinstInst)
 	// Show splash screen
 	Splash::Get()->ShowWait();
 	
+	// Load Configuration
+	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_CONFIG));
+	RTheme::Init();				// - Themes
+
 	// Set up SDL
 	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_SDL));
 	RSDL::Init();
@@ -64,8 +69,6 @@ void InitResources(HINSTANCE hinstInst)
 
 	// - Redraw Window
 	RIWindow::Inst->Redraw();
-
-	Sleep(10000);
 
 	// Completed~!
 	Splash::Get()->UpdateStatus(SGETSTRING(R_LOADMSG_COMPLETE));
@@ -82,6 +85,9 @@ void ReleaseResources()
 
 	// De-init GDI+
 	Gdiplus::GdiplusShutdown(stGdiPlusI.lpToken);
+
+	// Unload Config
+	RTheme::Unload();			// - Themes
 }
 
 /**

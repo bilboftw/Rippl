@@ -1,6 +1,6 @@
 // Microsoft Visual C++ generated resource script.
 //
-#include "include/r_string_id.h"
+#include "include\r_string_id.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -34,7 +34,7 @@ BEGIN
     R_COPYRIGHT             "Copyright © 2012 Natoga Technologies. All Rights Reserved."
     R_SPLASH_TITLE          "Rippl Splash"
     R_SPLASH_TITLE_FONT_FILENAME "system/font/rezland.ttf"
-    R_SPLASH_TITLE_FONT     "REZ"
+    R_SPLASH_TITLE_FONT     "rezland.ttf"
     R_SPLASH_AUX_FONT       "Arial"
     R_SPLASH_STUDIO         "STUDIO"
     R_SPLASH_MSG_LOADING    "Welcome to Rippl! Loading..."
@@ -50,6 +50,7 @@ BEGIN
     R_WIN_CAPTION           "Rippl Studio"
     R_LOADMSG_SDL           "Loading graphics engine..."
     R_LOADMSG_COMPONENTS    "Loading components..."
+    R_LOADMSG_CONFIG        "Loading configuration..."
 END
 
 #endif    // Neutral resources

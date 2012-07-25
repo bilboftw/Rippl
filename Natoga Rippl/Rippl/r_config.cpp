@@ -3,24 +3,29 @@
 /************************************************************************/
 
 // Includes
+#include <fstream>
+
+#include "Macros.h"
 #include "yaml-cpp/yaml.h"
+#include "yaml-cpp/node.h"
 
 #include "r_config.h"
 
-void RConfig::Init()
+RConfig::RConfig(const char* szFile) : _iStream(szFile), _prsParser(_iStream)
 {
-	// Create new log files
-	BaseTheme = new RConfig("theme.yml");
+	// Check that things worked with the ISTREAM
+	if(_iStream.fail() || !_iStream.is_open())
+		// Log
+		LOGE("Could not open configuration file \"%s\"!", szFile);
+
+	// Associate parser with document
+	if(!_prsParser.GetNextDocument(_nConf))
+		// Log
+		LOGE("Could not enumerate document for YAML parser for config file %s", szFile);
 }
 
-void RConfig::Destroy()
+RConfig::~RConfig()
 {
-	// Delete config files
-	delete BaseTheme;
-}
-
-RConfig::RConfig(const wchar_t* szFile)
-{
-	// Create file
-	
+	// Close stream
+	_iStream.close();
 }

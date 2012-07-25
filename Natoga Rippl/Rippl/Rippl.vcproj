@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SDL2.lib SDL_Image.lib rstr.lib"
+				AdditionalDependencies="SDL2.lib SDL_Image.lib rstr.lib libyaml.lib"
 				OutputFile="$(OutDir)\Rippl_d.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(SolutionDir)bin"
@@ -414,6 +414,50 @@
 							</File>
 						</Filter>
 					</Filter>
+				</Filter>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Config"
+			>
+			<Filter
+				Name="Themes"
+				>
+				<Filter
+					Name="Headers"
+					>
+					<File
+						RelativePath=".\r_themes.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Sources"
+					>
+					<File
+						RelativePath=".\r_themes.cpp"
+						>
+					</File>
+				</Filter>
+			</Filter>
+			<Filter
+				Name="Base"
+				>
+				<Filter
+					Name="Source"
+					>
+					<File
+						RelativePath=".\r_config.cpp"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="Headers"
+					>
+					<File
+						RelativePath=".\r_config.h"
+						>
+					</File>
 				</Filter>
 			</Filter>
 		</Filter>
