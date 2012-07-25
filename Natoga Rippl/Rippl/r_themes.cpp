@@ -3,6 +3,8 @@
 /************************************************************************/
 
 // Includes
+#include <string>
+
 #include "Macros.h"
 
 #include "r_themes.h"
@@ -19,7 +21,7 @@ void RTheme::Init()
 
 void RTheme::Unload()
 {
-	
+
 }
 
 void RTheme::LoadTheme(const char* szName)
@@ -35,10 +37,9 @@ void RTheme::LoadTheme(const char* szName)
 RTheme::RTheme(const char* szName) : RConfig(szName)
 {
 	// Be sure to check document size
-
-	int a;
-	_nConf[0]["test"] >> a;
-	LOGD("Testing: %u", a);
+	std::string 
+	_nConf[0]["MainWindow"]["background"] >> bgst;
+	LOGD("Testing: %s", bgst);
 }
 
 RTheme::~RTheme()
