@@ -3,13 +3,10 @@
 
 *.*
 
-SDL*/
-SDL*/*
-boost*/
-boost*/*
-
-!SDL_Image*/
-!SDL_Image*/*
+!SDL*/
+!SDL*/*
+!yaml-cpp*/
+!yaml-cpp*/*
 
 !*.cpp
 !*.sln
