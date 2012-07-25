@@ -40,6 +40,7 @@ public:
 	 * The Z-Index of the control
 	 */
 	short							Z;
+
 protected:
 	
 	/**
