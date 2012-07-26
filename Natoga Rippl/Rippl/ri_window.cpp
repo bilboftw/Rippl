@@ -148,7 +148,7 @@ void RIWindow::Update(RIContainer* ricChild)
 }
 
 void RIWindow::DrawBackground()
-{	
+{
 	// Get window surface
 	SDL_Surface* winSurf = SDL_GetWindowSurface(Window);
 
