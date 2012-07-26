@@ -7,6 +7,7 @@
 // Includes
 #include <string>
 
+#include "ri_image.h"
 #include "r_config.h"
 
 // Usings
@@ -21,6 +22,14 @@ typedef struct
 		string Author;
 		string Website;
 	} ThemeInfo;
+
+	struct R_THEME_UI_INFO_BLOCK
+	{
+		struct
+		{
+			RIImage* Background;
+		} MainWindow;
+	} UI;
 
 } R_THEME_INFORMATION;
 
@@ -48,17 +57,12 @@ public:
 
 	R_THEME_INFORMATION				Theme;
 protected:
-
-	/**
-	 * Builds the theme object
-	 */
-	void							BuildTheme();
-
 	static RTheme*					_thmBaseTheme;
 
 	string							_strBasePath;
 
 	string							GetNameFromNode();
+	RIImage*						GetImageFromNode(const YAML::Node* BaseNode, const char* ChildNode);
 };
 
 #endif // r_themes_h__

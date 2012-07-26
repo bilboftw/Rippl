@@ -147,20 +147,7 @@ void RIWindow::Update(RIContainer* ricChild)
 }
 
 void RIWindow::DrawBackground()
-{
-	// Load PNG
-	if(_imgBG == NULL)
-	{
-		// Load image
-		_imgBG = IMG_Load("C:/Users/Jake/Documents/Rippl/Natoga Rippl/bin/test.png");
-		if(_imgBG == NULL)
-		{
-			LOGW("Could not load PNG File: %s", IMG_GetError());
-			assert(false);
-			return;
-		}
-	}
-	
+{	
 	// Get window surface
 	SDL_Surface* winSurf = SDL_GetWindowSurface(Window);
 

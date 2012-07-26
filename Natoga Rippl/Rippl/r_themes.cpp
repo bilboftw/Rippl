@@ -7,6 +7,7 @@
 
 #include "Macros.h"
 
+#include "ri_image.h"
 #include "r_themes.h"
 
 // Using Definitions
@@ -60,7 +61,7 @@ RTheme::RTheme(const char* szName) : RConfig(szName)
 	_nConf["ThemeInfo"]["Author"] >> Theme.ThemeInfo.Author;
 	_nConf["ThemeInfo"]["Website"] >> Theme.ThemeInfo.Website;
 
-	LOGI("Theme author: %s", Theme.ThemeInfo.Author.c_str());
+	Theme.UI.MainWindow.Background = GetImageFromNode(&_nConf["UI"]["MainWindow"], "Background");
 }
 
 string RTheme::GetNameFromNode()
@@ -78,7 +79,23 @@ string RTheme::GetNameFromNode()
 	return ret;
 }
 
+RIImage* RTheme::GetImageFromNode(const YAML::Node* BaseNode, const char* ChildNode)
+{
+	// Setup string
+	string pthname;
+	
+	// Get String name
+	(*BaseNode)[ChildNode] >> pthname;
+	
+	// Append to basepath
+	pthname.insert(0, _strBasePath);
+
+	// Return new image object
+	return new RIImage(pthname.c_str());
+}
+
 RTheme::~RTheme()
 {
-	
+	// Unload all images
+
 }
