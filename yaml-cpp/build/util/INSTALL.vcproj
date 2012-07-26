@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="INSTALL"
-	ProjectGUID="{5C91D599-BD4B-485C-8DC1-6D767032453C}"
+	ProjectGUID="{6C585AF6-A924-40BD-8E93-1EDACA28412D}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -20,7 +20,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Debug\&quot;"
 				AssemblerListingLocation="Debug"
@@ -30,11 +30,11 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Debug\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -62,7 +62,7 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Release\&quot;"
 				AssemblerListingLocation="Release"
@@ -72,11 +72,11 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Release\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -104,7 +104,7 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;MinSizeRel\&quot;"
 				AssemblerListingLocation="MinSizeRel"
@@ -114,11 +114,11 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;MinSizeRel\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -146,7 +146,7 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;RelWithDebInfo\&quot;"
 				AssemblerListingLocation="RelWithDebInfo"
@@ -156,11 +156,11 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;RelWithDebInfo\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -184,15 +184,15 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 			Name="CMake Rules"
 			Filter="">
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
 					Description=" "
 					CommandLine="cd .&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
@@ -200,8 +200,8 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 					Name="VCCustomBuildTool"
 					Description=" "
 					CommandLine="cd .&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="MinSizeRel|Win32">
@@ -209,8 +209,8 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 					Name="VCCustomBuildTool"
 					Description=" "
 					CommandLine="cd .&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="RelWithDebInfo|Win32">
@@ -218,8 +218,8 @@ CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -DBUILD_
 					Name="VCCustomBuildTool"
 					Description=" "
 					CommandLine="cd .&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\util\CMakeFiles\INSTALL_force"/>
 				</FileConfiguration>
 			</File>
 		</Filter>

@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="ALL_BUILD"
-	ProjectGUID="{39F22CE4-17D6-4D68-ADFF-BCEBE8779CD0}"
+	ProjectGUID="{1FD4E1EB-0940-402F-9D99-4D8740811962}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -20,7 +20,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Debug\&quot;"
 				AssemblerListingLocation="Debug"
@@ -30,11 +30,11 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Debug\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -61,7 +61,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Release\&quot;"
 				AssemblerListingLocation="Release"
@@ -71,11 +71,11 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Release\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -102,7 +102,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;MinSizeRel\&quot;"
 				AssemblerListingLocation="MinSizeRel"
@@ -112,11 +112,11 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;MinSizeRel\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -143,7 +143,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				ExceptionHandling="0"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;RelWithDebInfo\&quot;"
 				AssemblerListingLocation="RelWithDebInfo"
@@ -153,11 +153,11 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				PreprocessorDefinitions="YAML_CPP_DLL;CMAKE_INTDIR=\&quot;RelWithDebInfo\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -177,60 +177,60 @@
 	</Configurations>
 	<Files>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="MinSizeRel|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="RelWithDebInfo|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 			</File>
 		<Filter
 			Name="CMake Rules"
 			Filter="">
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
 					Description="Build all projects"
 					CommandLine=""
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
@@ -238,8 +238,8 @@
 					Name="VCCustomBuildTool"
 					Description="Build all projects"
 					CommandLine=""
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="MinSizeRel|Win32">
@@ -247,8 +247,8 @@
 					Name="VCCustomBuildTool"
 					Description="Build all projects"
 					CommandLine=""
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="RelWithDebInfo|Win32">
@@ -256,8 +256,8 @@
 					Name="VCCustomBuildTool"
 					Description="Build all projects"
 					CommandLine=""
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD.rule"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\ALL_BUILD"/>
 				</FileConfiguration>
 			</File>
 		</Filter>

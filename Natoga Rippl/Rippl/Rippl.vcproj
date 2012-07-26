@@ -61,7 +61,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SDL2.lib SDL_Image.lib rstr.lib libyaml.lib"
+				AdditionalDependencies="SDL2.lib SDL_Image.lib rstr.lib yaml-cpp.lib"
 				OutputFile="$(OutDir)\Rippl_d.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(SolutionDir)bin"
@@ -137,7 +137,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SDL2.lib SDL_Image.lib"
+				AdditionalDependencies="SDL2.lib SDL_Image.lib yaml-cpp.lib"
 				OutputFile="$(OutDir)\Rippl.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="$(SolutionDir)bin"

@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="run-tests"
-	ProjectGUID="{032E7901-2BD2-4B05-B9D6-20370FABB51E}"
+	ProjectGUID="{0FF768D4-417D-4B52-BB62-72F99B53517C}"
 	Keyword="Win32Proj">
 	<Platforms>
 		<Platform
@@ -21,7 +21,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions=" /Zm1000"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				BasicRuntimeChecks="3"
 				CompileAs="2"
 				DebugInformationFormat="3"
@@ -35,17 +35,17 @@
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_DEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Debug\&quot;"
 				AssemblerListingLocation="Debug"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Debug/run-tests.pdb"
+				ProgramDataBaseFileName="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Debug/run-tests.pdb"
 />
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_DEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Debug\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -66,14 +66,14 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86 /debug"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  ..\Debug\yaml-cpp.lib "
-				OutputFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Debug\run-tests.exe"
+				OutputFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Debug\run-tests.exe"
 				Version="0.0"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Debug/run-tests.pdb"
+				ProgramDatabaseFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Debug/run-tests.pdb"
 				GenerateDebugInformation="TRUE"
 				SubSystem="1"
-				ImportLibrary="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Debug\run-tests.lib"/>
+				ImportLibrary="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Debug\run-tests.lib"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -86,7 +86,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions=" /Zm1000"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				CompileAs="2"
 				DisableSpecificWarnings="4127;4355"
 				ExceptionHandling="1"
@@ -98,17 +98,17 @@
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Release\&quot;"
 				AssemblerListingLocation="Release"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Release/run-tests.pdb"
+				ProgramDataBaseFileName="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Release/run-tests.pdb"
 />
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Release\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -129,13 +129,13 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  ..\Release\yaml-cpp.lib "
-				OutputFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Release\run-tests.exe"
+				OutputFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Release\run-tests.exe"
 				Version="0.0"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Release/run-tests.pdb"
+				ProgramDatabaseFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Release/run-tests.pdb"
 				SubSystem="1"
-				ImportLibrary="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\Release\run-tests.lib"/>
+				ImportLibrary="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\Release\run-tests.lib"/>
 		</Configuration>
 		<Configuration
 			Name="MinSizeRel|Win32"
@@ -148,7 +148,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions=" /Zm1000"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				CompileAs="2"
 				DisableSpecificWarnings="4127;4355"
 				ExceptionHandling="1"
@@ -160,17 +160,17 @@
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;MinSizeRel\&quot;"
 				AssemblerListingLocation="MinSizeRel"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\MinSizeRel/run-tests.pdb"
+				ProgramDataBaseFileName="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\MinSizeRel/run-tests.pdb"
 />
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;MinSizeRel\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -191,13 +191,13 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  ..\MinSizeRel\yaml-cpp.lib "
-				OutputFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\MinSizeRel\run-tests.exe"
+				OutputFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\MinSizeRel\run-tests.exe"
 				Version="0.0"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\MinSizeRel/run-tests.pdb"
+				ProgramDatabaseFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\MinSizeRel/run-tests.pdb"
 				SubSystem="1"
-				ImportLibrary="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\MinSizeRel\run-tests.lib"/>
+				ImportLibrary="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\MinSizeRel\run-tests.lib"/>
 		</Configuration>
 		<Configuration
 			Name="RelWithDebInfo|Win32"
@@ -210,7 +210,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				AdditionalOptions=" /Zm1000"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				CompileAs="2"
 				DebugInformationFormat="3"
 				DisableSpecificWarnings="4127;4355"
@@ -223,17 +223,17 @@
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;RelWithDebInfo\&quot;"
 				AssemblerListingLocation="RelWithDebInfo"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo/run-tests.pdb"
+				ProgramDataBaseFileName="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo/run-tests.pdb"
 />
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCResourceCompilerTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;RelWithDebInfo\&quot;"/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;C:\Users\Jake\Documents\Rippl\yaml-cpp\test;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test;"
 				MkTypLibCompatible="FALSE"
 				TargetEnvironment="1"
 				GenerateStublessProxies="TRUE"
@@ -254,67 +254,67 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86 /debug"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  ..\RelWithDebInfo\yaml-cpp.lib "
-				OutputFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo\run-tests.exe"
+				OutputFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo\run-tests.exe"
 				Version="0.0"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo/run-tests.pdb"
+				ProgramDatabaseFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo/run-tests.pdb"
 				GenerateDebugInformation="TRUE"
 				SubSystem="1"
-				ImportLibrary="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo\run-tests.lib"/>
+				ImportLibrary="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\RelWithDebInfo\run-tests.lib"/>
 		</Configuration>
 	</Configurations>
 	<Files>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="MinSizeRel|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="RelWithDebInfo|Win32">
 					<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Jake\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/test/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\test\CMakeFiles\generate.stamp"/>
 				</FileConfiguration>
 			</File>
 		<Filter
 			Name="Source Files"
 			Filter="">
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\emittertests.cpp">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\emittertests.cpp">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\main.cpp">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\main.cpp">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\spectests.cpp">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\spectests.cpp">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -345,13 +345,13 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\tests.cpp">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\tests.cpp">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\old-api\parsertests.cpp">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\old-api\parsertests.cpp">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\old-api\spectests.cpp">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\old-api\spectests.cpp">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -386,22 +386,22 @@
 			Name="Header Files"
 			Filter="">
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\emittertests.h">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\emittertests.h">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\nodetests.h">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\nodetests.h">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\parsertests.h">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\parsertests.h">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\specexamples.h">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\specexamples.h">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\spectests.h">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\spectests.h">
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\test\tests.h">
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\test\tests.h">
 			</File>
 		</Filter>
 	</Files>

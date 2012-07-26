@@ -15,17 +15,13 @@ using std::string;
 // Theme object definition
 typedef struct 
 {
-	string Name;
-
-	struct R_THEME_INFO_IMAGES
+	struct R_THEME_INFO_BLOCK
 	{
-		struct R_THEME_INFO_IMAGE_DATA
-		{
-			string Path;
-		}
-			MainWindowBackgroundImage;		
-		;
-	}Images;
+		string Name;
+		string Author;
+		string Website;
+	} ThemeInfo;
+
 } R_THEME_INFORMATION;
 
 // Themes Class Definition
@@ -59,6 +55,10 @@ protected:
 	void							BuildTheme();
 
 	static RTheme*					_thmBaseTheme;
+
+	string							_strBasePath;
+
+	string							GetNameFromNode();
 };
 
 #endif // r_themes_h__

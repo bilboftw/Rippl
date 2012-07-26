@@ -3,10 +3,6 @@
 
 *.*
 
-!SDL*/
-!SDL*/*
-!yaml-cpp*/
-!yaml-cpp*/*
 
 !*.cpp
 !*.sln
@@ -45,3 +41,5 @@
 !*.rc2
 !*.ai
 !*.ttf
+!*.dll
+!*.lib

@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="yaml-cpp shared md"
-	ProjectGUID="{51B8F5FF-4575-45D5-ABCF-7A6CD4FF6B03}"
+	ProjectGUID="{137B85C1-682C-4ADA-9805-8578A6378735}"
 	RootNamespace="yaml-cpp shared md"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="0"
@@ -18,7 +18,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)bin\"
+			OutputDirectory="$(SolutionDir)bin"
 			IntermediateDirectory="int"
 			ConfigurationType="2"
 			UseOfMFC="0"
@@ -39,7 +39,7 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
 				GenerateStublessProxies="true"
@@ -63,7 +63,7 @@
 				RuntimeTypeInfo="true"
 				AssemblerListingLocation="Debug"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\Debug/yaml-cpp.pdb"
+				ProgramDataBaseFileName="$(SolutionDir)..\yaml-cpp\build\Debug/yaml-cpp.pdb"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 				CompileAs="2"
@@ -75,7 +75,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;_DEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Debug\&quot;;yaml_cpp_EXPORTS"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -85,13 +85,13 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86 /debug"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  "
-				OutputFile="$(OutDir)yaml.dll"
+				OutputFile="$(OutDir)\yaml.dll"
 				Version="0.3"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile="$(SolutionDir)..\yaml-cpp\build\Debug\yaml-cpp.pdb"
-				ImportLibrary="$(SolutionDir)bin\libyaml.lib"
+				ImportLibrary="$(OutDir)\yaml-cpp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -138,7 +138,7 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
 				GenerateStublessProxies="true"
@@ -161,7 +161,7 @@
 				RuntimeTypeInfo="true"
 				AssemblerListingLocation="Release"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\Release/yaml-cpp.pdb"
+				ProgramDataBaseFileName="$(SolutionDir)..\yaml-cpp\build\Release/yaml-cpp.pdb"
 				WarningLevel="3"
 				CompileAs="2"
 				DisableSpecificWarnings="4127;4355"
@@ -172,7 +172,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;Release\&quot;;yaml_cpp_EXPORTS"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -182,12 +182,12 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  "
-				OutputFile="$(OutDir)yaml.dll"
+				OutputFile="$(OutDir)\yaml.dll"
 				Version="0.3"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="$(SolutionDir)..\yaml-cpp\build\Debug\yaml-cpp.pdb"
-				ImportLibrary="$(SolutionDir)bin\libyaml.lib"
+				ProgramDatabaseFile="$(SolutionDir)..\yaml-cpp\build\Release\yaml-cpp.pdb"
+				ImportLibrary="$(OutDir)\yaml-cpp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -234,7 +234,7 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
 				GenerateStublessProxies="true"
@@ -257,7 +257,7 @@
 				RuntimeTypeInfo="true"
 				AssemblerListingLocation="MinSizeRel"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\MinSizeRel/yaml-cpp.pdb"
+				ProgramDataBaseFileName="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\MinSizeRel/yaml-cpp.pdb"
 				WarningLevel="3"
 				CompileAs="2"
 				DisableSpecificWarnings="4127;4355"
@@ -268,7 +268,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;MinSizeRel\&quot;;yaml_cpp_EXPORTS"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -278,12 +278,12 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  "
-				OutputFile="$(OutDir)yaml.dll"
+				OutputFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\MinSizeRel\yaml-cpp.dll"
 				Version="0.3"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
-				ProgramDatabaseFile="$(SolutionDir)..\yaml-cpp\build\Debug\yaml-cpp.pdb"
-				ImportLibrary="$(SolutionDir)bin\libyaml.lib"
+				ProgramDatabaseFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\MinSizeRel\yaml-cpp.pdb"
+				ImportLibrary="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\MinSizeRel\yaml-cpp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -330,7 +330,7 @@
 			/>
 			<Tool
 				Name="VCMIDLTool"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 				MkTypLibCompatible="false"
 				TargetEnvironment="1"
 				GenerateStublessProxies="true"
@@ -353,7 +353,7 @@
 				RuntimeTypeInfo="true"
 				AssemblerListingLocation="RelWithDebInfo"
 				ObjectFile="$(IntDir)\"
-				ProgramDataBaseFileName="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\RelWithDebInfo/yaml-cpp.pdb"
+				ProgramDataBaseFileName="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\RelWithDebInfo/yaml-cpp.pdb"
 				WarningLevel="3"
 				DebugInformationFormat="3"
 				CompileAs="2"
@@ -365,7 +365,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_SCL_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;YAML_CPP_DLL;CMAKE_INTDIR=\&quot;RelWithDebInfo\&quot;;yaml_cpp_EXPORTS"
-				AdditionalIncludeDirectories="C:\Users\Jake\Documents\Rippl\yaml-cpp\include;C:\Users\Jake\Documents\Rippl\yaml-cpp\src;"
+				AdditionalIncludeDirectories="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include;C:\Users\Administrator\Documents\Rippl\yaml-cpp\src;"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -375,13 +375,13 @@
 				LinkLibraryDependencies="false"
 				AdditionalOptions=" /STACK:10000000 /machine:X86 /debug"
 				AdditionalDependencies="$(NOINHERIT) kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib  "
-				OutputFile="$(OutDir)yaml.dll"
+				OutputFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\RelWithDebInfo\yaml-cpp.dll"
 				Version="0.3"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
 				GenerateDebugInformation="true"
-				ProgramDatabaseFile="$(SolutionDir)..\yaml-cpp\build\Debug\yaml-cpp.pdb"
-				ImportLibrary="$(SolutionDir)bin\libyaml.lib"
+				ProgramDatabaseFile="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\RelWithDebInfo\yaml-cpp.pdb"
+				ImportLibrary="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\RelWithDebInfo\yaml-cpp.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -413,111 +413,111 @@
 			Name="Source Files"
 			>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\aliasmanager.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\aliasmanager.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\binary.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\binary.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\conversion.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\conversion.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\directives.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\directives.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\emitfromevents.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\emitfromevents.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\emitter.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\emitter.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\emitterstate.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\emitterstate.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\emitterutils.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\emitterutils.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\exp.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\exp.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\contrib\graphbuilder.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\contrib\graphbuilder.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\contrib\graphbuilderadapter.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\contrib\graphbuilderadapter.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\iterator.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\iterator.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\node.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\node.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\nodebuilder.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\nodebuilder.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\nodeownership.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\nodeownership.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\null.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\null.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\ostream.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\ostream.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\parser.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\parser.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\regex.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\regex.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\scanner.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\scanner.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\scanscalar.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\scanscalar.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\scantag.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\scantag.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\scantoken.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\scantoken.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\simplekey.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\simplekey.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\singledocparser.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\singledocparser.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\stream.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\stream.cpp"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\tag.cpp"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\tag.cpp"
 				>
 			</File>
 		</Filter>
@@ -525,222 +525,222 @@
 			Name="Header Files"
 			>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\aliasmanager.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\aliasmanager.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\anchor.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\anchor.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\contrib\anchordict.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\contrib\anchordict.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\binary.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\binary.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\collectionstack.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\collectionstack.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\conversion.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\conversion.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\directives.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\directives.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\dll.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\dll.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\emitfromevents.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\emitfromevents.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\emitter.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\emitter.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\emittermanip.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\emittermanip.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\emitterstate.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\emitterstate.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\emitterutils.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\emitterutils.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\eventhandler.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\eventhandler.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\exceptions.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\exceptions.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\exp.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\exp.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\contrib\graphbuilder.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\contrib\graphbuilder.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\contrib\graphbuilderadapter.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\contrib\graphbuilderadapter.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\indentation.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\indentation.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\iterator.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\iterator.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\iterpriv.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\iterpriv.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\ltnode.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\ltnode.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\mark.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\mark.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\node.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\node.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\nodebuilder.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\nodebuilder.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\nodeimpl.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\nodeimpl.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\nodeownership.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\nodeownership.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\nodereadimpl.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\nodereadimpl.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\nodeutil.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\nodeutil.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\noncopyable.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\noncopyable.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\null.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\null.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\ostream.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\ostream.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\parser.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\parser.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\ptr_stack.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\ptr_stack.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\ptr_vector.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\ptr_vector.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\regex.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\regex.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\regeximpl.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\regeximpl.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\scanner.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\scanner.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\scanscalar.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\scanscalar.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\scantag.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\scantag.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\setting.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\setting.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\singledocparser.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\singledocparser.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\stlemitter.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\stlemitter.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\stlnode.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\stlnode.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\stream.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\stream.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\streamcharsource.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\streamcharsource.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\stringsource.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\stringsource.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\tag.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\tag.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\src\token.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\src\token.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\traits.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\traits.h"
 				>
 			</File>
 			<File
-				RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\include\yaml-cpp\yaml.h"
+				RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\include\yaml-cpp\yaml.h"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt"
+			RelativePath="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt"
 			>
 			<FileConfiguration
 				Name="Debug|Win32"
 				>
 				<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
 				/>
 			</FileConfiguration>
 			<FileConfiguration
@@ -748,10 +748,10 @@
 				>
 				<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
 				/>
 			</FileConfiguration>
 			<FileConfiguration
@@ -759,10 +759,10 @@
 				>
 				<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
 				/>
 			</FileConfiguration>
 			<FileConfiguration
@@ -770,10 +770,10 @@
 				>
 				<Tool
 					Name="VCCustomBuildTool"
-					Description="Building Custom Rule C:/Users/Jake/Documents/Rippl/yaml-cpp/CMakeLists.txt"
-					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Jake/Documents/Rippl/yaml-cpp -BC:/Users/Jake/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
-					AdditionalDependencies="C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Jake\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
-					Outputs="C:\Users\Jake\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
+					Description="Building Custom Rule C:/Users/Administrator/Documents/Rippl/yaml-cpp/CMakeLists.txt"
+					CommandLine="&quot;C:\Program Files (x86)\CMake 2.8\bin\cmake.exe&quot; -HC:/Users/Administrator/Documents/Rippl/yaml-cpp -BC:/Users/Administrator/Documents/Rippl/yaml-cpp/build --check-stamp-file C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp&#x0D;&#x0A;if errorlevel 1 goto :VCReportError&#x0D;&#x0A;"
+					AdditionalDependencies="C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXCompilerFlag.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CheckCXXSourceCompiles.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeExpandImportedTargets.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeParseArguments.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeSystem.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCCompiler.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeSystemSpecificInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeGenericSystem.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\WindowsPaths.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeRCCompiler.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeRCInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCXXInformation.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\Windows-cl.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCPlatform.cmake;C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\CMakeCXXPlatform.cmake;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\Platform\cl.cmake&quot;;&quot;C:\Program Files (x86)\CMake 2.8\share\cmake-2.8\Modules\CMakeCommonLanguageInclude.cmake&quot;;C:\Users\Administrator\Documents\Rippl\yaml-cpp\CMakeLists.txt;"
+					Outputs="C:\Users\Administrator\Documents\Rippl\yaml-cpp\build\CMakeFiles\generate.stamp"
 				/>
 			</FileConfiguration>
 		</File>
