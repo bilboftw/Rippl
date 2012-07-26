@@ -26,6 +26,7 @@ public:
 
 	void					SetSpriteSize(int iSize, R_SPRITE_DIRECTION eDirection);
 	SDL_Rect				GetSprite(unsigned short sIndex);
+	SDL_Rect				CloneBounds() { return Bounds; };
 protected:
 	int						_iSpriteSize;
 	R_SPRITE_DIRECTION		_eDirection;

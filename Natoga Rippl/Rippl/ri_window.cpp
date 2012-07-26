@@ -8,6 +8,7 @@
 #include "SDL_image.h"
 #include "r_str.h"
 
+#include "r_themes.h"
 #include "ri_window.h"
 
 // Static Defines
@@ -158,25 +159,20 @@ void RIWindow::DrawBackground()
 
 	// Set up rects
 	SDL_Rect srBnds;
-	SDL_Rect srImg;
-
-	srImg.x = 0;
-	srImg.y = 0;
-	srImg.w = _imgBG->w;
-	srImg.h = _imgBG->h; 
 	
 	// Loop
-	for(srBnds.x = 0; srBnds.x < w; srBnds.x += _imgBG->w)
-		for(srBnds.y = 0; srBnds.y < h; srBnds.y += _imgBG->h)
+	for(srBnds.x = 0; srBnds.x < w; srBnds.x += RTheme::Loaded->Theme.UI.MainWindow.Background->Bounds.w)
+		for(srBnds.y = 0; srBnds.y < h; srBnds.y += RTheme::Loaded->Theme.UI.MainWindow.Background->Bounds.h)
 		{
-			// Reset widths
-			srBnds.w = _imgBG->w;
-			srBnds.h = _imgBG->h;
-			srImg.w = _imgBG->w;
-			srImg.h = _imgBG->h;
+			// Setup sizes
+			srBnds.w = RTheme::Loaded->Theme.UI.MainWindow.Background->Bounds.w;
+			srBnds.h = RTheme::Loaded->Theme.UI.MainWindow.Background->Bounds.h;
 
 			// Blit
-			if(SDL_BlitSurface(_imgBG, &srImg, winSurf, &srBnds) != 0)
+			if(SDL_BlitSurface(RTheme::Loaded->Theme.UI.MainWindow.Background->ImageSurface,
+							&RTheme::Loaded->Theme.UI.MainWindow.Background->CloneBounds(),
+							winSurf,
+							&srBnds) != 0)
 				LOGW("Could not blit: %s", SDL_GetError());
 		};
 
