@@ -355,6 +355,10 @@
 					Name="Headers"
 					>
 					<File
+						RelativePath=".\ri_image.h"
+						>
+					</File>
+					<File
 						RelativePath=".\ri_sdl.h"
 						>
 					</File>
@@ -362,6 +366,10 @@
 				<Filter
 					Name="Source"
 					>
+					<File
+						RelativePath=".\ri_image.cpp"
+						>
+					</File>
 					<File
 						RelativePath=".\ri_sdl.cpp"
 						>
