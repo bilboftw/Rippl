@@ -7,6 +7,9 @@
 #ifndef IPodule_h__
 #define IPodule_h__
 
+// Includes
+#include <Windows.h>
+
 // Pod Type Enum
 typedef enum
 {
@@ -49,7 +52,7 @@ public:
 	 *			so make sure to use the DisplayMessage or DisplayError methods
 	 *			on a last-resort basis.
 	 */
-	virtual void									Initialize(void** lpOutput);
+	virtual void									Initialize(void** lpOutput) = 0;
 
 	/**
 	 * Called when the pod instance expires or is unloaded
@@ -64,13 +67,13 @@ public:
 	 *	NOTE:	DO NOT DELETE THE IOUTPUT OBJECT! This will break the rest of the
 	 *			program!
 	 */
-	virtual void									Unitialize();
+	virtual void									Unitialize() = 0;
 };
 
 /**
  * Returns a handle to the pod instance
  *	NOTE: THIS MUST BE IMPLEMENTED BY ALL PODS!
  */
-extern "C" IPodule* __declspec(dllexport) GetPodule();
+extern "C" __declspec(dllexport) IPodule* GetPodule();
 
 #endif // IPodule_h__
