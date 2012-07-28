@@ -4,8 +4,16 @@
 /*  The pod is passed a pointer to a pointer of an interface object     */
 /*  which is used to output messages to the user through the host       */
 /*  application.                                                        */
+/*                                                                      */
+/*  NOTE: Do not dereference the pointer to pointer. The object's       */
+/*        lifetime is not guaranteed! Sometimes, especially during load */
+/*        times, the output handler will change!                        */
 /************************************************************************/
+#ifndef IOutput_h__
+#define IOutput_h__
 
+// Includes
+#include <Windows.h>
 
 /**
  * Message Box Return IDs
@@ -21,7 +29,7 @@ enum R_OP_MSG_ID
 /**
  * Rippl output interface
  */
-interface iOutputHandler
+interface IOutputHandler
 {
 public:
 	/**
@@ -66,3 +74,5 @@ public:
 	 */
 	virtual void					PrintDbgMsg(const char* szMsg, ...) = 0;
 };
+
+#endif // IOutput_h__

@@ -13,10 +13,10 @@
 // Pod Type Enum
 typedef enum
 {
-	MIDI,
-	DMX,
-	AUDIO,
-	FILETYPE
+	PODTYPE_MIDI,
+	PODTYPE_DMX,
+	PODTYPE_AUDIO,
+	PODTYPE_FILETYPE
 } R_POD_TYPE;
 
 // Pod Information struct
@@ -47,12 +47,16 @@ public:
 	 *	it and then use the object dereference operator to access the properties.
 	 *	This after casting it to an IOutput object first, of course.
 	 *
+	 *	Returns true if successful or false if failed.
+	 *
 	 *	NOTE:	This function is called in place of DLLMain. Make sure to put all
 	 *			initialization code here. Errors here WILL break loading execution,
 	 *			so make sure to use the DisplayMessage or DisplayError methods
 	 *			on a last-resort basis.
+	 *
+	 *			Returning false will prevent the program from loading!
 	 */
-	virtual void									Initialize(void** lpOutput) = 0;
+	virtual bool								Initialize(void** lpOutput) = 0;
 
 	/**
 	 * Called when the pod instance expires or is unloaded
