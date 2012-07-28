@@ -141,6 +141,15 @@
     <Filter Include="Includes\Output\Headers">
       <UniqueIdentifier>{0e6b5740-d255-4063-91ad-32c4b82b1542}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pod Manager">
+      <UniqueIdentifier>{f1479bf4-5d3a-4347-a302-846676126635}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pod Manager\Headers">
+      <UniqueIdentifier>{199bf843-de73-4f39-96f5-d8ae3f92e355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pod Manager\Sources">
+      <UniqueIdentifier>{37ca3806-710c-4007-8d40-07840f33c8cc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\resource.h">
@@ -197,6 +206,9 @@
     <ClInclude Include="inc\ROutput.h">
       <Filter>Includes\Output\Headers</Filter>
     </ClInclude>
+    <ClInclude Include="r_pods.h">
+      <Filter>Pod Manager\Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\rippl.cpp">
@@ -237,6 +249,9 @@
     </ClCompile>
     <ClCompile Include="r_output.cpp">
       <Filter>Output / Debug\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="r_pods.cpp">
+      <Filter>Pod Manager\Sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
