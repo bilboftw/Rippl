@@ -15,6 +15,7 @@
 #include "ri_window.h"
 #include "ri_sdl.h"
 #include "r_themes.h"
+#include "r_output.h"
 
 // Prototype Definitions
 void LoadStringLib();
@@ -39,6 +40,9 @@ void InitResources(HINSTANCE hinstInst)
 {
 	// Store handle to current thread
 	hwndMainThread = GetCurrentThread();
+
+	// Setup Default Output
+	ROutput::Init();
 
 	// Load Strings
 	LoadStringLib();
@@ -88,6 +92,9 @@ void ReleaseResources()
 
 	// Unload Config
 	RTheme::Unload();			// - Themes
+
+	// Unload Output
+	ROutput::Uninstall();
 }
 
 /**

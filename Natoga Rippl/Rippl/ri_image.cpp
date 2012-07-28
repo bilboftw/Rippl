@@ -16,7 +16,6 @@ RIImage::RIImage(const char* szPathTo)
 	if(ImageSurface == NULL)
 	{
 		LOGW("Could not load PNG File: %s", IMG_GetError());
-		assert(false);
 		return;
 	}
 

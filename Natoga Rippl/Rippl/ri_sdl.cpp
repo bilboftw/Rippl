@@ -19,11 +19,8 @@ void RSDL::Init()
 
 	// Init Images
 	if(IMG_Init(IMG_INIT_PNG) == 0)
-	{
 		// Error and break
 		LOGE("Could not init images: %s", IMG_GetError());
-		assert(false);
-	}
 }
 
 void RSDL::Shutdown()

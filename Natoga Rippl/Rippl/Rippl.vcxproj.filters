@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{2381346b-f3ed-4181-84a4-afbde4786629}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Main\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Includes">
+      <UniqueIdentifier>{23bac72b-f916-450c-bf50-63bf1c1b2301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Interfaces">
+      <UniqueIdentifier>{9c986c5e-4401-4cbf-a07b-9c4ebd630569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Utils">
+      <UniqueIdentifier>{a1d2056a-381f-45f1-8781-dcc629e19793}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Utils\Headers">
+      <UniqueIdentifier>{b8c2d976-bf34-437d-8668-bfaa76528ec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Utils\Source">
+      <UniqueIdentifier>{6352f4ec-300b-46b2-a172-0db821740bf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash Screen">
+      <UniqueIdentifier>{4716e2f2-78ab-490b-9f2e-ea87175b491e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash Screen\PNG">
+      <UniqueIdentifier>{4898ed67-eefb-4dfa-9b8e-161ecea9bfcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash Screen\PNG\Headers">
+      <UniqueIdentifier>{4fd69c6c-05db-4c02-8851-ae0209847304}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash Screen\PNG\Source">
+      <UniqueIdentifier>{a5696829-a932-4a0b-9948-367947833c6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash Screen\Splash">
+      <UniqueIdentifier>{ca2fd577-c24a-4ded-bf28-488029addcb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash Screen\Splash\Headers">
+      <UniqueIdentifier>{2ca35af6-d697-4c72-9aa8-99ed87c1e006}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Splash Screen\Splash\Source">
+      <UniqueIdentifier>{9a72dade-0f2e-4f86-acfa-9407b304959d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{39bf39b7-f62f-4394-8063-04cd61261636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\Headers">
+      <UniqueIdentifier>{c50a37ff-bdd0-449c-91ef-c8dfb396aebc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tween Engine">
+      <UniqueIdentifier>{581fe39e-c525-49bd-8017-afec7e1d12a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tween Engine\Headers">
+      <UniqueIdentifier>{01dfdcb0-48f8-48d8-b7a5-d038cf2400b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tween Engine\Source">
+      <UniqueIdentifier>{d0067127-9d80-4dd2-ab0b-fc123d0e63af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{f596c268-fb36-4d93-ae07-435fa1626456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Window">
+      <UniqueIdentifier>{1f9e2047-2ae2-438b-b0a8-763e5ee6b1d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Window\Headers">
+      <UniqueIdentifier>{5b0ed19b-9790-4d54-a15b-e8350fe19c07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Window\Source">
+      <UniqueIdentifier>{3f00e0b7-1c60-43a7-bb65-bc68de295153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\SDL">
+      <UniqueIdentifier>{5f9bba05-b668-40e2-a7c1-f15def5e6fe8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\SDL\Headers">
+      <UniqueIdentifier>{53e1c8b5-f02b-4d2f-8ada-f2b8bb24b2d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\SDL\Source">
+      <UniqueIdentifier>{796b5a92-492d-403d-b4ad-41ba2f6fa23f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls">
+      <UniqueIdentifier>{23c58bc1-0473-418b-9fd7-9ee4b82890f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls\Base">
+      <UniqueIdentifier>{49219bee-04a5-4885-a4d2-ed15c3047e83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls\Base\Headers">
+      <UniqueIdentifier>{863eb179-e684-4cdb-9c53-b986e0fd18bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls\Base\Source">
+      <UniqueIdentifier>{acb34314-2645-4b08-873a-171247a99536}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls\Controls">
+      <UniqueIdentifier>{a4d7da6d-1afe-4efa-9ad5-411afe2f6f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls\Controls\Window">
+      <UniqueIdentifier>{e8a7808c-341b-433b-b48a-ff3df34c32d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls\Controls\Window\Headers">
+      <UniqueIdentifier>{e55feac9-762a-4a72-9039-31c35b4dfc8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Controls\Controls\Window\Source">
+      <UniqueIdentifier>{2cd90fb7-0e7a-4b7e-9307-41a9e490d876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{8b64b710-d665-4203-be9c-3f963386f010}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Themes">
+      <UniqueIdentifier>{b88a571b-ad20-4f4e-a618-015be922fd00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Themes\Headers">
+      <UniqueIdentifier>{aa28ab0d-a20c-411b-84c3-bea327c0f968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Themes\Sources">
+      <UniqueIdentifier>{1aaffe0a-08f4-42ba-ba29-03c4d46d4896}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Base">
+      <UniqueIdentifier>{2f19dae8-0be3-4349-853b-479c0386a818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Base\Source">
+      <UniqueIdentifier>{54a45a72-cd28-440b-8d80-67ac8d9c0151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config\Base\Headers">
+      <UniqueIdentifier>{f9e765af-3673-4fa0-9141-7952d47ed31a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Output / Debug">
+      <UniqueIdentifier>{225f3d5d-9786-4742-8614-e405c542d0db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Output / Debug\Headers">
+      <UniqueIdentifier>{555fde71-e205-4eff-b95a-cde0a72cbbc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Output / Debug\Source">
+      <UniqueIdentifier>{abe48ccf-9feb-495c-8df2-0b3c80e4c8f9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\resource.h">
+      <Filter>Main\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\rippl.hpp">
+      <Filter>Main\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include=".\inc\iSplashScreen.h">
+      <Filter>Includes\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include=".\inc\iStringMgr.h">
+      <Filter>Includes\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include=".\inc\iTweenEngine.h">
+      <Filter>Includes\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include=".\inc\Macros.h">
+      <Filter>Includes\Utils\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\png_wrapper.h">
+      <Filter>Splash Screen\PNG\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\splash.h">
+      <Filter>Splash Screen\Splash\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\r_str.h">
+      <Filter>Strings\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\tween_engine.h">
+      <Filter>Tween Engine\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\ri_window.h">
+      <Filter>Interface\Window\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\ri_image.h">
+      <Filter>Interface\SDL\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\ri_sdl.h">
+      <Filter>Interface\SDL\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\ri_container.h">
+      <Filter>Interface\Controls\Base\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\ric_window.h">
+      <Filter>Interface\Controls\Controls\Window\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\r_themes.h">
+      <Filter>Config\Themes\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\r_config.h">
+      <Filter>Config\Base\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="r_output.h">
+      <Filter>Output / Debug\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include=".\rippl.cpp">
+      <Filter>Main\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\winmain.cpp">
+      <Filter>Main\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include=".\png_wrapper.cpp">
+      <Filter>Splash Screen\PNG\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\splash.cpp">
+      <Filter>Splash Screen\Splash\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\tween_engine.cpp">
+      <Filter>Tween Engine\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\ri_window.cpp">
+      <Filter>Interface\Window\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\ri_image.cpp">
+      <Filter>Interface\SDL\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\ri_sdl.cpp">
+      <Filter>Interface\SDL\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\ri_container.cpp">
+      <Filter>Interface\Controls\Base\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\ric_window.cpp">
+      <Filter>Interface\Controls\Controls\Window\Source</Filter>
+    </ClCompile>
+    <ClCompile Include=".\r_themes.cpp">
+      <Filter>Config\Themes\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include=".\r_config.cpp">
+      <Filter>Config\Base\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="r_output.cpp">
+      <Filter>Output / Debug\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\Art\Splash\Cut\r_ntga_logo.png" />
+    <Image Include="..\..\Art\Splash\Cut\r_splash_con_bar.png" />
+    <Image Include="..\..\Art\Splash\Cut\r_splash_main_logo.png" />
+    <Image Include="..\..\Art\Icon\Rippl.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include=".\Rippl.rc" />
+  </ItemGroup>
+</Project>

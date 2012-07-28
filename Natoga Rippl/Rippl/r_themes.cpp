@@ -26,7 +26,6 @@ void RTheme::Init()
 
 void RTheme::Unload()
 {
-
 }
 
 void RTheme::LoadTheme(const char* szName)

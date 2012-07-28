@@ -5,19 +5,13 @@
 #define macros_h__
 
 // Includes
-#include "OPrintF.h"
-
-#ifdef _DEBUG
-#include "assert.h"
-#elif !defined(assert)
-#define assert(cond)
-#endif
+#include "r_output.h"
 
 // Define Tracing Macros
-#define LOGV(fmt, ...) oprintf("[VRB] " fmt "\n", __VA_ARGS__)
-#define LOGD(fmt, ...) oprintf("[DBG] " fmt "\n", __VA_ARGS__)
-#define LOGI(fmt, ...) oprintf("[INF] " fmt "\n", __VA_ARGS__)
-#define LOGW(fmt, ...) {oprintf("[WRN]> " fmt "\n", __VA_ARGS__); assert(false);}
-#define LOGE(fmt, ...) {oprintf("[ERR]! " fmt "\n", __VA_ARGS__); assert(false);}
+#define LOGV(fmt, ...) ROutput::Handler->PrintDbgMsg(fmt "\n", __VA_ARGS__)
+#define LOGD(fmt, ...) ROutput::Handler->PrintDbgMsg("> " fmt "\n", __VA_ARGS__)
+#define LOGI(fmt, ...) ROutput::Handler->PrintMsg(fmt "\n", __VA_ARGS__)
+#define LOGW(fmt, ...) ROutput::Handler->PrintMsg("! " fmt "\n", __VA_ARGS__)
+#define LOGE(fmt, ...) {ROutput::Handler->PrintMsg("!! " fmt "\n", __VA_ARGS__); ROutput::Handler->DisplayError(fmt, false, false, __VA_ARGS__);}
 
 #endif // macros_h__

@@ -40,7 +40,6 @@ IStream* PNG::GetIStream()
 	{
 		// Warn, break, and return
 		LOGE("Could not find resource %u: %u", _iRes, GetLastError());
-		assert(false);
 		return NULL;
 	}
 
@@ -51,7 +50,6 @@ IStream* PNG::GetIStream()
 	{
 		// Warn, break, and return
 		LOGE("Could not load resource %u: %u", _iRes, GetLastError());
-		assert(false);
 		return NULL;
 	}
 
@@ -61,7 +59,6 @@ IStream* PNG::GetIStream()
 	{
 		// Warn break and return
 		LOGE("Could not lock resource %u for image load: %u", _iRes, GetLastError());
-		assert(false);
 		return NULL;
 	}
 
@@ -71,7 +68,6 @@ IStream* PNG::GetIStream()
 	{
 		// Warn break return
 		LOGE("Could not allocate global data for resource %u: %u", _iRes, GetLastError());
-		assert(false);
 		return NULL;
 	}
 
@@ -81,7 +77,6 @@ IStream* PNG::GetIStream()
 	{
 		// Warn break return
 		LOGE("Could not lock allocated memory for resource %u: %u", _iRes, GetLastError());
-		assert(false);
 		return NULL;
 	}
 
@@ -94,7 +89,6 @@ IStream* PNG::GetIStream()
 	{
 		// Warn break and return
 		LOGE("Could not create IStream handle for resource %u: %u", _iRes, GetLastError());
-		assert(false);
 		return NULL;
 	}
 

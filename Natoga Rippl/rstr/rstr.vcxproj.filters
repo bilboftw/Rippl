@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Main">
+      <UniqueIdentifier>{a6620c48-6257-41b4-95d2-48e16154a86a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Headers">
+      <UniqueIdentifier>{76225c84-4b12-405d-a6b5-7f86edb07b64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main\Sources">
+      <UniqueIdentifier>{8611c06e-ed32-40ce-855a-7a41964d4828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes">
+      <UniqueIdentifier>{db78c072-ff4f-476f-87b2-0aaaa1660f79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Headers">
+      <UniqueIdentifier>{47ad3389-e957-4dac-a1f1-6f45c819b760}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\strmgr.h">
+      <Filter>Main\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\include\r_string_id.h">
+      <Filter>Includes\Headers</Filter>
+    </ClInclude>
+    <ClInclude Include=".\include\r_string_mgr.h">
+      <Filter>Includes\Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include=".\DLLMain.cpp">
+      <Filter>Main\Sources</Filter>
+    </ClCompile>
+    <ClCompile Include=".\strmgr.cpp">
+      <Filter>Main\Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include=".\rstr.rc" />
+  </ItemGroup>
+</Project>

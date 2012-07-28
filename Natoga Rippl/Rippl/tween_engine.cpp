@@ -41,7 +41,6 @@ TweenEngine::TweenEngine()
 	{
 		// Error and assert
 		LOGE("Could not start tween engine thread: %u", GetLastError());
-		assert(false);
 		return;
 	}else
 		LOGI("Tween engine started");

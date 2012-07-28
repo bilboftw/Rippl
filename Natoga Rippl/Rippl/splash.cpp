@@ -428,11 +428,8 @@ Splash::Splash()
 
 	// Load Fonts
 	if(AddFontResourceExW(SGETSTRING(R_SPLASH_TITLE_FONT_FILENAME), FR_PRIVATE, 0) == 0)
-	{
 		// Log and break
-		LOGW("Could not load rezland font!");
-		assert(false);
-	}
+		LOGW("Could not load splash title font!");
 
 	// Load PNGs
 	_pngMainLogo = new PNG(R_PNG_SPLASH_MAIN_LOGO);
@@ -502,7 +499,6 @@ Splash::Splash()
 	{
 		// Warn and break
 		LOGE("Could not register splash window class: %u", GetLastError());
-		assert(false);
 		return;
 	}
 
@@ -548,7 +544,6 @@ Splash::Splash()
 	{
 		// Error, break and return
 		LOGE("Could not create splash screen window: %u", GetLastError());
-		assert(false);
 		return;
 	}else
 	{
