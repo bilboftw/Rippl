@@ -8,6 +8,7 @@
 // Includes
 #include <Windows.h>
 
+#include "ROutput.h"
 #include "iStringMgr.h"
 
 #include "strmgr.h"
@@ -16,8 +17,11 @@
 bool bLoaded = false;
 
 // External Header
-extern "C" __declspec(dllexport) iStringMgr* __stdcall MGS()
+extern "C" __declspec(dllexport) iStringMgr* __stdcall MGS(ROutputHandler** rohOutputHandler)
 {
+	// Store output handler
+	rohHandler = rohOutputHandler;
+
 	// Return!
 	return StringMgr::Get();
 }

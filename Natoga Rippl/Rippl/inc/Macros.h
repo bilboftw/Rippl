@@ -5,7 +5,7 @@
 #define macros_h__
 
 // Includes
-#include "r_output.h"
+#include "ROutput.h"
 
 // Define Tracing Macros
 #define LOGV(fmt, ...) ROutput::Handler->PrintDbgMsg(fmt "\n", __VA_ARGS__)

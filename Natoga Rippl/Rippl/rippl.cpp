@@ -15,7 +15,7 @@
 #include "ri_window.h"
 #include "ri_sdl.h"
 #include "r_themes.h"
-#include "r_output.h"
+#include "ROutput.h"
 
 // Prototype Definitions
 void LoadStringLib();
@@ -112,5 +112,5 @@ void TerminateRippl(int iExitCode)
 void LoadStringLib()
 {
 	// Initialize Strings
-	lpRStrMgr = MGS();
+	lpRStrMgr = MGS(&ROutput::Handler);
 }

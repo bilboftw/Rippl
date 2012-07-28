@@ -6,11 +6,10 @@
 #include <windows.h>
 #include <iostream>
 
-#include "Macros.h"
-
 #include "strmgr.h"
 
 // Static Member Definitions
+ROutputHandler** rohHandler = NULL;
 HINSTANCE StringMgr::_hinstMainApp = NULL;
 StringMgr* StringMgr::_oMgr = NULL;
 bool StringMgr::_bCreated = false;
@@ -43,7 +42,6 @@ const wchar_t* StringMgr::GetString(UINT dwStringID, ...)
 	{
 		// Log, break and return
 		LOGE("Resource ID %u could not be loaded: %u", dwStringID, GetLastError());
-		assert(false);
 		return NULL;
 	}
 
@@ -67,7 +65,6 @@ const wchar_t* StringMgr::GetString(UINT dwStringID, ...)
 	{
 		// Log, break and return original message
 		LOGW("Could not format string %u: %u", dwStringID, GetLastError());
-		assert(FALSE);
 	}
 	
 	// Destroy VA List

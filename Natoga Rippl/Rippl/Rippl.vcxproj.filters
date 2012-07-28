@@ -24,9 +24,6 @@
     <Filter Include="Includes\Utils\Headers">
       <UniqueIdentifier>{b8c2d976-bf34-437d-8668-bfaa76528ec6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Includes\Utils\Source">
-      <UniqueIdentifier>{6352f4ec-300b-46b2-a172-0db821740bf1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Splash Screen">
       <UniqueIdentifier>{4716e2f2-78ab-490b-9f2e-ea87175b491e}</UniqueIdentifier>
     </Filter>
@@ -138,6 +135,12 @@
     <Filter Include="Output / Debug\Source">
       <UniqueIdentifier>{abe48ccf-9feb-495c-8df2-0b3c80e4c8f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Includes\Output">
+      <UniqueIdentifier>{df0353e2-5acf-4b12-9bac-8b7a7c70efb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Includes\Output\Headers">
+      <UniqueIdentifier>{0e6b5740-d255-4063-91ad-32c4b82b1542}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\resource.h">
@@ -191,8 +194,8 @@
     <ClInclude Include=".\r_config.h">
       <Filter>Config\Base\Headers</Filter>
     </ClInclude>
-    <ClInclude Include="r_output.h">
-      <Filter>Output / Debug\Headers</Filter>
+    <ClInclude Include="inc\ROutput.h">
+      <Filter>Includes\Output\Headers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
