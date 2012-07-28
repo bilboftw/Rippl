@@ -1,5 +1,8 @@
 /************************************************************************/
 /* Rippl Output/Debugging Output Functionality                          */
+/*                                                                      */
+/*  The Pod Lib version of this interface needs to be updated whenever  */
+/*  updates are made to the interface (only the interface)!!            */
 /************************************************************************/
 #ifndef r_output_h__
 #define r_output_h__
@@ -27,19 +30,26 @@ public:
 	
 	virtual void					PrintMsg(const char* szMsg, ...) = 0;
 	virtual void					PrintDbgMsg(const char* szMsg, ...) = 0;
+};
 
+// Host handler interface
+//	Adds window association methods that aren't used
+//	by parts of the program such as pods.
+interface RHostOutputHandler : public ROutputHandler
+{
+public:
 	virtual void					SetAssociatedWindow(HWND hwndHandle = NULL) = 0;
 	virtual HWND					GetAssociatedWindow() = 0;
 };
 
-class ROutput : public ROutputHandler
+class ROutput : public RHostOutputHandler
 {
 public:
 	ROutput();
 	~ROutput();
 
 	static void						Init();
-	static void						SetOutputHandler(ROutputHandler* oNewHandler);
+	static void						SetOutputHandler(RHostOutputHandler* oNewHandler);
 	static void						Uninstall();
 
 	R_OP_MSG_ID						DisplayMessage(const wchar_t* szMsg, bool bYesNo = false, bool bCancellable = false, ...);
